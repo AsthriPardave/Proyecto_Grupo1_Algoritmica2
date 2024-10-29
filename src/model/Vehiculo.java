@@ -15,6 +15,14 @@ public abstract class Vehiculo {
     private float precioPorDia;
     private boolean disponible;
 
+    public Vehiculo(String matricula, String marca, String modelo, float precioPorDia, boolean disponible) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.precioPorDia = precioPorDia;
+        this.disponible = disponible;
+    }
+
     public String getMatricula() {
         return matricula;
     }
