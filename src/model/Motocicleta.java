@@ -7,6 +7,7 @@ package model;
 public class Motocicleta extends Vehiculo {
     private int cilindraje;
 
+    // Constructor para inicializar los atributos específicos de Motocicleta
     public Motocicleta(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int cilindraje) {
         super(matricula, marca, modelo, precioPorDia, disponible);
         this.cilindraje = cilindraje;
@@ -20,6 +21,7 @@ public class Motocicleta extends Vehiculo {
         this.cilindraje = cilindraje;
     }
 }
+
 
 /*VERSION ORIGINAL:
 

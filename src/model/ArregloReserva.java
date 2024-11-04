@@ -4,44 +4,62 @@
  */
 package model;
 
-import java.util.ArrayList;
-
 public class ArregloReserva {
-    private ArrayList<Reserva> reservas;
+    private Reserva[] reservas;
+    private int cantidad;
 
+    // Constructor con capacidad inicial de 10 reservas
     public ArregloReserva() {
-        this.reservas = new ArrayList<>();
+        this.reservas = new Reserva[10];
+        this.cantidad = 0;
     }
 
+    // Devuelve la cantidad actual de reservas
     public int getCantidadReservas() {
-        return reservas.size();
+        return cantidad;
     }
 
-    // Método para agregar una reserva al arreglo
+    // Agrega una reserva al arreglo, expandiendo la capacidad si es necesario
     public boolean agregarReserva(Reserva reserva) {
-        return reservas.add(reserva);
-    }
-
-    // Método para buscar una reserva por su índice
-    public Reserva buscarReservaPorIndice(int indice) {
-        if (indice >= 0 && indice < reservas.size()) {
-            return reservas.get(indice);
+        if (cantidad == reservas.length) {
+            expandirCapacidad();
         }
-        return null;  // Retorna null si el índice es inválido
+        reservas[cantidad++] = reserva;
+        return true;
     }
 
-    // Método para eliminar una reserva por su índice
+    // Busca una reserva por su índice
+    public Reserva buscarReservaPorIndice(int indice) {
+        if (indice >= 0 && indice < cantidad) {
+            return reservas[indice];
+        }
+        return null;
+    }
+
+    // Elimina una reserva por su índice
     public boolean eliminarReserva(int indice) {
-        if (indice >= 0 && indice < reservas.size()) {
-            reservas.remove(indice);
+        if (indice >= 0 && indice < cantidad) {
+            for (int i = indice; i < cantidad - 1; i++) {
+                reservas[i] = reservas[i + 1];
+            }
+            reservas[--cantidad] = null;
             return true;
         }
-        return false;  // Retorna false si el índice es inválido
+        return false;
     }
 
-    // Método para obtener todas las reservas (útil para listar)
-    public ArrayList<Reserva> getReservas() {
-        return reservas;
+    // Expande la capacidad del arreglo al doble cuando se llena
+    private void expandirCapacidad() {
+        Reserva[] nuevoArreglo = new Reserva[reservas.length * 2];
+        System.arraycopy(reservas, 0, nuevoArreglo, 0, reservas.length);
+        reservas = nuevoArreglo;
+    }
+
+    // Retorna todas las reservas hasta la cantidad actual
+    public Reserva[] getReservas() {
+        Reserva[] copiaReservas = new Reserva[cantidad];
+        System.arraycopy(reservas, 0, copiaReservas, 0, cantidad);
+        return copiaReservas;
     }
 }
 

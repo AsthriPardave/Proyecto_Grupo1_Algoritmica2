@@ -11,68 +11,55 @@ public class Reserva {
     private Date fechaFin;
     private int diasReservados;
     private float montoTotal;
-    private Vehiculo vehiculo;  // Referencia al vehículo reservado
+    private Vehiculo vehiculo;
+    private Cliente cliente;  // Nuevo atributo cliente
     private boolean confirmada;
 
-    public Reserva(Date fechaInicio, Date fechaFin, int diasReservados, Vehiculo vehiculo) {
+    // Constructor para inicializar los atributos de Reserva
+    public Reserva(Date fechaInicio, Date fechaFin, int diasReservados, Vehiculo vehiculo, Cliente cliente) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.diasReservados = diasReservados;
         this.vehiculo = vehiculo;
+        this.cliente = cliente;  // Asignación del cliente
         this.montoTotal = calcularTotal();
-        this.confirmada = false;  // La reserva no está confirmada hasta que se realice el pago
+        this.confirmada = false;
     }
 
     public float getMontoTotal() {
         return montoTotal;
     }
 
-    public void setMontoTotal(float montoTotal) {
-        this.montoTotal = montoTotal;
-    }
-
     public Date getFechaInicio() {
         return fechaInicio;
-    }
-
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
     }
 
     public Date getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
     public int getDiasReservados() {
         return diasReservados;
-    }
-
-    public void setDiasReservados(int diasReservados) {
-        this.diasReservados = diasReservados;
     }
 
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
+    public Cliente getCliente() {  // Nuevo método getter para cliente
+        return cliente;
     }
 
     public boolean isConfirmada() {
         return confirmada;
     }
 
-    // Método para calcular el total de la reserva basado en el vehículo y los días
+    // Calcula el monto total de la reserva en función de los días
     public float calcularTotal() {
         return vehiculo.calcularCostoReserva(diasReservados);
     }
 
-    // Método para confirmar la reserva
+    // Confirma la reserva después del pago
     public void confirmarReserva() {
         this.confirmada = true;
     }

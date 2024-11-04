@@ -4,13 +4,14 @@
  */
 package model;
 
-public abstract class Vehiculo {
+public class Vehiculo {
     private String matricula;
     private String marca;
     private String modelo;
     private float precioPorDia;
     private boolean disponible;
 
+    // Constructor que inicializa todos los atributos
     public Vehiculo(String matricula, String marca, String modelo, float precioPorDia, boolean disponible) {
         this.matricula = matricula;
         this.marca = marca;
@@ -19,6 +20,7 @@ public abstract class Vehiculo {
         this.disponible = disponible;
     }
 
+    // Getters y Setters para cada atributo
     public String getMatricula() {
         return matricula;
     }
@@ -68,7 +70,14 @@ public abstract class Vehiculo {
     public boolean verificarDisponibilidad() {
         return disponible;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + 
+               ", precioPorDia=" + precioPorDia + ", disponible=" + disponible + "]";
+    }
 }
+
 
 /*VERSION ORIGINAL:
 

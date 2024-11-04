@@ -11,6 +11,7 @@ public class Trabajadores extends Persona {
     private Date fechaNacimiento;
     private String direccion;
 
+    // Constructor para inicializar los atributos de Trabajadores
     public Trabajadores(String nombre, String apellidos, String email, String claveAcceso, Date fechaNacimiento, String dni, String direccion) {
         super(nombre, apellidos, email, claveAcceso);
         this.fechaNacimiento = fechaNacimiento;
@@ -42,7 +43,7 @@ public class Trabajadores extends Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    // Método para actualizar la información del trabajador
+    // Actualiza la información del perfil del trabajador
     public void actualizarPerfil(String nuevaDireccion, Date nuevaFechaNacimiento) {
         this.direccion = nuevaDireccion;
         this.fechaNacimiento = nuevaFechaNacimiento;

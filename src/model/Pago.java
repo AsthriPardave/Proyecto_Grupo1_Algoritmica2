@@ -12,6 +12,7 @@ public class Pago {
     private String metodoPago;
     private boolean realizado;
 
+    // Constructor para inicializar los atributos de Pago
     public Pago(float monto, Date fechaPago, String metodoPago) {
         this.monto = monto;
         this.fechaPago = fechaPago;
@@ -47,10 +48,8 @@ public class Pago {
         return realizado;
     }
 
-    // Método para procesar el pago
+    // Procesa el pago y actualiza el estado a realizado
     public boolean procesarPago() {
-        // Aquí podríamos agregar la lógica para procesar el pago con un sistema externo
-        // Por ahora asumimos que el pago siempre es exitoso
         this.realizado = true;
         return this.realizado;
     }
