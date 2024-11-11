@@ -28,16 +28,3 @@ public class Administrador extends Persona {
         System.out.println("Vehículo eliminado por el administrador.");
     }
 }
-
-/* VERSION ORIGINAL:
-
-package model;
-
-public class Administrador extends Persona {
-    
-    public Administrador(String nombre, String apellidos, String email, String claveAcceso) {
-        super(nombre, apellidos, email, claveAcceso);
-    }
-    
-} 
-*/
