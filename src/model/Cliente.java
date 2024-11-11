@@ -5,7 +5,7 @@
 package model;
 
 public class Cliente extends Persona {
-    private String dni;
+   
 
     public Cliente(String nombre, String apellidos, String email, String claveAcceso, String dni) {
         super(nombre, apellidos, email, claveAcceso);
