@@ -8,7 +8,6 @@ public class Camion extends Vehiculo {
     private float capacidadCarga;
     private boolean dobleCabina;
 
-    // Constructor para inicializar los atributos específicos de Camion
     public Camion(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, float capacidadCarga, boolean dobleCabina) {
         super(matricula, marca, modelo, precioPorDia, disponible);
         this.capacidadCarga = capacidadCarga;

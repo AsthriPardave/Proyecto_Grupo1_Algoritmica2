@@ -8,7 +8,6 @@ public class Auto extends Vehiculo {
     private int numeroAsientos;
     private float capacidadMaletero;
 
-    // Constructor para inicializar los atributos específicos de Auto
     public Auto(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int numeroAsientos, float capacidadMaletero) {
         super(matricula, marca, modelo, precioPorDia, disponible);
         this.numeroAsientos = numeroAsientos;
@@ -31,7 +30,6 @@ public class Auto extends Vehiculo {
         this.numeroAsientos = numeroAsientos;
     }
 }
-
 
  /*VERSION ORIGINAL:
 
