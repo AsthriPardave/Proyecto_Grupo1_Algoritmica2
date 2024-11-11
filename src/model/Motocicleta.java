@@ -22,25 +22,3 @@ public class Motocicleta extends Vehiculo {
     }
 }
 
-
-/*VERSION ORIGINAL:
-
-package model;
-
-public class Motocicleta extends Vehiculo{
-    private int cilindraje;
-
-    public Motocicleta(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int cilindraje) {
-        super(matricula, marca, modelo, precioPorDia, disponible);
-    }
-
-    public int getCilindraje() {
-        return cilindraje;
-    }
-
-    public void setCilindraje(int cilindraje) {
-        this.cilindraje = cilindraje;
-    }
-    
-}
-*/

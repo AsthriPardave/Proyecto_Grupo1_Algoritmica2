@@ -62,25 +62,3 @@ public class ArregloReserva {
         return copiaReservas;
     }
 }
-
-/*VERSION ORIGINAL:
-
-package model;
-
-public class ArregloReserva {
-    private int indice;
-
-    public ArregloReserva(int indice) {
-        this.indice = indice;
-    }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
-    }
-    
-}
-*/

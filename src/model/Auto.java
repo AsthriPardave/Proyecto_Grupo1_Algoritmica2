@@ -31,35 +31,3 @@ public class Auto extends Vehiculo {
         this.numeroAsientos = numeroAsientos;
     }
 }
-
-
- /*VERSION ORIGINAL:
-
-package model;
-
-public class Auto extends Vehiculo{
-    private int numeroAsientos;
-    private float capacidadMaletero;
-
-    public Auto(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int numeroAsientos, float capacidadMaletero) {
-        super(matricula, marca, modelo, precioPorDia, disponible);
-    }
-
-    public float getCapacidadMaletero() {
-        return capacidadMaletero;
-    }
-
-    public void setCapacidadMaletero(float capacidadMaletero) {
-        this.capacidadMaletero = capacidadMaletero;
-    }
-
-    public int getNumeroAsientos() {
-        return numeroAsientos;
-    }
-
-    public void setNumeroAsientos(int numeroAsientos) {
-        this.numeroAsientos = numeroAsientos;
-    }
-    
-}
-*/

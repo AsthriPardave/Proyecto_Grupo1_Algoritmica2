@@ -54,16 +54,3 @@ public class Pago {
         return this.realizado;
     }
 }
-
-/* VERSION ORIGINAL:
-
-package model;
-
-import java.util.Date;
-
-public class Pago {
-    float monto;
-    Date fechaPago;
-    String MetodoPago;
-}
-*/

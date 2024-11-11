@@ -32,33 +32,3 @@ public class Camion extends Vehiculo {
     }
 }
 
- /*VERSION ORIGINAL:
-
-package model;
-
-public class Camion extends Vehiculo {
-    private float capacidadCarga;
-    private boolean dobleCabina;
-
-    public Camion(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, float capacidadCarga, boolean dobleCabina) {
-        super(matricula, marca, modelo, precioPorDia, disponible);
-    }
-
-    public boolean isDobleCabina() {
-        return dobleCabina;
-    }
-
-    public void setDobleCabina(boolean dobleCabina) {
-        this.dobleCabina = dobleCabina;
-    }
-
-    public float getCapacidadCarga() {
-        return capacidadCarga;
-    }
-
-    public void setCapacidadCarga(float capacidadCarga) {
-        this.capacidadCarga = capacidadCarga;
-    }
-    
-}
-*/

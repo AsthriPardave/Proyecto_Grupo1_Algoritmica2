@@ -23,23 +23,3 @@ public class Cliente extends Persona {
 
 }
 
-/*VERSION ORIGINAL:
-
-package model;
-
-public class Cliente extends Persona {
-    private String dni;
-
-    public Cliente(String nombre, String apellidos, String email, String claveAcceso, String dni) {
-        super(nombre, apellidos, email, claveAcceso);
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-}
-*/
