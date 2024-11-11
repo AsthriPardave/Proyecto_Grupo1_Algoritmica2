@@ -5,60 +5,46 @@
 package model;
 
 public class ArregloReserva {
-    private Reserva[] reservas;
-    private int cantidad;
+    private Reserva[] reservas; // Arreglo fijo de reservas
+    private int totalReservas; // Contador para el número de reservas actuales
 
-    // Constructor con capacidad inicial de 10 reservas
-    public ArregloReserva() {
-        this.reservas = new Reserva[10];
-        this.cantidad = 0;
+    public ArregloReserva(int capacidadMaxima) {
+        this.reservas = new Reserva[capacidadMaxima];
+        this.totalReservas = 0;
     }
 
-    // Devuelve la cantidad actual de reservas
-    public int getCantidadReservas() {
-        return cantidad;
-    }
-
-    // Agrega una reserva al arreglo, expandiendo la capacidad si es necesario
-    public boolean agregarReserva(Reserva reserva) {
-        if (cantidad == reservas.length) {
-            expandirCapacidad();
+    // Método para agregar una reserva
+    public void agregarReserva(Reserva reserva) {
+        if (totalReservas < reservas.length) {
+            reservas[totalReservas] = reserva;
+            totalReservas++;
+            System.out.println("Reserva agregada con éxito.");
+        } else {
+            System.out.println("No se pueden agregar más reservas, capacidad máxima alcanzada.");
         }
-        reservas[cantidad++] = reserva;
-        return true;
     }
 
-    // Busca una reserva por su índice
-    public Reserva buscarReservaPorIndice(int indice) {
-        if (indice >= 0 && indice < cantidad) {
+    // Método para obtener una reserva por índice
+    public Reserva obtenerReserva(int indice) {
+        if (indice >= 0 && indice < totalReservas) {
             return reservas[indice];
+        } else {
+            System.out.println("Índice fuera de rango.");
+            return null;
         }
-        return null;
     }
 
-    // Elimina una reserva por su índice
-    public boolean eliminarReserva(int indice) {
-        if (indice >= 0 && indice < cantidad) {
-            for (int i = indice; i < cantidad - 1; i++) {
-                reservas[i] = reservas[i + 1];
-            }
-            reservas[--cantidad] = null;
-            return true;
+    // Método para listar todas las reservas
+    public void listarReservas() {
+        for (int i = 0; i < totalReservas; i++) {
+            Reserva reserva = reservas[i];
+            System.out.println("Reserva del " + reserva.getFechaInicio() + " al " + reserva.getFechaFin() + 
+                               " - Total: " + reserva.getMontoTotal());
         }
-        return false;
     }
 
-    // Expande la capacidad del arreglo al doble cuando se llena
-    private void expandirCapacidad() {
-        Reserva[] nuevoArreglo = new Reserva[reservas.length * 2];
-        System.arraycopy(reservas, 0, nuevoArreglo, 0, reservas.length);
-        reservas = nuevoArreglo;
-    }
-
-    // Retorna todas las reservas hasta la cantidad actual
-    public Reserva[] getReservas() {
-        Reserva[] copiaReservas = new Reserva[cantidad];
-        System.arraycopy(reservas, 0, copiaReservas, 0, cantidad);
-        return copiaReservas;
+    // Método para obtener el total de reservas
+    public int getTotalReservas() {
+        return totalReservas;
     }
 }

@@ -10,7 +10,6 @@ public abstract class Persona {
     private String email;
     private String claveAcceso;
 
-    // Constructor para inicializar los atributos de Persona
     public Persona(String nombre, String apellidos, String email, String claveAcceso) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -18,12 +17,7 @@ public abstract class Persona {
         this.claveAcceso = claveAcceso;
     }
 
-    // Método para autenticar a la persona mediante clave de acceso
-    public boolean autenticar(String claveAcceso) {
-        return this.claveAcceso.equals(claveAcceso);
-    }
-
-    // Métodos getters y setters para cada atributo
+    // Getters y Setters
     public String getClaveAcceso() {
         return claveAcceso;
     }
@@ -55,5 +49,10 @@ public abstract class Persona {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    // Métodos abstractos para gestión de vehículos
+    public abstract void agregarVehiculo();
+    public abstract void modificarVehiculo();
+    public abstract void eliminarVehiculo();
 }
 

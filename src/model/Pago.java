@@ -10,16 +10,14 @@ public class Pago {
     private float monto;
     private Date fechaPago;
     private String metodoPago;
-    private boolean realizado;
 
-    // Constructor para inicializar los atributos de Pago
     public Pago(float monto, Date fechaPago, String metodoPago) {
         this.monto = monto;
         this.fechaPago = fechaPago;
         this.metodoPago = metodoPago;
-        this.realizado = false;  // El pago aún no se ha realizado
     }
 
+    // Getters y Setters
     public float getMonto() {
         return monto;
     }
@@ -44,13 +42,34 @@ public class Pago {
         this.metodoPago = metodoPago;
     }
 
-    public boolean isRealizado() {
-        return realizado;
-    }
-
-    // Procesa el pago y actualiza el estado a realizado
+    // Método para procesar el pago
     public boolean procesarPago() {
-        this.realizado = true;
-        return this.realizado;
+        // Implementación de lógica para procesar el pago
+        // Aquí podrías incluir la lógica para validar el método de pago o verificar fondos
+
+        System.out.println("Procesando el pago de " + monto + " usando " + metodoPago);
+        
+        // Supongamos que el pago se procesa correctamente en este ejemplo
+        boolean pagoExitoso = true;
+
+        if (pagoExitoso) {
+            System.out.println("Pago procesado con éxito el " + fechaPago);
+            return true;
+        } else {
+            System.out.println("Error al procesar el pago.");
+            return false;
+        }
     }
 }
+/* VERSION ORIGINAL:
+
+package model;
+
+import java.util.Date;
+
+public class Pago {
+    float monto;
+    Date fechaPago;
+    String MetodoPago;
+}
+*/
