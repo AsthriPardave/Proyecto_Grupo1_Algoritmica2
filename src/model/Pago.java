@@ -45,11 +45,9 @@ public class Pago {
     // Método para procesar el pago
     public boolean procesarPago() {
         // Implementación de lógica para procesar el pago
-        // Aquí podrías incluir la lógica para validar el método de pago o verificar fondos
-
         System.out.println("Procesando el pago de " + monto + " usando " + metodoPago);
         
-        // Supongamos que el pago se procesa correctamente en este ejemplo
+        // Simulación de un proceso de pago exitoso
         boolean pagoExitoso = true;
 
         if (pagoExitoso) {
@@ -60,7 +58,13 @@ public class Pago {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Pago [monto=" + monto + ", fechaPago=" + fechaPago + ", metodoPago=" + metodoPago + "]";
+    }
 }
+
 /* VERSION ORIGINAL:
 
 package model;

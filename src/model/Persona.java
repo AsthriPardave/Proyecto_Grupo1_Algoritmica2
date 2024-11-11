@@ -51,8 +51,9 @@ public abstract class Persona {
     }
 
     // Métodos abstractos para gestión de vehículos
-    public abstract void agregarVehiculo();
-    public abstract void modificarVehiculo();
-    public abstract void eliminarVehiculo();
+    public abstract void agregarVehiculo(Vehiculo vehiculo);
+    public abstract void modificarVehiculo(String matricula, String nuevaMarca, String nuevoModelo, float nuevoPrecioPorDia);
+    public abstract void eliminarVehiculo(String matricula);
+    public abstract void listarVehiculos();
 }
 

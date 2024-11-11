@@ -12,27 +12,41 @@ public class Cliente extends Persona {
         this.dni = dni;
     }
 
-    // Método específico de Cliente
+    // Getter y Setter para dni
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    // Método específico de Cliente para realizar reservas
     public void realizarReserva(Vehiculo vehiculo, int dias) {
-        System.out.println("Reserva realizada para el vehículo " + vehiculo.getMarca() + " por " + dias + " días.");
+        float costoTotal = vehiculo.getPrecioPorDia() * dias;
+        System.out.println("Reserva realizada para el vehículo " + vehiculo.getMarca() + " por " + dias + 
+                           " días. Costo total: " + costoTotal + " soles.");
+    }
+
+    // Métodos sobrescritos con acceso restringido
+    @Override
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        System.out.println("Operación no permitida: los clientes no pueden agregar vehículos.");
     }
 
     @Override
-    public void agregarVehiculo() {
-        // Los clientes no pueden agregar vehículos
-        System.out.println("Operación no permitida para clientes.");
+    public void modificarVehiculo(String matricula, String nuevaMarca, String nuevoModelo, float nuevoPrecioPorDia) {
+        System.out.println("Operación no permitida: los clientes no pueden modificar vehículos.");
     }
 
     @Override
-    public void modificarVehiculo() {
-        // Los clientes no pueden modificar vehículos
-        System.out.println("Operación no permitida para clientes.");
+    public void eliminarVehiculo(String matricula) {
+        System.out.println("Operación no permitida: los clientes no pueden eliminar vehículos.");
     }
 
     @Override
-    public void eliminarVehiculo() {
-        // Los clientes no pueden eliminar vehículos
-        System.out.println("Operación no permitida para clientes.");
+    public void listarVehiculos() {
+        System.out.println("Operación no permitida: los clientes no pueden listar vehículos.");
     }
 }
 

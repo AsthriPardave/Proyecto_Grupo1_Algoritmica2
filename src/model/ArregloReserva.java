@@ -14,17 +14,30 @@ public class ArregloReserva {
     }
 
     // Método para agregar una reserva
-    public void agregarReserva(Reserva reserva) {
+    public boolean agregar(Reserva reserva) {
         if (totalReservas < reservas.length) {
             reservas[totalReservas] = reserva;
             totalReservas++;
             System.out.println("Reserva agregada con éxito.");
+            return true;
         } else {
             System.out.println("No se pueden agregar más reservas, capacidad máxima alcanzada.");
+            return false;
         }
     }
 
-    // Método para obtener una reserva por índice
+    // Método para buscar una reserva por la matrícula del vehículo
+    public Reserva buscar(String matricula) {
+        for (int i = 0; i < totalReservas; i++) {
+            if (reservas[i] != null && reservas[i].getVehiculo().getMatricula().equals(matricula)) {
+                return reservas[i];
+            }
+        }
+        System.out.println("Reserva no encontrada para la matrícula: " + matricula);
+        return null;
+    }
+
+    // Método para obtener una reserva por índice (opcional)
     public Reserva obtenerReserva(int indice) {
         if (indice >= 0 && indice < totalReservas) {
             return reservas[indice];

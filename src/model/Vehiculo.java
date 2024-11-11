@@ -71,13 +71,13 @@ public class Vehiculo {
         return disponible;
     }
 
+    // Método para representar el vehículo en formato de cadena
     @Override
     public String toString() {
         return "Vehiculo [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + 
                ", precioPorDia=" + precioPorDia + ", disponible=" + disponible + "]";
     }
 }
-
 
 /*VERSION ORIGINAL:
 
