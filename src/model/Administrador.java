@@ -9,23 +9,23 @@ public class Administrador extends Persona {
     public Administrador(String nombre, String apellidos, String email, String claveAcceso) {
         super(nombre, apellidos, email, claveAcceso);
     }
-    
-    // Método para agregar un vehículo
-    public boolean agregarVehiculo(Vehiculo vehiculo) {
-        // La implementación detallada estará en el controlador
-        return true;
+
+    @Override
+    public void agregarVehiculo() {
+        // Lógica para agregar un vehículo
+        System.out.println("Vehículo agregado por el administrador.");
     }
-    
-    // Método para modificar un vehículo
-    public boolean modificarVehiculo(Vehiculo vehiculo) {
-        // La implementación detallada estará en el controlador
-        return true;
+
+    @Override
+    public void modificarVehiculo() {
+        // Lógica para modificar un vehículo
+        System.out.println("Vehículo modificado por el administrador.");
     }
-    
-    // Método para eliminar un vehículo por matrícula
-    public boolean eliminarVehiculo(String matricula) {
-        // La implementación detallada estará en el controlador
-        return true;
+
+    @Override
+    public void eliminarVehiculo() {
+        // Lógica para eliminar un vehículo
+        System.out.println("Vehículo eliminado por el administrador.");
     }
 }
 

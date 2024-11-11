@@ -17,7 +17,15 @@ public abstract class Persona {
         this.claveAcceso = claveAcceso;
     }
 
-    // Getters y Setters básicos
+    // Getters y Setters
+    public String getClaveAcceso() {
+        return claveAcceso;
+    }
+
+    public void setClaveAcceso(String claveAcceso) {
+        this.claveAcceso = claveAcceso;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -42,15 +50,11 @@ public abstract class Persona {
         this.email = email;
     }
 
-    public String getClaveAcceso() {
-        return claveAcceso;
-    }
-
-    public void setClaveAcceso(String claveAcceso) {
-        this.claveAcceso = claveAcceso;
-    }
+    // Métodos abstractos para gestión de vehículos
+    public abstract void agregarVehiculo();
+    public abstract void modificarVehiculo();
+    public abstract void eliminarVehiculo();
 }
-
 
 /*VERSION ORIGINAL:
 

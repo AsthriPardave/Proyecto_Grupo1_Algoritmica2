@@ -7,20 +7,33 @@ package model;
 public class Cliente extends Persona {
     private String dni;
 
-    // Constructor para inicializar los atributos de Cliente
     public Cliente(String nombre, String apellidos, String email, String claveAcceso, String dni) {
         super(nombre, apellidos, email, claveAcceso);
         this.dni = dni;
     }
 
-    public String getDni() {
-        return dni;
+    // Método específico de Cliente
+    public void realizarReserva(Vehiculo vehiculo, int dias) {
+        System.out.println("Reserva realizada para el vehículo " + vehiculo.getMarca() + " por " + dias + " días.");
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    @Override
+    public void agregarVehiculo() {
+        // Los clientes no pueden agregar vehículos
+        System.out.println("Operación no permitida para clientes.");
     }
 
+    @Override
+    public void modificarVehiculo() {
+        // Los clientes no pueden modificar vehículos
+        System.out.println("Operación no permitida para clientes.");
+    }
+
+    @Override
+    public void eliminarVehiculo() {
+        // Los clientes no pueden eliminar vehículos
+        System.out.println("Operación no permitida para clientes.");
+    }
 }
 
 /*VERSION ORIGINAL:
