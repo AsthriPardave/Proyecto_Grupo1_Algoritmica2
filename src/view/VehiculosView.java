@@ -73,6 +73,7 @@ public class VehiculosView extends javax.swing.JFrame {
         });
 
         jButton5.setBackground(new java.awt.Color(242, 66, 76));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
