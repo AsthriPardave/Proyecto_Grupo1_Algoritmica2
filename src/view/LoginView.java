@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author HP
@@ -16,6 +19,24 @@ public class LoginView extends javax.swing.JFrame {
     public LoginView() {
         initComponents();
     }
+
+    // Métodos para exponer los componentes
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtContraseña() {
+        return txtContraseña;
+    }
+
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
+
+    public JButton getBtnRegister() {
+        return btnRegister;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

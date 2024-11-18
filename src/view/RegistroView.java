@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author HP
@@ -15,6 +18,30 @@ public class RegistroView extends javax.swing.JFrame {
      */
     public RegistroView() {
         initComponents();
+    }
+
+    public JButton getBtnRegister() {
+        return btnRegister;
+    }
+
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
+
+    public JTextField getTxtNombres() {
+        return txtNombres;
+    }
+
+    public JTextField getTxtApellidos() {
+        return txtApellidos;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtContraseña() {
+        return txtContraseña;
     }
 
     /**
