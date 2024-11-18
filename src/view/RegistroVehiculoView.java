@@ -35,7 +35,7 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtMatricula = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtPrecioPorDia = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
@@ -63,13 +63,13 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
 
         jLabel6.setText("Precio por día: ");
 
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+        txtModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
+                txtModeloActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Dirección:");
+        jLabel7.setText("Modelo:");
 
         txtPrecioPorDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,14 +126,14 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
                                 .addComponent(txtPrecioPorDia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(73, 73, 73)
                                 .addComponent(jCheckBox2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9)
-                                    .addGap(31, 31, 31)
-                                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMatricula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel9)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(69, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -153,7 +153,7 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -186,9 +186,9 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMatriculaActionPerformed
 
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionActionPerformed
+    }//GEN-LAST:event_txtModeloActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
@@ -259,9 +259,9 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtPrecioPorDia;
     // End of variables declaration//GEN-END:variables
 }
