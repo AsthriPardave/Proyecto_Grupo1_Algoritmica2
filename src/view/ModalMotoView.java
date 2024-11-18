@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JSpinner;
+
 /**
  *
  * @author HP
@@ -15,6 +18,19 @@ public class ModalMotoView extends javax.swing.JFrame {
      */
     public ModalMotoView() {
         initComponents();
+    }
+
+    // Métodos getter para exponer los componentes necesarios
+    public JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public JSpinner getSpinnerCilindraje() {
+        return spinnerCilindraje;
     }
 
     /**

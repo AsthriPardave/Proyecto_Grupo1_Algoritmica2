@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author HP
@@ -15,6 +19,23 @@ public class ModalCamionView extends javax.swing.JFrame {
      */
     public ModalCamionView() {
         initComponents();
+    }
+
+    // Métodos getter para exponer los componentes necesarios
+    public JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public JTextField getTxtCapCarga() {
+        return txtCapCarga;
+    }
+
+    public JCheckBox getCheckboxDobleCabina() {
+        return checkboxDobleCabina;
     }
 
     /**

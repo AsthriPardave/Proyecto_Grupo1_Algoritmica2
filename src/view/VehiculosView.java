@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author HP
@@ -15,6 +19,23 @@ public class VehiculosView extends javax.swing.JFrame {
      */
     public VehiculosView() {
         initComponents();
+    }
+
+
+    public JButton getBtnAñadirVehiculo() {
+        return btnAñadirVehiculo;
+    }
+
+    public JButton getjButton2() {
+        return jButton2; // Botón de búsqueda
+    }
+
+    public JTextField getTxtBuscarVehiculo() {
+        return txtBuscarVehiculo;
+    }
+
+    public JTable getjTable1() {
+        return jTable1; // Tabla de vehículos
     }
 
     /**

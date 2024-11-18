@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JSpinner;
+
 /**
  *
  * @author HP
@@ -16,6 +19,24 @@ public class ModalAutoView extends javax.swing.JFrame {
     public ModalAutoView() {
         initComponents();
     }
+
+    // Métodos getter para exponer los componentes necesarios
+    public JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public JSpinner getSpinnerCapMaletero() {
+        return spinnerCapMaletero;
+    }
+
+    public JSpinner getSpinnerNumAsientos() {
+        return spinnerNumAsientos;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

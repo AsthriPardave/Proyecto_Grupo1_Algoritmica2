@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author HP
@@ -16,6 +20,35 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
     public RegistroVehiculoView() {
         initComponents();
     }
+
+    public JButton getBtnSiguiente() {
+        return btnSiguiente;
+    }
+
+    public JButton getBtnCancelarRegister() {
+        return btnCancelarRegister;
+    }
+
+    public JComboBox<String> getComboboxTipoVehiculo() {
+        return comboboxTipoVehiculo;
+    }
+
+    public JTextField getTxtMarca() {
+        return txtMarca;
+    }
+
+    public JTextField getTxtMatricula() {
+        return txtMatricula;
+    }
+
+    public JTextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public JTextField getTxtPrecioPorDia() {
+        return txtPrecioPorDia;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
