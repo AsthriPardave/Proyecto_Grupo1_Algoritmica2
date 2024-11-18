@@ -18,7 +18,7 @@ public class LoginController {
 
     public LoginController(LoginView fr) {
         this.frame = fr;
-        this.frame.btnRegistrar.addActionListener(new ActionListener() {
+        this.frame.btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RegistroView registro = new RegistroView();

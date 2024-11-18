@@ -32,10 +32,10 @@ public class LoginView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
+        btnLogin = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,19 +62,19 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabel5.setText("Contraseña");
 
-        jButton1.setBackground(new java.awt.Color(242, 66, 76));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar");
+        btnLogin.setBackground(new java.awt.Color(242, 66, 76));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Ingresar");
 
-        btnRegistrar.setForeground(new java.awt.Color(242, 66, 76));
-        btnRegistrar.setText("¿No tienes cuenta?. Registrarse");
-        btnRegistrar.setActionCommand("");
-        btnRegistrar.setBorder(null);
-        btnRegistrar.setBorderPainted(false);
-        btnRegistrar.setContentAreaFilled(false);
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setForeground(new java.awt.Color(242, 66, 76));
+        btnRegister.setText("¿No tienes cuenta?. Registrarse");
+        btnRegister.setActionCommand("");
+        btnRegister.setBorder(null);
+        btnRegister.setBorderPainted(false);
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
 
@@ -87,17 +87,17 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                    .addComponent(jTextField4))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(txtContraseña))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(82, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnRegistrar)
+                        .addComponent(btnRegister)
                         .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnLogin)
                         .addGap(114, 114, 114))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -111,15 +111,15 @@ public class LoginView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(btnRegistrar)
+                .addComponent(btnRegister)
                 .addGap(24, 24, 24))
         );
 
@@ -152,9 +152,9 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,15 +193,15 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtEmail;
     // End of variables declaration//GEN-END:variables
 }
