@@ -2,22 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Auto.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Camion.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Administrador.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/ArregloReserva.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Pago.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/view/RegistroClienteView.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Vehiculo.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/view/RegistroView.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/view/RegistroTrabajadorView.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Motocicleta.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Reserva.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Persona.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/model/Trabajadores.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/view/VehiculosView.java</file>
-            <file>file:/D:/Practicas/Algoritmica_II/Proyecto/src/view/LoginView.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

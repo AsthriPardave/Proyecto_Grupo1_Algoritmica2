@@ -70,7 +70,7 @@ public class RegistroClienteView extends javax.swing.JFrame {
         btnRegister.setBackground(new java.awt.Color(0, 153, 51));
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("REGISTRAR");
+        btnRegister.setText("ACEPTAR");
 
         btnCancelarRegister.setBackground(new java.awt.Color(242, 66, 76));
         btnCancelarRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
