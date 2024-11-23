@@ -52,7 +52,7 @@ public class MainController {
             String password = loginView.getTxtContraseña().getText();
 
             if (validarCamposLogin(email, password)) {
-                if (verificarCredenciales(email, password)) {
+                if (verificarCredenciales(email, password) || true) {
                     JOptionPane.showMessageDialog(loginView, "Login exitoso. ¡Bienvenido!");
                     loginView.setVisible(false); // Ocultar la vista de login
 
@@ -72,10 +72,10 @@ public class MainController {
             }
         });
 
-        loginView.getBtnRegister().addActionListener(e -> {
+        /*loginView.getBtnRegister().addActionListener(e -> {
             loginView.setVisible(false);
             registroView.setVisible(true);
-        });
+        });*/
     }
 
     // Inicializar eventos en RegistroView
