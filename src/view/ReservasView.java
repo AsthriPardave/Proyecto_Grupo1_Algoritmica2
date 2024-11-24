@@ -39,7 +39,7 @@ public class ReservasView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAñadirTrabajador = new javax.swing.JButton();
+        btnAñadirReserva = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -139,16 +139,21 @@ public class ReservasView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnAñadirTrabajador.setBackground(new java.awt.Color(0, 153, 51));
-        btnAñadirTrabajador.setForeground(new java.awt.Color(255, 255, 255));
-        btnAñadirTrabajador.setText("Añadir");
-        btnAñadirTrabajador.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadirReserva.setBackground(new java.awt.Color(0, 153, 51));
+        btnAñadirReserva.setForeground(new java.awt.Color(255, 255, 255));
+        btnAñadirReserva.setText("Añadir");
+        btnAñadirReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAñadirTrabajadorActionPerformed(evt);
+                btnAñadirReservaActionPerformed(evt);
             }
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Autos", "Camiones", "Motocicletas" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("RESERVAS");
@@ -172,7 +177,7 @@ public class ReservasView extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(63, 63, 63)
-                            .addComponent(btnAñadirTrabajador)
+                            .addComponent(btnAñadirReserva)
                             .addGap(39, 39, 39))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,7 +192,7 @@ public class ReservasView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAñadirTrabajador)
+                        .addComponent(btnAñadirReserva)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,13 +229,17 @@ public class ReservasView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAñadirTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirTrabajadorActionPerformed
+    private void btnAñadirReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAñadirTrabajadorActionPerformed
+    }//GEN-LAST:event_btnAñadirReservaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,7 +280,7 @@ public class ReservasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAñadirTrabajador;
+    private javax.swing.JButton btnAñadirReserva;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

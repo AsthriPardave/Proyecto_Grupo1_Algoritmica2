@@ -239,9 +239,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="txtBuscarVehiculo" min="-2" pref="271" max="-2" attributes="0"/>
+                                          <Component id="txtBuscarReserva" min="-2" pref="271" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jButton2" min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Component id="btnBuscarReserva" min="-2" pref="24" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane1" min="-2" pref="529" max="-2" attributes="0"/>
                                   </Group>
@@ -258,14 +258,14 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBox4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="jComboBox3" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="txtNombres" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="comboboxMetodoPago" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="comboboxIDreserva" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Component id="txtFechaPago" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnRegister1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnCancelarRegister" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="btnRegisterPago" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCancelarRegisterPago" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
@@ -283,34 +283,34 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel2" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboboxMetodoPago" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtNombres" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="txtFechaPago" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboboxIDreserva" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnRegister1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRegisterPago" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnCancelarRegister" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCancelarRegisterPago" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="txtBuscarVehiculo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtBuscarReserva" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jButton2" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="btnBuscarReserva" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
@@ -371,9 +371,9 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JTextField" name="txtBuscarVehiculo">
+                <Component class="javax.swing.JTextField" name="txtBuscarReserva">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarVehiculoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarReservaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
@@ -384,7 +384,7 @@
                     <Property name="text" type="java.lang.String" value="Pagos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="btnBuscarReserva">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagenes/icons8-buscar-10.png"/>
@@ -397,7 +397,7 @@
                     <Property name="text" type="java.lang.String" value="M&#xe9;todo de pago:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox4">
+                <Component class="javax.swing.JComboBox" name="comboboxMetodoPago">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -408,6 +408,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboboxMetodoPagoActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -422,9 +425,9 @@
                     <Property name="text" type="java.lang.String" value="Fecha de pago:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNombres">
+                <Component class="javax.swing.JTextField" name="txtFechaPago">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox3">
+                <Component class="javax.swing.JComboBox" name="comboboxIDreserva">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
@@ -432,11 +435,14 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboboxIDreservaActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRegister1">
+                <Component class="javax.swing.JButton" name="btnRegisterPago">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="99" red="0" type="rgb"/>
@@ -450,7 +456,7 @@
                     <Property name="text" type="java.lang.String" value="REGISTRAR"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCancelarRegister">
+                <Component class="javax.swing.JButton" name="btnCancelarRegisterPago">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="4c" green="42" red="f2" type="rgb"/>

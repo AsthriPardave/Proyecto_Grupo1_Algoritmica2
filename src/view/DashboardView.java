@@ -31,10 +31,10 @@ public class DashboardView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnReserva = new javax.swing.JButton();
+        btnVehiculo = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
+        btnPago = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -48,36 +48,36 @@ public class DashboardView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
-        jButton4.setBackground(new java.awt.Color(242, 66, 76));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnReserva.setBackground(new java.awt.Color(242, 66, 76));
+        btnReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
+        btnReserva.setBorder(null);
+        btnReserva.setBorderPainted(false);
+        btnReserva.setContentAreaFilled(false);
+        btnReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnReservaActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(242, 66, 76));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
+        btnVehiculo.setBackground(new java.awt.Color(242, 66, 76));
+        btnVehiculo.setForeground(new java.awt.Color(255, 255, 255));
+        btnVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
+        btnVehiculo.setBorder(null);
+        btnVehiculo.setBorderPainted(false);
+        btnVehiculo.setContentAreaFilled(false);
 
-        jButton6.setBackground(new java.awt.Color(242, 66, 76));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-diseño-del-tablero-30.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
+        btnInicio.setBackground(new java.awt.Color(242, 66, 76));
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-diseño-del-tablero-30.png"))); // NOI18N
+        btnInicio.setBorder(null);
+        btnInicio.setBorderPainted(false);
+        btnInicio.setContentAreaFilled(false);
 
-        jButton7.setBackground(new java.awt.Color(242, 66, 76));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
-        jButton7.setToolTipText("");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
+        btnPago.setBackground(new java.awt.Color(242, 66, 76));
+        btnPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
+        btnPago.setToolTipText("");
+        btnPago.setBorder(null);
+        btnPago.setBorderPainted(false);
+        btnPago.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -86,23 +86,23 @@ public class DashboardView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(9, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -157,9 +157,9 @@ public class DashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnReservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,10 +204,10 @@ public class DashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton btnInicio;
+    private javax.swing.JButton btnPago;
+    private javax.swing.JButton btnReserva;
+    private javax.swing.JButton btnVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

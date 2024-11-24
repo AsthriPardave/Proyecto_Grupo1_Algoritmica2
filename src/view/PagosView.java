@@ -23,11 +23,11 @@ public class PagosView extends javax.swing.JFrame {
 
 
     public JButton getjButton2() {
-        return jButton2; // Botón de búsqueda
+        return btnBuscarReserva; // Botón de búsqueda
     }
 
     public JTextField getTxtBuscarVehiculo() {
-        return txtBuscarVehiculo;
+        return txtBuscarReserva;
     }
 
     public JTable getjTable1() {
@@ -57,17 +57,17 @@ public class PagosView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        txtBuscarVehiculo = new javax.swing.JTextField();
+        txtBuscarReserva = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnBuscarReserva = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        comboboxMetodoPago = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNombres = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        btnRegister1 = new javax.swing.JButton();
-        btnCancelarRegister = new javax.swing.JButton();
+        txtFechaPago = new javax.swing.JTextField();
+        comboboxIDreserva = new javax.swing.JComboBox<>();
+        btnRegisterPago = new javax.swing.JButton();
+        btnCancelarRegisterPago = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -143,37 +143,47 @@ public class PagosView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        txtBuscarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscarReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarVehiculoActionPerformed(evt);
+                txtBuscarReservaActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Pagos");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-buscar-10.png"))); // NOI18N
-        jButton2.setToolTipText("");
+        btnBuscarReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-buscar-10.png"))); // NOI18N
+        btnBuscarReserva.setToolTipText("");
 
         jLabel2.setText("Método de pago:");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Yape", "Plin", "Tarjeta Débito" }));
+        comboboxMetodoPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Yape", "Plin", "Tarjeta Débito" }));
+        comboboxMetodoPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxMetodoPagoActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Reserva:");
 
         jLabel4.setText("Fecha de pago:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID reserva" }));
+        comboboxIDreserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID reserva" }));
+        comboboxIDreserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxIDreservaActionPerformed(evt);
+            }
+        });
 
-        btnRegister1.setBackground(new java.awt.Color(0, 153, 51));
-        btnRegister1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRegister1.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister1.setText("REGISTRAR");
+        btnRegisterPago.setBackground(new java.awt.Color(0, 153, 51));
+        btnRegisterPago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegisterPago.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegisterPago.setText("REGISTRAR");
 
-        btnCancelarRegister.setBackground(new java.awt.Color(242, 66, 76));
-        btnCancelarRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCancelarRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelarRegister.setText("CANCELAR");
+        btnCancelarRegisterPago.setBackground(new java.awt.Color(242, 66, 76));
+        btnCancelarRegisterPago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCancelarRegisterPago.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarRegisterPago.setText("CANCELAR");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -185,9 +195,9 @@ public class PagosView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtBuscarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBuscarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBuscarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -199,13 +209,13 @@ public class PagosView extends javax.swing.JFrame {
                                 .addComponent(jLabel1)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboboxMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboboxIDreserva, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegister1)
-                            .addComponent(btnCancelarRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRegisterPago)
+                            .addComponent(btnCancelarRegisterPago, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(68, 68, 68))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -218,27 +228,27 @@ public class PagosView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboboxMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboboxIDreserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnRegister1)
+                        .addComponent(btnRegisterPago)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelarRegister)
+                        .addComponent(btnCancelarRegisterPago)
                         .addGap(61, 61, 61)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtBuscarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -304,9 +314,9 @@ public class PagosView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBuscarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarVehiculoActionPerformed
+    private void txtBuscarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarVehiculoActionPerformed
+    }//GEN-LAST:event_txtBuscarReservaActionPerformed
 
     private void btnPagoOventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoOventaActionPerformed
         // TODO add your handling code here:
@@ -315,6 +325,14 @@ public class PagosView extends javax.swing.JFrame {
     private void btnReservaViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaViewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReservaViewActionPerformed
+
+    private void comboboxMetodoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxMetodoPagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboboxMetodoPagoActionPerformed
+
+    private void comboboxIDreservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxIDreservaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboboxIDreservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,17 +371,17 @@ public class PagosView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarRegister;
+    private javax.swing.JButton btnBuscarReserva;
+    private javax.swing.JButton btnCancelarRegisterPago;
     private javax.swing.JButton btnPagoOventa;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JButton btnRegister1;
+    private javax.swing.JButton btnRegisterPago;
     private javax.swing.JButton btnReservaView;
     private javax.swing.JButton btnVehiculosView;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> comboboxIDreserva;
+    private javax.swing.JComboBox<String> comboboxMetodoPago;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -376,7 +394,7 @@ public class PagosView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtBuscarVehiculo;
-    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtBuscarReserva;
+    private javax.swing.JTextField txtFechaPago;
     // End of variables declaration//GEN-END:variables
 }
