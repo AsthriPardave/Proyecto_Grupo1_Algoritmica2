@@ -1,0 +1,35 @@
+Auto
+Toyota
+A1A - 123
+Convertible
+150.0
+Sí
+6
+50.0
+
+Auto
+Mercedes Benz
+B1B - 345
+Convertible
+180.0
+Sí
+6
+50.0
+
+Auto
+Hunday
+C1C - 678
+Convertible
+140.0
+Sí
+6
+50.0
+
+Camión
+Toyota
+A1A - 123
+Convertible
+150.0
+Sí
+70.0
+Sí
