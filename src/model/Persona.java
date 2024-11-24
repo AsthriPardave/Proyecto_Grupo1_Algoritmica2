@@ -34,11 +34,11 @@ public abstract class Persona {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
+    public String getApellido() {
         return apellidos;
     }
 
-    public void setApellidos(String apellidos) {
+    public void setApellido(String apellidos) {
         this.apellidos = apellidos;
     }
 
@@ -50,10 +50,5 @@ public abstract class Persona {
         this.email = email;
     }
 
-    // Métodos abstractos para gestión de vehículos
-    public abstract void agregarVehiculo(Vehiculo vehiculo);
-    public abstract void modificarVehiculo(String matricula, String nuevaMarca, String nuevoModelo, float nuevoPrecioPorDia);
-    public abstract void eliminarVehiculo(String matricula);
-    public abstract void listarVehiculos();
 }
 

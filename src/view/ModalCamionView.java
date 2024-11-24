@@ -19,6 +19,10 @@ public class ModalCamionView extends javax.swing.JFrame {
      */
     public ModalCamionView() {
         initComponents();
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setTitle("Modificar Reserva");
+
     }
 
     // Métodos getter para exponer los componentes necesarios

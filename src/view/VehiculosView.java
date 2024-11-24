@@ -7,6 +7,8 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -19,8 +21,13 @@ public class VehiculosView extends javax.swing.JFrame {
      */
     public VehiculosView() {
         initComponents();
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setTitle("Modificar Reserva");
+
     }
 
+    // Botones de panel Vehiculo
 
     public JButton getBtnAñadirVehiculo() {
         return btnAñadirVehiculo;
@@ -38,6 +45,31 @@ public class VehiculosView extends javax.swing.JFrame {
         return jTable1; // Tabla de vehículos
     }
 
+    public JComboBox<String> getJComboBox() {
+      return comboboxTipoVehiculo;
+    }
+    // Botones del panel izquierdo
+
+    public JButton getBtnTrabajadoresView() {
+        return btnTrabajadoresView;
+    }
+
+    public JButton getBtnReservaView() {
+        return btnReservaView;
+    }
+
+    public JButton getBtnVehiculosView() {
+        return btnVehiculosView;
+    }
+
+    public JButton getjButton6() {
+        return jButton6;
+    }
+
+    public JButton getBtnPagoOventa() {
+        return btnPagoOventa;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,11 +84,11 @@ public class VehiculosView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        btnTrabajadoresView = new javax.swing.JButton();
         btnReservaView = new javax.swing.JButton();
         btnVehiculosView = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         btnPagoOventa = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -75,6 +107,17 @@ public class VehiculosView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
+
+        btnTrabajadoresView.setBackground(new java.awt.Color(242, 66, 76));
+        btnTrabajadoresView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-trabajadores-30.png"))); // NOI18N
+        btnTrabajadoresView.setBorder(null);
+        btnTrabajadoresView.setBorderPainted(false);
+        btnTrabajadoresView.setContentAreaFilled(false);
+        btnTrabajadoresView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrabajadoresViewActionPerformed(evt);
+            }
+        });
 
         btnReservaView.setBackground(new java.awt.Color(242, 66, 76));
         btnReservaView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
@@ -112,45 +155,35 @@ public class VehiculosView extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(242, 66, 76));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
-        jButton3.setAutoscrolls(true);
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTrabajadoresView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(98, 98, 98)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTrabajadoresView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -165,7 +198,7 @@ public class VehiculosView extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Tipo de vehículo", "Matricula", "Marca", "Modelo", "Precio por día"
+                "Matricula", "Tipo de Vehiculo", "Marca", "Modelo", "Precio por día"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -231,7 +264,7 @@ public class VehiculosView extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -262,6 +295,10 @@ public class VehiculosView extends javax.swing.JFrame {
     private void btnReservaViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaViewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReservaViewActionPerformed
+
+    private void btnTrabajadoresViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabajadoresViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTrabajadoresViewActionPerformed
 
     private void btnPagoOventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoOventaActionPerformed
         // TODO add your handling code here:
@@ -306,10 +343,10 @@ public class VehiculosView extends javax.swing.JFrame {
     private javax.swing.JButton btnAñadirVehiculo;
     private javax.swing.JButton btnPagoOventa;
     private javax.swing.JButton btnReservaView;
+    private javax.swing.JButton btnTrabajadoresView;
     private javax.swing.JButton btnVehiculosView;
     private javax.swing.JComboBox<String> comboboxTipoVehiculo;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

@@ -7,10 +7,10 @@ import view.RegistroVehiculoView;
 import view.ModalAutoView;
 import view.ModalCamionView;
 import view.ModalMotoView;
+import model.Trabajadores;
 
 import javax.swing.*;
-import model.Persona;
-import model.Administrador;
+
 
 public class MainController {
 
@@ -24,8 +24,9 @@ public class MainController {
 
     private VehiculoController vehiculoController;
 
-    private Persona[] usuarios; // Arreglo para almacenar usuarios registrados
-    private int totalUsuarios; // Contador para usuarios registrados
+    private TrabajadoresController trabajadoresController;
+    //private Persona[] usuarios; // Arreglo para almacenar usuarios registrados
+    //private int totalUsuarios; // Contador para usuarios registrados
     private final int MAX_USUARIOS = 100; // Capacidad máxima de usuarios
 
     public MainController(LoginView loginView, RegistroView registroView, VehiculosView vehiculosView,
@@ -38,8 +39,11 @@ public class MainController {
         this.modalAutoView = modalAutoView;
         this.modalCamionView = modalCamionView;
         this.modalMotoView = modalMotoView;
-        this.usuarios = new Persona[MAX_USUARIOS];
-        this.totalUsuarios = 0;
+        //this.usuarios = new Persona[MAX_USUARIOS];
+        //this.totalUsuarios = 1;
+        trabajadoresController = TrabajadoresController.getInstance();
+
+
 
         initLoginView();
         initRegistroView();
@@ -52,30 +56,24 @@ public class MainController {
             String password = loginView.getTxtContraseña().getText();
 
             if (validarCamposLogin(email, password)) {
-                if (verificarCredenciales(email, password) || true) {
+                if (verificarCredenciales(email, password)) {
                     JOptionPane.showMessageDialog(loginView, "Login exitoso. ¡Bienvenido!");
                     loginView.setVisible(false); // Ocultar la vista de login
 
-                    // Inicializar el controlador de vehículos
-                    vehiculoController = new VehiculoController(
-                        vehiculosView,
-                        registroVehiculoView,
-                        modalAutoView,
-                        modalCamionView,
-                        modalMotoView
-                    );
+                    // Patron Singleton
+                    vehiculoController = VehiculoController.getInstance();
+                    vehiculoController.start();
 
-                    vehiculosView.setVisible(true); // Mostrar la vista de vehículos
                 } else {
                     JOptionPane.showMessageDialog(loginView, "Credenciales incorrectas. Inténtalo de nuevo.");
                 }
             }
         });
 
-        /*loginView.getBtnRegister().addActionListener(e -> {
+        loginView.getBtnRegister().addActionListener(e -> {
             loginView.setVisible(false);
             registroView.setVisible(true);
-        });*/
+        });
     }
 
     // Inicializar eventos en RegistroView
@@ -120,8 +118,8 @@ public class MainController {
     }
 
     private boolean verificarCredenciales(String email, String password) {
-        for (int i = 0; i < totalUsuarios; i++) {
-            if (usuarios[i].getEmail().equals(email) && usuarios[i].getClaveAcceso().equals(password)) {
+        for (int i = 0; i < trabajadoresController.trabajadores.size(); i++) {
+            if (trabajadoresController.trabajadores.get(i).getEmail().equals(email) && trabajadoresController.trabajadores.get(i).getClaveAcceso().equals(password)) {
                 return true;
             }
         }
@@ -129,18 +127,20 @@ public class MainController {
     }
 
     private boolean registrarUsuario(String nombre, String apellidos, String email, String password) {
-        if (totalUsuarios >= MAX_USUARIOS) {
+        if (trabajadoresController.trabajadores.size() > 200) {
             JOptionPane.showMessageDialog(registroView, "No se pueden registrar más usuarios.");
             return false;
         }
 
-        for (int i = 0; i < totalUsuarios; i++) {
-            if (usuarios[i].getEmail().equals(email)) {
+        for (int i = 0; i < trabajadoresController.trabajadores.size(); i++) {
+            if (trabajadoresController.trabajadores.get(i).getEmail().equals(email)) {
                 return false;
             }
         }
+        trabajadoresController.trabajadores.add(new Trabajadores
+            (nombre, apellidos, email, password, "NINGUNO", "NINGUNO", "NINGUNO" ));
 
-        usuarios[totalUsuarios++] = new Administrador(nombre, apellidos, email, password);
+        //usuarios[totalUsuarios++] = new Administrador(nombre, apellidos, email, password);
         return true;
     }
 }

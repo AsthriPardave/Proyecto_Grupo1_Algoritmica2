@@ -6,9 +6,9 @@ package model;
 
 public class Auto extends Vehiculo {
     private int numeroAsientos;
-    private float capacidadMaletero;
+    private int capacidadMaletero;
 
-    public Auto(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int numeroAsientos, float capacidadMaletero) {
+    public Auto(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int numeroAsientos, int capacidadMaletero) {
         super(matricula, marca, modelo, precioPorDia, disponible);
         this.numeroAsientos = numeroAsientos;
         this.capacidadMaletero = capacidadMaletero;
@@ -18,7 +18,7 @@ public class Auto extends Vehiculo {
         return capacidadMaletero;
     }
 
-    public void setCapacidadMaletero(float capacidadMaletero) {
+    public void setCapacidadMaletero(int capacidadMaletero) {
         this.capacidadMaletero = capacidadMaletero;
     }
 

@@ -18,6 +18,9 @@ public class LoginView extends javax.swing.JFrame {
      */
     public LoginView() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setTitle("Modificar Reserva");
+
     }
 
     // Métodos para exponer los componentes

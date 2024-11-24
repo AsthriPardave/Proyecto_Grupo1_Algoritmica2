@@ -6,98 +6,129 @@ package model;
 
 import java.util.Date;
 import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Reserva {
-    private Date fechaInicio;
-    private Date fechaFin;
+    public String id;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+
     private int diasReservados;
-    private float montoTotal;
+
+    private Trabajadores trabajador;
     private Vehiculo vehiculo; // Vehículo asociado a la reserva
-    private Pago pago; // Pago asociado a la reserva
 
-    public Reserva(Date fechaInicio, int diasReservados, Vehiculo vehiculo) {
-        this.fechaInicio = fechaInicio;
+    private double garantia; // Pago asociado a la reserva
+    private double montoTotal;
+    private double impuesto;
+    private double montoActual;
+
+    private boolean cancelado;
+
+
+    public Reserva(int diasReservados,
+            Trabajadores trabajador, Vehiculo vehiculo) {
+
+        fechaInicio = LocalDate.now();
+        montoActual = 0.0;
         this.diasReservados = diasReservados;
+        this.trabajador = trabajador;
         this.vehiculo = vehiculo;
-        this.montoTotal = 0.0f;
-        calcularFechaFin(); // Calcula fechaFin al crear la reserva
+        id = Integer.toString(Math.abs(trabajador.getDni().hashCode()));
+
+        cancelado = false;
+        calcular(); // Calcula fechaFin al crear la reserva
+        
     }
 
-    // Getters y Setters
-    public Vehiculo getVehiculo() {
-        return vehiculo;
-    }
+    private void calcular() {
 
-    public Date getFechaInicio() {
+      double precioPorDia = vehiculo.getPrecioPorDia();
+      montoTotal = precioPorDia * diasReservados;
+
+      garantia = montoTotal * 0.10;
+      impuesto = montoTotal * 0.05;
+
+      fechaFin = fechaInicio.plusDays(diasReservados);
+    }
+    public String getId() {
+      return id;
+    }
+    public double getMontoActual () {
+      return montoActual;
+    }
+    public void setMontoActual ( double monto) {
+        montoActual = monto;
+    }
+    public boolean getCancelado() {
+      return cancelado;
+    }
+    public void setCancelado ( boolean t ) {
+      cancelado = t;
+    }
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
-
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
-        calcularFechaFin(); // Actualiza fechaFin si se cambia fechaInicio
     }
-
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
-
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
     public int getDiasReservados() {
         return diasReservados;
     }
-
     public void setDiasReservados(int diasReservados) {
         this.diasReservados = diasReservados;
-        calcularFechaFin(); // Actualiza fechaFin si se cambia diasReservados
     }
-
-    public float getMontoTotal() {
+    public Trabajadores getTrabajador() {
+        return trabajador;
+    }
+    public void setTrabajador(Trabajadores trabajador) {
+        this.trabajador = trabajador;
+    }
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+    public double getGarantia() {
+        return garantia;
+    }
+    public void setGarantia(double garantia) {
+        this.garantia = garantia;
+    }
+    public double getMontoTotal() {
         return montoTotal;
     }
-
-    public void setMontoTotal(float montoTotal) {
+    public void setMontoTotal(double montoTotal) {
         this.montoTotal = montoTotal;
     }
-
-    public Pago getPago() {
-        return pago;
+    public double getImpuesto() {
+        return impuesto;
     }
-
-    public void setPago(Pago pago) {
-        this.pago = pago;
+    public void setImpuesto(double impuesto) {
+        this.impuesto = impuesto;
     }
-
-    // Método para calcular el total de la reserva basado en el vehículo y los días
-    public float calcularTotal(Vehiculo vehiculo, int dias) {
-        float precioPorDia = vehiculo.getPrecioPorDia();
-        this.montoTotal = precioPorDia * dias;
-        return montoTotal;
-    }
-
-    // Método para confirmar la reserva, procesar el pago y mostrar la información
-    public boolean confirmarReserva() {
-        System.out.println("Reserva confirmada del " + fechaInicio + " al " + fechaFin);
-        System.out.println("Días reservados: " + diasReservados + ", Monto total: " + montoTotal + " soles.");
-        
-        if (pago != null && pago.getMonto() == montoTotal) {
-            return pago.procesarPago();
-        } else {
-            System.out.println("No se puede procesar el pago. Monto incorrecto o método de pago no establecido.");
-            return false;
-        }
-    }
-
-    // Método privado para calcular la fecha de fin de la reserva
-    private void calcularFechaFin() {
-        Calendar calendario = Calendar.getInstance();
-        calendario.setTime(fechaInicio);
-        calendario.add(Calendar.DAY_OF_YEAR, diasReservados);
-        this.fechaFin = calendario.getTime();
-    }
-
     @Override
     public String toString() {
-        return "Reserva [fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin +
-               ", diasReservados=" + diasReservados + ", montoTotal=" + montoTotal +
-               ", vehiculo=" + vehiculo + ", pago=" + (pago != null ? pago.toString() : "No pagado") + "]";
+        return "Reserva {" +
+              "id=" + id +
+              ", fechaInicio=" + fechaInicio +
+              ", fechaFin=" + fechaFin +
+              ", diasReservados=" + diasReservados +
+              ", cliente=" + (trabajador != null ? trabajador.getNombre() : "N/A") +
+              ", vehiculo=" + (vehiculo != null ? vehiculo.getModelo() : "N/A") +
+              ", garantia=" + garantia +
+              ", montoTotal=" + montoTotal +
+              ", impuesto=" + impuesto +
+              ", montoActual=" + montoActual +
+              ", cancelado=" + cancelado +
+              '}';
     }
 }

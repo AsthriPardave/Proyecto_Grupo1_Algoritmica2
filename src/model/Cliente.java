@@ -4,7 +4,7 @@
  */
 package model;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements ClienteUsuario {
     private String dni;
 
     public Cliente(String nombre, String apellidos, String email, String claveAcceso, String dni) {

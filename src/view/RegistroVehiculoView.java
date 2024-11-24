@@ -7,6 +7,7 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  *
@@ -19,34 +20,34 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
      */
     public RegistroVehiculoView() {
         initComponents();
-    }
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setTitle("Modificar Reserva");
 
+    }
     public JButton getBtnSiguiente() {
         return btnSiguiente;
     }
-
     public JButton getBtnCancelarRegister() {
         return btnCancelarRegister;
     }
-
     public JComboBox<String> getComboboxTipoVehiculo() {
         return comboboxTipoVehiculo;
     }
-
     public JTextField getTxtMarca() {
         return txtMarca;
     }
-
     public JTextField getTxtMatricula() {
         return txtMatricula;
     }
-
     public JTextField getTxtModelo() {
         return txtModelo;
     }
-
     public JTextField getTxtPrecioPorDia() {
         return txtPrecioPorDia;
+    }
+    public JCheckBox getCheckBox() {
+      return checkBox;
     }
 
 
@@ -75,7 +76,7 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
         btnSiguiente = new javax.swing.JButton();
         btnCancelarRegister = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        checkboxDisponibilidad = new javax.swing.JCheckBox();
+        checkBox = new javax.swing.JCheckBox();
         comboboxTipoVehiculo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,11 +115,6 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 255));
         btnSiguiente.setText("SIGUIENTE");
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
-            }
-        });
 
         btnCancelarRegister.setBackground(new java.awt.Color(242, 66, 76));
         btnCancelarRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -127,10 +123,10 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
 
         jLabel9.setText("Marca:");
 
-        checkboxDisponibilidad.setText("Disponible");
-        checkboxDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
+        checkBox.setText("Disponible");
+        checkBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxDisponibilidadActionPerformed(evt);
+                checkBoxActionPerformed(evt);
             }
         });
 
@@ -163,7 +159,7 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtPrecioPorDia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(73, 73, 73)
-                                .addComponent(checkboxDisponibilidad))
+                                .addComponent(checkBox))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +192,7 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtPrecioPorDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkboxDisponibilidad))
+                    .addComponent(checkBox))
                 .addGap(27, 27, 27)
                 .addComponent(comboboxTipoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -228,9 +224,9 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModeloActionPerformed
 
-    private void checkboxDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxDisponibilidadActionPerformed
+    private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxDisponibilidadActionPerformed
+    }//GEN-LAST:event_checkBoxActionPerformed
 
     private void comboboxTipoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxTipoVehiculoActionPerformed
         // TODO add your handling code here:
@@ -289,7 +285,7 @@ public class RegistroVehiculoView extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JCheckBox checkboxDisponibilidad;
+    private javax.swing.JCheckBox checkBox;
     private javax.swing.JComboBox<String> comboboxTipoVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

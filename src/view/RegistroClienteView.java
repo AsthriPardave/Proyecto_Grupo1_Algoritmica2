@@ -15,6 +15,7 @@ public class RegistroClienteView extends javax.swing.JFrame {
      */
     public RegistroClienteView() {
         initComponents();
+
     }
 
     /**

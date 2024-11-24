@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/controller/MainController.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/ModalMotoView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/ModalCamionView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/controller/LoginController.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/RegistroView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/App.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/LoginView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/model/Vehiculo.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/RegistroVehiculoView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/RegistroClienteView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/VehiculosView.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto_Grupo1_Algoritmica2/src/view/ModalAutoView.java</file>
+            <file>file:/home/alvarocrak/work/Proyecto_Grupo1_Algoritmica2-master/src/view/RegistroReservaView.java</file>
+            <file>file:/home/alvarocrak/work/Proyecto_Grupo1_Algoritmica2-master/src/view/ModalMotoView.java</file>
+            <file>file:/home/alvarocrak/work/Proyecto_Grupo1_Algoritmica2-master/src/view/ReservasView.java</file>
+            <file>file:/home/alvarocrak/work/Proyecto_Grupo1_Algoritmica2-master/src/view/ModificarReservas.java</file>
         </group>
     </open-files>
 </project-private>

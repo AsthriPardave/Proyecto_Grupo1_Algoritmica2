@@ -21,6 +21,12 @@ public class Vehiculo {
     }
 
     // Getters y Setters para cada atributo
+    public boolean getDisponible() {
+      return disponible;
+    }
+    public void setDisponible() {
+      this.disponible = disponible;
+    }
     public String getMatricula() {
         return matricula;
     }

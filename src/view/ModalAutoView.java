@@ -18,6 +18,10 @@ public class ModalAutoView extends javax.swing.JFrame {
      */
     public ModalAutoView() {
         initComponents();
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setTitle("Modificar Reserva");
+
     }
 
     // Métodos getter para exponer los componentes necesarios
