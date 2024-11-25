@@ -126,68 +126,6 @@ public class FileManager {
     
     //**********************CLIENTES**********************************
     
-    public static void escribirCliente(List<Cliente> clientes){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Vehiculos.txt"))) {
-            for (Cliente cliente: clientes) {
-                if (vehiculo instanceof Auto) {
-                    Auto auto = (Auto) vehiculo;
-                    writer.write("Auto");
-                    writer.newLine();
-                    writer.write(auto.getMarca());
-                    writer.newLine();
-                    writer.write(auto.getMatricula());
-                    writer.newLine();
-                    writer.write(auto.getModelo());
-                    writer.newLine();
-                    writer.write(auto.getPrecioPorDia()+"");
-                    writer.newLine();
-                    writer.write((auto.isDisponible() ? "Sí" : "No"));
-                    writer.newLine();
-                    writer.write(auto.getNumeroAsientos()+"");
-                    writer.newLine();
-                    writer.write(auto.getCapacidadMaletero()+"");
-                    writer.newLine();
-                } else if (vehiculo instanceof Motocicleta) {
-                    Motocicleta moto = (Motocicleta) vehiculo;
-                    writer.write("Motocicleta");
-                    writer.newLine();
-                    writer.write(moto.getMarca());
-                    writer.newLine();
-                    writer.write(moto.getMatricula());
-                    writer.newLine();
-                    writer.write(moto.getModelo());
-                    writer.newLine();
-                    writer.write(moto.getPrecioPorDia()+"");
-                    writer.newLine();
-                    writer.write((moto.isDisponible() ? "Sí" : "No"));
-                    writer.newLine();
-                    writer.write(moto.getCilindraje()+"");
-                    writer.newLine();
-                } else if (vehiculo instanceof Camion) {
-                    Camion camion = (Camion) vehiculo;
-                    writer.write("Camión");
-                    writer.newLine();
-                    writer.write(camion.getMarca());
-                    writer.newLine();
-                    writer.write(camion.getMatricula());
-                    writer.newLine();
-                    writer.write(camion.getModelo());
-                    writer.newLine();
-                    writer.write(camion.getPrecioPorDia()+"");
-                    writer.newLine();
-                    writer.write((camion.isDisponible() ? "Sí" : "No"));
-                    writer.newLine();
-                    writer.write(camion.getCapacidadCarga()+"");
-                    writer.newLine();
-                    writer.write((camion.isDobleCabina() ? "Sí" : "No"));
-                    writer.newLine();
-                }
-                writer.newLine(); // Línea en blanco entre vehículos
-            }
-            System.out.println("Lista de vehículos guardada en Vehiculos.txt");
-        } catch (IOException e) {
-            System.err.println("Error al guardar los vehículos: " + e.getMessage());
-        }
-    }
+    
     
 }

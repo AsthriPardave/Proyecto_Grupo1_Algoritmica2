@@ -53,7 +53,7 @@ public class Vehiculo {
         this.precioPorDia = precioPorDia;
     }
 
-    public boolean getDisponible() {
+    public boolean isDisponible() {
         return disponible;
     }
     

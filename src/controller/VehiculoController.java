@@ -48,6 +48,10 @@ public class VehiculoController {
       return instance;
     }
 
+    public ArrayList<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
     private VehiculoController() throws IOException {
         this.vehiculoView = new VehiculosView();
         this.registroVehiculoView = new RegistroVehiculoView();
@@ -85,16 +89,6 @@ public class VehiculoController {
         vehiculoView.getjButton2().addActionListener(e -> buscarVehiculo());
 
         vehiculoView.getJComboBox().addActionListener ( e -> filtrarVehiculos() );
-
-        vehiculoView.getBtnTrabajadoresView().addActionListener(e -> {
-              vehiculoView.setVisible(false); // Ocultar la vista de login
-
-              // Inicializar el controlador de vehículos
-              TrabajadoresController trabajadoresController = TrabajadoresController.getInstance();
-              trabajadoresController.start();
-
-
-        });
 
         vehiculoView.getBtnReservaView().addActionListener(e -> {
           vehiculoView.setVisible(false);
@@ -334,4 +328,5 @@ public class VehiculoController {
             }
         }
     }
+
 }

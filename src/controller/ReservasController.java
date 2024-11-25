@@ -165,7 +165,7 @@ public class ReservasController {
                     throw new Exception("No se encontró un vehículo con esa matrícula.");
                 }
 
-                if (!vehiculo.getDisponible()) {
+                if (!vehiculo.isDisponible()) {
                     throw new Exception("El vehículo no está disponible.");
                 }
 
