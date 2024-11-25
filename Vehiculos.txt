@@ -33,3 +33,13 @@ Convertible
 Sí
 70.0
 Sí
+
+Auto
+Nissan
+D1D-123
+Carreras
+180.0
+Sí
+4
+40.0
+

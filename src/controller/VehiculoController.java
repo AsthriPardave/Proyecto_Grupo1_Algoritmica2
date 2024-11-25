@@ -57,7 +57,7 @@ public class VehiculoController {
 
         this.vehiculos = (ArrayList<Vehiculo>) FileManager.leerVehiculos();
 
-        this.totalVehiculos = 0;
+        this.totalVehiculos = vehiculos.size();
         this.trabajadorView = new ClientesView();
 
     }
@@ -160,6 +160,7 @@ public class VehiculoController {
                 Vehiculo auto = new Auto(matricula, marca, modelo, precioPorDia, disponible, numAsientos, capacidadMaletero);
 
                 vehiculos.add(auto);
+                FileManager.escribirVehiculo(vehiculos);
                 totalVehiculos++;
 
                 actualizarTablaVehiculos();
