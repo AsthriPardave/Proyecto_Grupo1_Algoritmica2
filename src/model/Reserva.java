@@ -1,134 +1,111 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-import java.util.Date;
-import java.util.Calendar;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Reserva {
-    public String id;
+    private String id;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
 
     private int diasReservados;
-
-    private Trabajadores trabajador;
     private Vehiculo vehiculo; // Vehículo asociado a la reserva
 
-    private double garantia; // Pago asociado a la reserva
-    private double montoTotal;
-    private double impuesto;
-    private double montoActual;
+    private double garantia;   // Pago inicial asociado a la reserva
+    private double montoTotal; // Monto total de la reserva
+    private double impuesto;   // Impuesto asociado a la reserva
+    private double montoActual; // Monto pagado hasta el momento
 
-    private boolean cancelado;
+    private boolean cancelado; // Estado de la reserva (cancelado o no)
 
-
-    public Reserva(int diasReservados,
-            Trabajadores trabajador, Vehiculo vehiculo) {
-
-        fechaInicio = LocalDate.now();
-        montoActual = 0.0;
+    // Constructor actualizado
+    public Reserva(int diasReservados, Vehiculo vehiculo) {
+        this.fechaInicio = LocalDate.now(); // Fecha de inicio como la fecha actual
         this.diasReservados = diasReservados;
-        this.trabajador = trabajador;
         this.vehiculo = vehiculo;
-        id = Integer.toString(Math.abs(trabajador.getDni().hashCode()));
+        this.montoActual = 0.0; // Inicializa el monto actual en 0
+        this.cancelado = false;
 
-        cancelado = false;
-        calcular(); // Calcula fechaFin al crear la reserva
-        
+        // Generar un ID único basado en la matrícula del vehículo
+        this.id = "R-" + vehiculo.getMatricula().hashCode();
+
+        calcular(); // Calcula los montos y la fecha de fin
     }
 
+    // Método para calcular los montos y la fecha de fin
     private void calcular() {
+        double precioPorDia = vehiculo.getPrecioPorDia();
+        this.montoTotal = precioPorDia * diasReservados;
 
-      double precioPorDia = vehiculo.getPrecioPorDia();
-      montoTotal = precioPorDia * diasReservados;
+        // Calcula la garantía y el impuesto
+        this.garantia = montoTotal * 0.10; // 10% del monto total como garantía
+        this.impuesto = montoTotal * 0.05; // 5% del monto total como impuesto
 
-      garantia = montoTotal * 0.10;
-      impuesto = montoTotal * 0.05;
-
-      fechaFin = fechaInicio.plusDays(diasReservados);
+        // Calcula la fecha de fin sumando los días reservados a la fecha de inicio
+        this.fechaFin = fechaInicio.plusDays(diasReservados);
     }
+
+    // Métodos Getters y Setters, incluido cancelado
     public String getId() {
-      return id;
+        return id;
     }
-    public double getMontoActual () {
-      return montoActual;
-    }
-    public void setMontoActual ( double monto) {
-        montoActual = monto;
-    }
-    public boolean getCancelado() {
-      return cancelado;
-    }
-    public void setCancelado ( boolean t ) {
-      cancelado = t;
-    }
+
     public LocalDate getFechaInicio() {
         return fechaInicio;
     }
-    public void setFechaInicio(LocalDate fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
+
     public LocalDate getFechaFin() {
         return fechaFin;
     }
-    public void setFechaFin(LocalDate fechaFin) {
-        this.fechaFin = fechaFin;
-    }
+
     public int getDiasReservados() {
         return diasReservados;
     }
-    public void setDiasReservados(int diasReservados) {
-        this.diasReservados = diasReservados;
-    }
-    public Trabajadores getTrabajador() {
-        return trabajador;
-    }
-    public void setTrabajador(Trabajadores trabajador) {
-        this.trabajador = trabajador;
-    }
+
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-    }
+
     public double getGarantia() {
         return garantia;
     }
-    public void setGarantia(double garantia) {
-        this.garantia = garantia;
-    }
+
     public double getMontoTotal() {
         return montoTotal;
     }
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
-    }
+
     public double getImpuesto() {
         return impuesto;
     }
-    public void setImpuesto(double impuesto) {
-        this.impuesto = impuesto;
+
+    public double getMontoActual() {
+        return montoActual;
     }
+
+    public void setMontoActual(double montoActual) {
+        this.montoActual = montoActual;
+    }
+
+    public boolean getCancelado() { // Getter de cancelado
+        return cancelado;
+    }
+
+    public void setCancelado(boolean cancelado) { // Setter de cancelado
+        this.cancelado = cancelado;
+    }
+
     @Override
     public String toString() {
         return "Reserva {" +
-              "id=" + id +
-              ", fechaInicio=" + fechaInicio +
-              ", fechaFin=" + fechaFin +
-              ", diasReservados=" + diasReservados +
-              ", cliente=" + (trabajador != null ? trabajador.getNombre() : "N/A") +
-              ", vehiculo=" + (vehiculo != null ? vehiculo.getModelo() : "N/A") +
-              ", garantia=" + garantia +
-              ", montoTotal=" + montoTotal +
-              ", impuesto=" + impuesto +
-              ", montoActual=" + montoActual +
-              ", cancelado=" + cancelado +
-              '}';
+               "id='" + id + '\'' +
+               ", fechaInicio=" + fechaInicio +
+               ", fechaFin=" + fechaFin +
+               ", diasReservados=" + diasReservados +
+               ", vehiculo=" + (vehiculo != null ? vehiculo.getModelo() : "N/A") +
+               ", garantia=" + garantia +
+               ", montoTotal=" + montoTotal +
+               ", impuesto=" + impuesto +
+               ", montoActual=" + montoActual +
+               ", cancelado=" + cancelado +
+               '}';
     }
 }

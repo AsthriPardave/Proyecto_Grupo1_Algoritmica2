@@ -1,32 +1,26 @@
-import controller.MainController;
+import controller.DashboardController;
+import controller.LoginController;
+import controller.VehiculoController;
+import controller.ReservasController;
+import view.DashboardView;
 import view.LoginView;
-import view.RegistroView;
+import view.ReservasView;
 import view.VehiculosView;
-import view.RegistroVehiculoView;
-import view.ModalAutoView;
-import view.ModalCamionView;
-import view.ModalMotoView;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        // Crear vistas principales
         LoginView loginView = new LoginView();
-        RegistroView registroView = new RegistroView();
+        DashboardView dashboardView = new DashboardView();
         VehiculosView vehiculosView = new VehiculosView();
-        RegistroVehiculoView registroVehiculoView = new RegistroVehiculoView();
-        ModalAutoView modalAutoView = new ModalAutoView();
-        ModalCamionView modalCamionView = new ModalCamionView();
-        ModalMotoView modalMotoView = new ModalMotoView();
+        ReservasView reservasView = new ReservasView();
 
-        new MainController(
-            loginView,
-            registroView,
-            vehiculosView,
-            registroVehiculoView,
-            modalAutoView,
-            modalCamionView,
-            modalMotoView
-        );
+        // Crear controladores existentes
+        VehiculoController vehiculoController = VehiculoController.getInstance(); // Controlador de Vehículos
+        ReservasController reservasController = ReservasController.getInstance(); // Controlador de Reservas
+        new LoginController(loginView, dashboardView);
 
+        // Mostrar la pantalla de Login al iniciar
         loginView.setVisible(true);
     }
 }
