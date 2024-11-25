@@ -21,12 +21,6 @@ public class Vehiculo {
     }
 
     // Getters y Setters para cada atributo
-    public boolean getDisponible() {
-      return disponible;
-    }
-    public void setDisponible() {
-      this.disponible = disponible;
-    }
     public String getMatricula() {
         return matricula;
     }
@@ -59,14 +53,14 @@ public class Vehiculo {
         this.precioPorDia = precioPorDia;
     }
 
-    public boolean isDisponible() {
+    public boolean getDisponible() {
         return disponible;
     }
-
+    
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-
+    
     // Método para calcular el costo de la reserva basado en los días
     public float calcularCostoReserva(int dias) {
         return precioPorDia * dias;
@@ -84,65 +78,3 @@ public class Vehiculo {
                ", precioPorDia=" + precioPorDia + ", disponible=" + disponible + "]";
     }
 }
-
-/*VERSION ORIGINAL:
-
-package model;
-
-public abstract class Vehiculo {
-    private String matricula;
-    private String marca;
-    private String modelo;
-    private float precioPorDia;
-    private boolean disponible;
-
-    public Vehiculo(String matricula, String marca, String modelo, float precioPorDia, boolean disponible) {
-        this.matricula = matricula;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.precioPorDia = precioPorDia;
-        this.disponible = disponible;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public float getPrecioPorDia() {
-        return precioPorDia;
-    }
-
-    public void setPrecioPorDia(float precioPorDia) {
-        this.precioPorDia = precioPorDia;
-    }
-
-    public boolean isDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
-    
-}
-*/

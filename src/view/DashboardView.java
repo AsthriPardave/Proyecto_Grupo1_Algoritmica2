@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author HP
@@ -16,6 +18,23 @@ public class DashboardView extends javax.swing.JFrame {
     public DashboardView() {
         initComponents();
     }
+
+    public JButton getBtnReserva() {
+    return btnReserva;
+}
+
+public JButton getBtnVehiculo() {
+    return btnVehiculo;
+}
+
+public JButton getBtnInicio() {
+    return btnInicio;
+}
+
+public JButton getBtnPago() {
+    return btnPago;
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.

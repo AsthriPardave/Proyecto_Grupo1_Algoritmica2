@@ -1,51 +1,47 @@
 package controller;
 
 import java.io.IOException;
-import model.Vehiculo;
-import model.Auto;
-import model.Camion;
-import model.Motocicleta;
-import view.VehiculosView;
-import view.RegistroVehiculoView;
-import view.ModalAutoView;
-import view.ModalCamionView;
-import view.ModalMotoView;
-import view.ReservasView;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import model.FileManager;
 
-import view.ClientesView;
+import model.Auto;
+import model.Camion;
+import model.FileManager;
+import model.Motocicleta;
+import model.Reserva;
+import model.Vehiculo;
+import view.ModalAutoView;
+import view.ModalCamionView;
+import view.ModalMotoView;
+import view.RegistroVehiculoView;
+import view.VehiculosView;
 
 public class VehiculoController {
-  private boolean temp1 = false;
-  private boolean temp2 = false; 
-  private boolean temp3 = false; 
-  private boolean temp4 = false; 
-  private boolean temp5 = false; 
+    private boolean temp1 = false;
+    private boolean temp2 = false;
+    private boolean temp3 = false;
+    private boolean temp4 = false;
+    private boolean temp5 = false;
 
     private static VehiculoController instance;
 
-    private VehiculosView vehiculoView = null;
+    private VehiculosView vehiculoView;
     private RegistroVehiculoView registroVehiculoView;
     private ModalAutoView modalAutoView;
     private ModalCamionView modalCamionView;
     private ModalMotoView modalMotoView;
 
-    public ArrayList<Vehiculo> vehiculos;
-    private int totalVehiculos;
+    private ArrayList<Vehiculo> vehiculos;
     private final int CAPACIDAD_MAXIMA = 100;
 
-    private ClientesView trabajadorView;
-
     public static VehiculoController getInstance() throws IOException {
-      if ( instance == null ) 
-        instance = new VehiculoController ();
-
-
-      return instance;
+        if (instance == null) {
+            instance = new VehiculoController();
+        }
+        return instance;
     }
 
     private VehiculoController() throws IOException {
@@ -56,58 +52,37 @@ public class VehiculoController {
         this.modalMotoView = new ModalMotoView();
 
         this.vehiculos = (ArrayList<Vehiculo>) FileManager.leerVehiculos();
-
-        this.totalVehiculos = 0;
-        this.trabajadorView = new ClientesView();
-
-    }
-    public void start () {
-      instance.initVehiculoView();
-      instance.initRegistroVehiculoView();
-      instance.initModalAutoView();
-      instance.initModalCamionView();
-      instance.initModalMotoView();
-
-      vehiculoView.setVisible(true);
     }
 
-    // Inicializar eventos en VehiculoView
+    public void start() {
+        initVehiculoView();
+        initRegistroVehiculoView();
+        initModalAutoView();
+        initModalCamionView();
+        initModalMotoView();
+
+        vehiculoView.setVisible(true);
+    }
+
     private void initVehiculoView() {
-        
-        if ( temp1 ) return;
+        if (temp1) return;
         temp1 = true;
+
         actualizarTablaVehiculos();
+
         vehiculoView.getBtnAñadirVehiculo().addActionListener(e -> {
             vehiculoView.setVisible(false);
             registroVehiculoView.setVisible(true);
         });
 
         vehiculoView.getjButton2().addActionListener(e -> buscarVehiculo());
-
-        vehiculoView.getJComboBox().addActionListener ( e -> filtrarVehiculos() );
-
-        vehiculoView.getBtnTrabajadoresView().addActionListener(e -> {
-              vehiculoView.setVisible(false); // Ocultar la vista de login
-
-              // Inicializar el controlador de vehículos
-              TrabajadoresController trabajadoresController = TrabajadoresController.getInstance();
-              trabajadoresController.start();
-
-
-        });
-
-        vehiculoView.getBtnReservaView().addActionListener(e -> {
-          vehiculoView.setVisible(false);
-          ReservasController reservasController = ReservasController.getInstance();
-          reservasController.start();
-
-        });
+        vehiculoView.getJComboBox().addActionListener(e -> filtrarVehiculos());
     }
 
-    // Inicializar eventos en RegistroVehiculoView
     private void initRegistroVehiculoView() {
-        if ( temp2 ) return;
+        if (temp2) return;
         temp2 = true;
+
         registroVehiculoView.getBtnSiguiente().addActionListener(e -> {
             String tipoVehiculo = (String) registroVehiculoView.getComboboxTipoVehiculo().getSelectedItem();
 
@@ -130,13 +105,12 @@ public class VehiculoController {
             registroVehiculoView.setVisible(false);
             vehiculoView.setVisible(true);
         });
-
     }
 
-    // Inicializar eventos en ModalAutoView
     private void initModalAutoView() {
-        if ( temp3 ) return;
+        if (temp3) return;
         temp3 = true;
+
         modalAutoView.getBtnAgregar().addActionListener(e -> {
             try {
                 String matricula = registroVehiculoView.getTxtMatricula().getText();
@@ -146,21 +120,18 @@ public class VehiculoController {
                 int numAsientos = (Integer) modalAutoView.getSpinnerNumAsientos().getValue();
                 int capacidadMaletero = (Integer) modalAutoView.getSpinnerCapMaletero().getValue();
                 boolean disponible = registroVehiculoView.getCheckBox().isSelected();
-                
-                for ( int i = 0; i < vehiculos.size(); i++ ) 
-                  if ( matricula.equals(vehiculos.get(i).getMatricula()))
-                    throw new Exception("No se puede registra otro vehiculo con la misma matricula");
 
+                if (vehiculos.stream().anyMatch(v -> v.getMatricula().equals(matricula))) {
+                    throw new Exception("No se puede registrar otro vehículo con la misma matrícula.");
+                }
 
-                if (totalVehiculos >= CAPACIDAD_MAXIMA) {
+                if (vehiculos.size() >= CAPACIDAD_MAXIMA) {
                     JOptionPane.showMessageDialog(modalAutoView, "Capacidad máxima alcanzada.");
                     return;
                 }
 
                 Vehiculo auto = new Auto(matricula, marca, modelo, precioPorDia, disponible, numAsientos, capacidadMaletero);
-
                 vehiculos.add(auto);
-                totalVehiculos++;
 
                 actualizarTablaVehiculos();
                 modalAutoView.setVisible(false);
@@ -175,10 +146,10 @@ public class VehiculoController {
         modalAutoView.getBtnCancelar().addActionListener(e -> modalAutoView.setVisible(false));
     }
 
-    // Inicializar eventos en ModalCamionView
     private void initModalCamionView() {
-        if ( temp4 ) return;
+        if (temp4) return;
         temp4 = true;
+
         modalCamionView.getBtnAgregar().addActionListener(e -> {
             try {
                 String matricula = registroVehiculoView.getTxtMatricula().getText();
@@ -189,18 +160,17 @@ public class VehiculoController {
                 boolean dobleCabina = modalCamionView.getCheckboxDobleCabina().isSelected();
                 boolean disponible = registroVehiculoView.getCheckBox().isSelected();
 
-                for ( int i = 0; i < vehiculos.size(); i++ ) 
-                  if ( matricula.equals(vehiculos.get(i).getMatricula()))
-                    throw new Exception("No se puede registra otro vehiculo con la misma matricula");
+                if (vehiculos.stream().anyMatch(v -> v.getMatricula().equals(matricula))) {
+                    throw new Exception("No se puede registrar otro vehículo con la misma matrícula.");
+                }
 
-                if (totalVehiculos >= CAPACIDAD_MAXIMA) {
+                if (vehiculos.size() >= CAPACIDAD_MAXIMA) {
                     JOptionPane.showMessageDialog(modalCamionView, "Capacidad máxima alcanzada.");
                     return;
                 }
 
                 Vehiculo camion = new Camion(matricula, marca, modelo, precioPorDia, disponible, capacidadCarga, dobleCabina);
                 vehiculos.add(camion);
-                totalVehiculos++;
 
                 actualizarTablaVehiculos();
                 modalCamionView.setVisible(false);
@@ -212,13 +182,13 @@ public class VehiculoController {
             }
         });
 
-        vehiculoView.getJComboBox().addActionListener(e -> filtrarVehiculos());
+        modalCamionView.getBtnCancelar().addActionListener(e -> modalCamionView.setVisible(false));
     }
 
-    // Inicializar eventos en ModalMotoView
     private void initModalMotoView() {
-        if ( temp5 ) return;
+        if (temp5) return;
         temp5 = true;
+
         modalMotoView.getBtnAgregar().addActionListener(e -> {
             try {
                 String matricula = registroVehiculoView.getTxtMatricula().getText();
@@ -228,18 +198,17 @@ public class VehiculoController {
                 int cilindraje = (Integer) modalMotoView.getSpinnerCilindraje().getValue();
                 boolean disponible = registroVehiculoView.getCheckBox().isSelected();
 
-                for ( int i = 0; i < vehiculos.size(); i++ ) 
-                  if ( matricula.equals(vehiculos.get(i).getMatricula()))
-                    throw new Exception("No se puede registra otro vehiculo con la misma matricula");
+                if (vehiculos.stream().anyMatch(v -> v.getMatricula().equals(matricula))) {
+                    throw new Exception("No se puede registrar otro vehículo con la misma matrícula.");
+                }
 
-                if (totalVehiculos >= CAPACIDAD_MAXIMA) {
+                if (vehiculos.size() >= CAPACIDAD_MAXIMA) {
                     JOptionPane.showMessageDialog(modalMotoView, "Capacidad máxima alcanzada.");
                     return;
                 }
 
                 Vehiculo moto = new Motocicleta(matricula, marca, modelo, precioPorDia, disponible, cilindraje);
                 vehiculos.add(moto);
-                totalVehiculos++;
 
                 actualizarTablaVehiculos();
                 modalMotoView.setVisible(false);
@@ -258,14 +227,13 @@ public class VehiculoController {
         DefaultTableModel model = (DefaultTableModel) vehiculoView.getjTable1().getModel();
         model.setRowCount(0);
 
-        for (int i = 0; i < totalVehiculos; i++) {
-            Vehiculo vehiculo = vehiculos.get(i);
+        for (Vehiculo vehiculo : vehiculos) {
             model.addRow(new Object[]{
-                        vehiculo.getMatricula(),
-                        vehiculo.getClass().getSimpleName(),
-                        vehiculo.getMarca(),
-                        vehiculo.getModelo(),
-                        vehiculo.getPrecioPorDia()
+                    vehiculo.getMatricula(),
+                    vehiculo.getClass().getSimpleName(),
+                    vehiculo.getMarca(),
+                    vehiculo.getModelo(),
+                    vehiculo.getPrecioPorDia()
             });
         }
     }
@@ -273,9 +241,9 @@ public class VehiculoController {
     private void buscarVehiculo() {
         String matricula = vehiculoView.getTxtBuscarVehiculo().getText();
 
-        for (int i = 0; i < totalVehiculos; i++) {
-            if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
-                JOptionPane.showMessageDialog(vehiculoView, vehiculos.get(i).toString());
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
+                JOptionPane.showMessageDialog(vehiculoView, vehiculo.toString());
                 return;
             }
         }
@@ -298,31 +266,15 @@ public class VehiculoController {
     private void filtrarVehiculos() {
         String tipoSeleccionado = (String) vehiculoView.getJComboBox().getSelectedItem();
         DefaultTableModel model = (DefaultTableModel) vehiculoView.getjTable1().getModel();
-        model.setRowCount(0); // Limpiar la tabla antes de llenarla
+        model.setRowCount(0);
 
-        // Filtrar los vehículos según el tipo seleccionado
-        for (int i = 0; i < totalVehiculos; i++) {
-            Vehiculo vehiculo = vehiculos.get(i);
-
-            // Filtrar por tipo de vehículo
-            boolean coincide = false;
-            switch (tipoSeleccionado) {
-                case "Todos":
-                    coincide = true;
-                    break;
-                case "Autos":
-                    if (vehiculo instanceof Auto) coincide = true;
-                    break;
-                case "Camiones":
-                    if (vehiculo instanceof Camion) coincide = true;
-                    break;
-                case "Motocicletas":
-                    if (vehiculo instanceof Motocicleta) coincide = true;
-                    break;
-            }
+        for (Vehiculo vehiculo : vehiculos) {
+            boolean coincide = tipoSeleccionado.equals("Todos") ||
+                    (tipoSeleccionado.equals("Autos") && vehiculo instanceof Auto) ||
+                    (tipoSeleccionado.equals("Camiones") && vehiculo instanceof Camion) ||
+                    (tipoSeleccionado.equals("Motocicletas") && vehiculo instanceof Motocicleta);
 
             if (coincide) {
-                // Agregar el vehículo a la tabla
                 model.addRow(new Object[]{
                         vehiculo.getMatricula(),
                         vehiculo.getClass().getSimpleName(),
@@ -333,4 +285,9 @@ public class VehiculoController {
             }
         }
     }
+
+    public ArrayList<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+    
 }
