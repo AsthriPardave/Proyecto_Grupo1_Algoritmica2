@@ -126,6 +126,104 @@ public class FileManager {
     
     //**********************CLIENTES**********************************
     
+    public static void escribirCliente(List<Cliente> clientes){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Vehiculos.txt"))) {
+            for (Cliente cliente : clientes) {
+                
+                writer.write(cliente.getNombre());
+                writer.newLine();
+                writer.write(cliente.getApellido());
+                writer.newLine();
+                writer.write(cliente.getEmail());
+                writer.newLine();
+                writer.write(cliente.getDni());
+                writer.newLine();
+                writer.write(cliente.getNumero());
+                writer.newLine();
+                    
+                writer.newLine(); // Línea en blanco entre vehículos
+            }
+            System.out.println("Lista de clientes guardada en Clientes.txt");
+        } catch (IOException e) {
+            System.err.println("Error al guardar los clientes: " + e.getMessage());
+        }
+    }
     
+    public static List<Cliente> leerClientes() throws FileNotFoundException, IOException{
+        List<Cliente> clientes = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("Clientes.txt"))) {
+            String linea;
+            Cliente cliente = null;
+            String nombre = "", apellido = "", email = "", dni = "", numero = "";
+
+            while ((linea = reader.readLine()) != null) {
+                nombre = linea;
+                apellido = reader.readLine();
+                email = reader.readLine();
+                dni = reader.readLine();
+                numero = reader.readLine();
+                cliente = new Cliente(nombre, apellido, email, dni, numero);
+
+                if (cliente != null) {
+                    clientes.add(cliente);
+                    cliente = null; 
+                }
+              linea = reader.readLine();  
+            }
+        }
+        return clientes;
+    }
     
+    //************************RESERVA*********************************
+    
+    public static void escribirReserva(List<Reserva> reservas){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Reservas.txt"))) {
+            for (Reserva reserva : reservas) {
+                
+                writer.write(reserva.getId());
+                writer.newLine();
+                writer.write(reserva.getDiasReservados());
+                writer.newLine();
+                writer.write(reserva.getVehiculo().getMatricula());
+                writer.newLine();
+                writer.write(reserva.getCliente().getDni());
+                writer.newLine();    
+                
+                writer.newLine(); // Línea en blanco entre vehículos
+            }
+            System.out.println("Lista de clientes guardada en Reservas.txt");
+        } catch (IOException e) {
+            System.err.println("Error al guardar los reservas: " + e.getMessage());
+        }
+    }
+    
+    public static List<Reserva> leerReservas(List<Vehiculo> vehiculos, List<Cliente> clientes) throws FileNotFoundException, IOException{
+        List<Reserva> reservas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("Clientes.txt"))) {
+            String linea;
+            Reserva reserva = null;
+            String id = "";
+            int diasReservados = 0;
+            Vehiculo vehiculo = null;
+            Cliente cliente = null;
+            String matricula = "";
+            String dni = "";
+
+            while ((linea = reader.readLine()) != null) {
+                id = reader.readLine();
+                diasReservados = Integer.parseInt(reader.readLine());
+                matricula = reader.readLine();
+                dni = reader.readLine();
+                reserva = new Reserva(id, diasReservados,Vehiculo.buscarVehiculo(matricula, vehiculos),Cliente.buscarCliente(dni, clientes));
+                if (reserva != null) {
+                    reservas.add(reserva);
+                    reserva = null; 
+                }
+              linea = reader.readLine();  
+            }
+        }
+        return reservas;
+    }
+    
+    //*************************PAGOS**********************************
 }

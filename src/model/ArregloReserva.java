@@ -51,7 +51,7 @@ public class ArregloReserva {
     public void listarReservas() {
         for (int i = 0; i < totalReservas; i++) {
             Reserva reserva = reservas[i];
-            System.out.println("Reserva del " + reserva.getFechaInicio() + " al " + reserva.getFechaFin() + 
+            System.out.println("Reserva del " + reserva.getFecha() + " al " + reserva.getFechaFin() + 
                                " - Total: " + reserva.getMontoTotal());
         }
     }

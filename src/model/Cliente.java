@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.List;
+
 public class Cliente extends Persona implements ClienteUsuario {
     private String dni;
     private String numero;
@@ -57,6 +59,15 @@ public class Cliente extends Persona implements ClienteUsuario {
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+    
+    public static Cliente buscarCliente(String dni, List<Cliente> clientes){
+        for(int i=0; i<clientes.size(); i++){
+           if(dni.equals(clientes.get(i).getDni())){
+               return clientes.get(i);
+           }
+        }
+        return null;
     }
 }
 

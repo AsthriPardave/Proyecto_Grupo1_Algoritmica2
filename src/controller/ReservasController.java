@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Cliente;
 
 public class ReservasController {
     private static ReservasController instance;
@@ -56,7 +57,6 @@ public class ReservasController {
         });
 
         reservasView.getBtnBuscar().addActionListener(e -> buscarReserva());
-        reservasView.getComboBox().addActionListener(e -> filtrarReserva());
 
         reservasView.getBtnModificar().addActionListener(e -> {
             reservasView.setVisible(false);
@@ -80,24 +80,6 @@ public class ReservasController {
 
                 if (pago <= 0) {
                     throw new Exception("El pago es incorrecto");
-                }
-
-                reserva.setMontoActual(reserva.getMontoActual() + pago);
-
-                if (reserva.getMontoActual() >= reserva.getMontoTotal()) {
-                    reserva.setCancelado(true);
-                    reserva.setMontoActual(reserva.getMontoTotal());
-
-                    double vuelto = reserva.getMontoActual() - reserva.getMontoTotal();
-                    if (vuelto > 0) {
-                        JOptionPane.showMessageDialog(modificarReservasView,
-                                "Pago completo. Vuelto: " + vuelto);
-                    } else {
-                        JOptionPane.showMessageDialog(modificarReservasView, "Pago completo.");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(modificarReservasView,
-                            "Pago parcial. Monto restante: " + (reserva.getMontoTotal() - reserva.getMontoActual()));
                 }
 
                 modificarReservasView.setVisible(false);
@@ -130,26 +112,6 @@ public class ReservasController {
         }
     }
 
-    private void filtrarReserva() {
-        String tipoReserva = (String) reservasView.getComboBox().getSelectedItem();
-        DefaultTableModel model = (DefaultTableModel) reservasView.getTabla().getModel();
-        model.setRowCount(0);
-
-        for (Reserva reserva : reservas) {
-            String tipo = reserva.getCancelado() ? "Cancelados" : "Por Cancelar";
-
-            if (tipoReserva.equals("Todos") || tipoReserva.equals(tipo)) {
-                model.addRow(new Object[]{
-                        reserva.getId(),
-                        reserva.getFechaInicio(),
-                        reserva.getFechaFin(),
-                        reserva.getMontoActual(),
-                        reserva.getMontoTotal()
-                });
-            }
-        }
-    }
-
     private void initRegistroReservaView() {
         if (temp3) return;
         temp3 = true;
@@ -169,7 +131,7 @@ public class ReservasController {
                     throw new Exception("El vehículo no está disponible.");
                 }
 
-                Reserva reserva = new Reserva(diasReservados, vehiculo);
+                Reserva reserva = new Reserva(id, diasReservados, vehiculo, cliente);
                 reservas.add(reserva);
 
                 actualizarTablaReserva();
@@ -195,9 +157,8 @@ public class ReservasController {
         for (Reserva reserva : reservas) {
             model.addRow(new Object[]{
                     reserva.getId(),
-                    reserva.getFechaInicio(),
+                    reserva.getFecha(),
                     reserva.getFechaFin(),
-                    reserva.getMontoActual(),
                     reserva.getMontoTotal()
             });
         }

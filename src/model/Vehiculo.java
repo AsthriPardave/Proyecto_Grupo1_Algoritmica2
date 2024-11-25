@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.List;
+
 public class Vehiculo {
     private String matricula;
     private String marca;
@@ -76,5 +78,14 @@ public class Vehiculo {
     public String toString() {
         return "Vehiculo [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + 
                ", precioPorDia=" + precioPorDia + ", disponible=" + disponible + "]";
+    }
+    
+    public static Vehiculo buscarVehiculo(String matricula, List<Vehiculo> vehiculos){
+        for(int i=0; i<vehiculos.size(); i++){
+           if(matricula.equals(vehiculos.get(i).getMatricula())){
+               return vehiculos.get(i);
+           }
+        }
+        return null;
     }
 }
