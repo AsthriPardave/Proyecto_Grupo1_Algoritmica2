@@ -15,7 +15,6 @@ public class Administrador extends Persona {
         this.totalVehiculos = 0;
     }
 
-    @Override
     public void agregarVehiculo(Vehiculo vehiculo) {
         if (totalVehiculos < CAPACIDAD_MAXIMA) {
             listaVehiculos[totalVehiculos] = vehiculo;
@@ -26,7 +25,6 @@ public class Administrador extends Persona {
         }
     }
 
-    @Override
     public void modificarVehiculo(String matricula, String nuevaMarca, String nuevoModelo, float nuevoPrecioPorDia) {
         for (int i = 0; i < totalVehiculos; i++) {
             if (listaVehiculos[i].getMatricula().equals(matricula)) {
@@ -40,7 +38,6 @@ public class Administrador extends Persona {
         System.out.println("Vehículo con matrícula " + matricula + " no encontrado.");
     }
 
-    @Override
     public void eliminarVehiculo(String matricula) {
         for (int i = 0; i < totalVehiculos; i++) {
             if (listaVehiculos[i].getMatricula().equals(matricula)) {
@@ -56,7 +53,6 @@ public class Administrador extends Persona {
         System.out.println("Vehículo con matrícula " + matricula + " no encontrado.");
     }
 
-    @Override
     public void listarVehiculos() {
         if (totalVehiculos == 0) {
             System.out.println("No hay vehículos registrados.");

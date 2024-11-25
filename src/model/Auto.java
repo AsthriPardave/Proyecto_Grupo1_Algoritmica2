@@ -6,9 +6,9 @@ package model;
 
 public class Auto extends Vehiculo {
     private int numeroAsientos;
-    private int capacidadMaletero;
+    private float capacidadMaletero;
 
-    public Auto(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int numeroAsientos, int capacidadMaletero) {
+    public Auto(String matricula, String marca, String modelo, float precioPorDia, boolean disponible, int numeroAsientos, float capacidadMaletero) {
         super(matricula, marca, modelo, precioPorDia, disponible);
         this.numeroAsientos = numeroAsientos;
         this.capacidadMaletero = capacidadMaletero;

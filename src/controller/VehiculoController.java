@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import model.Vehiculo;
 import model.Auto;
 import model.Camion;
@@ -14,8 +15,9 @@ import view.ReservasView;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import model.FileManager;
 
-import view.TrabajadoresView;
+import view.ClientesView;
 
 public class VehiculoController {
   private boolean temp1 = false;
@@ -36,9 +38,9 @@ public class VehiculoController {
     private int totalVehiculos;
     private final int CAPACIDAD_MAXIMA = 100;
 
-    private TrabajadoresView trabajadorView;
+    private ClientesView trabajadorView;
 
-    public static VehiculoController getInstance() {
+    public static VehiculoController getInstance() throws IOException {
       if ( instance == null ) 
         instance = new VehiculoController ();
 
@@ -46,17 +48,17 @@ public class VehiculoController {
       return instance;
     }
 
-    private VehiculoController() {
+    private VehiculoController() throws IOException {
         this.vehiculoView = new VehiculosView();
         this.registroVehiculoView = new RegistroVehiculoView();
         this.modalAutoView = new ModalAutoView();
         this.modalCamionView = new ModalCamionView();
         this.modalMotoView = new ModalMotoView();
 
-        this.vehiculos = new ArrayList<>();
+        this.vehiculos = (ArrayList<Vehiculo>) FileManager.leerVehiculos();
 
         this.totalVehiculos = 0;
-        this.trabajadorView = new TrabajadoresView();
+        this.trabajadorView = new ClientesView();
 
     }
     public void start () {
@@ -71,9 +73,10 @@ public class VehiculoController {
 
     // Inicializar eventos en VehiculoView
     private void initVehiculoView() {
+        
         if ( temp1 ) return;
         temp1 = true;
-
+        actualizarTablaVehiculos();
         vehiculoView.getBtnAñadirVehiculo().addActionListener(e -> {
             vehiculoView.setVisible(false);
             registroVehiculoView.setVisible(true);

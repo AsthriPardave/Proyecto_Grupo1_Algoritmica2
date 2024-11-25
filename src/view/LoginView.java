@@ -90,7 +90,7 @@ public class LoginView extends javax.swing.JFrame {
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Ingresar");
 
-        btnRegister.setForeground(new java.awt.Color(242, 66, 76));
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("¿No tienes cuenta?. Registrarse");
         btnRegister.setActionCommand("");
         btnRegister.setBorder(null);
@@ -218,7 +218,7 @@ public class LoginView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    public javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

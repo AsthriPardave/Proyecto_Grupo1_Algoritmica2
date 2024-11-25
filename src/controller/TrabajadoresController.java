@@ -1,8 +1,7 @@
 package controller;
 
 import model.Trabajadores;
-import view.TrabajadoresView;
-import view.RegistroTrabajadorView;
+import view.ClientesView;
 
 
 import javax.swing.*;
@@ -16,9 +15,8 @@ public class TrabajadoresController {
   private static TrabajadoresController instance;
 
 
-  private TrabajadoresView trabajadorView;
+  private ClientesView trabajadorView;
   private boolean isTrabajadorViewInitialized = false;
-  private RegistroTrabajadorView registroTrabajadorView;
   private boolean isRegistroTrabajadorViewInitialized = false;
 
   public ArrayList<Trabajadores> trabajadores;
@@ -34,8 +32,7 @@ public class TrabajadoresController {
   }
 
   private TrabajadoresController () {
-    this.trabajadorView = new TrabajadoresView();
-    this.registroTrabajadorView = new RegistroTrabajadorView();
+    this.trabajadorView = new ClientesView();
     this.trabajadores = new ArrayList<>();
     //this.totalTrabajadores = 0;
 
@@ -48,7 +45,7 @@ public class TrabajadoresController {
 
   public void start () {
     instance.initTrabajadorView();
-    instance.initRegistroTrabajadorView();
+
     trabajadorView.setVisible(true);
   }
   
@@ -58,7 +55,6 @@ public class TrabajadoresController {
 
     trabajadorView.getBtnAnhadirTrabajador().addActionListener ( e -> {
       trabajadorView.setVisible(false);
-      registroTrabajadorView.setVisible(true);
     });
 
     trabajadorView.getBtnBuscarTrabajador().addActionListener ( e -> buscarTrabajador() );
@@ -117,50 +113,7 @@ public class TrabajadoresController {
 
     }
   }
-  private void initRegistroTrabajadorView() {
-    if (isRegistroTrabajadorViewInitialized) return; // Evita inicializaciones múltiples
-      isRegistroTrabajadorViewInitialized = true;
-
-    registroTrabajadorView.getBtnRegister().addActionListener(e -> {
-        try {
-          String nombre = registroTrabajadorView.getTxtNombre().getText();
-          String apellido = registroTrabajadorView.getTxtApellido().getText();
-          String email = registroTrabajadorView.getTxtCorreo().getText();
-          String clave = registroTrabajadorView.getTxtContrasenha().getText();
-          String dni = registroTrabajadorView.getTxtFechaNacimiento().getText();
-          String fechaNacimiento = registroTrabajadorView.getTxtDNI().getText();
-          String tipoTrabajador = (String) registroTrabajadorView.getJComboBox().getSelectedItem();
-
-          for (int i = 0; i < trabajadores.size(); i++) {
-              if (trabajadores.get(i).getDni().equals(dni)) {
-                  throw new Exception("No se puede registrar otra persona con el mismo DNI");
-              }
-              System.out.println("llega");
-          }
-
-          Trabajadores trabajador = new Trabajadores( nombre, apellido, email, clave, fechaNacimiento, dni, tipoTrabajador);
-          trabajadores.add(trabajador);
-          //totalTrabajadores++;
-
-          actualizarTablaTrabajadores();
-
-          registroTrabajadorView.setVisible(false);
-          trabajadorView.setVisible(true);
-          JOptionPane.showMessageDialog(trabajadorView, "Trabajador registrado con exito.");
-
-        } catch ( Exception ex ) {
-          JOptionPane.showMessageDialog( registroTrabajadorView, "Error al registrar trabajador: " + ex.getMessage());
-          
-        }
-
-    });
-
-    registroTrabajadorView.getBtnCancelarRegister().addActionListener(e -> {
-        registroTrabajadorView.setVisible(false);
-        trabajadorView.setVisible(true);
-    });
-
-  }
+  
   private void actualizarTablaTrabajadores () {
     DefaultTableModel model = (DefaultTableModel) trabajadorView.getjTable().getModel();
     model.setRowCount(0);
