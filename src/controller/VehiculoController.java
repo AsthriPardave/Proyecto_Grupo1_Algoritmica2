@@ -52,6 +52,10 @@ public class VehiculoController {
         this.modalMotoView = new ModalMotoView();
 
         this.vehiculos = (ArrayList<Vehiculo>) FileManager.leerVehiculos();
+
+        this.totalVehiculos = vehiculos.size();
+        this.trabajadorView = new ClientesView();
+
     }
 
     public void start() {
@@ -132,6 +136,8 @@ public class VehiculoController {
 
                 Vehiculo auto = new Auto(matricula, marca, modelo, precioPorDia, disponible, numAsientos, capacidadMaletero);
                 vehiculos.add(auto);
+                FileManager.escribirVehiculo(vehiculos);
+                totalVehiculos++;
 
                 actualizarTablaVehiculos();
                 modalAutoView.setVisible(false);
