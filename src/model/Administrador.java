@@ -8,11 +8,13 @@ public class Administrador extends Persona {
     private Vehiculo[] listaVehiculos;
     private int totalVehiculos;
     private final int CAPACIDAD_MAXIMA = 100;
+    private String claveAcceso;
 
     public Administrador(String nombre, String apellidos, String email, String claveAcceso) {
-        super(nombre, apellidos, email, claveAcceso);
+        super(nombre, apellidos, email);
         this.listaVehiculos = new Vehiculo[CAPACIDAD_MAXIMA];
         this.totalVehiculos = 0;
+        this.claveAcceso = claveAcceso;
     }
 
     public void agregarVehiculo(Vehiculo vehiculo) {

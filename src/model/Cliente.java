@@ -6,10 +6,12 @@ package model;
 
 public class Cliente extends Persona implements ClienteUsuario {
     private String dni;
+    private String numero;
 
-    public Cliente(String nombre, String apellidos, String email, String claveAcceso, String dni) {
-        super(nombre, apellidos, email, claveAcceso);
+    public Cliente(String nombre, String apellidos, String email, String dni, String numero) {
+        super(nombre, apellidos, email);
         this.dni = dni;
+        this.numero = numero;
     }
 
     // Getter y Setter para dni
@@ -47,6 +49,14 @@ public class Cliente extends Persona implements ClienteUsuario {
     @Override
     public void listarVehiculos() {
         System.out.println("Operación no permitida: los clientes no pueden listar vehículos.");
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 }
 

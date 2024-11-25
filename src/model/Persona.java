@@ -8,23 +8,14 @@ public abstract class Persona {
     private String nombre;
     private String apellidos;
     private String email;
-    private String claveAcceso;
 
-    public Persona(String nombre, String apellidos, String email, String claveAcceso) {
+    public Persona(String nombre, String apellidos, String email) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
-        this.claveAcceso = claveAcceso;
     }
 
     // Getters y Setters
-    public String getClaveAcceso() {
-        return claveAcceso;
-    }
-
-    public void setClaveAcceso(String claveAcceso) {
-        this.claveAcceso = claveAcceso;
-    }
 
     public String getNombre() {
         return nombre;

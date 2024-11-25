@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import model.Trabajadores;
 import view.ClientesView;
 
@@ -8,6 +9,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import view.VehiculosView;
 
@@ -63,8 +66,13 @@ public class TrabajadoresController {
     trabajadorView.getBtnVehiculosView().addActionListener ( e -> {
       trabajadorView.setVisible(false);
       
-      VehiculoController vehiculoController = VehiculoController.getInstance();
-      vehiculoController.start();
+      VehiculoController vehiculoController;
+        try {
+            vehiculoController = VehiculoController.getInstance();
+            vehiculoController.start();
+        } catch (IOException ex) {
+            Logger.getLogger(TrabajadoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
       
 
     });
