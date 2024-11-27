@@ -109,7 +109,7 @@ public class VehiculosView extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
         btnTrabajadoresView.setBackground(new java.awt.Color(242, 66, 76));
-        btnTrabajadoresView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-trabajadores-30.png"))); // NOI18N
+        btnTrabajadoresView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
         btnTrabajadoresView.setBorder(null);
         btnTrabajadoresView.setBorderPainted(false);
         btnTrabajadoresView.setContentAreaFilled(false);

@@ -11,7 +11,9 @@ import javax.swing.table.DefaultTableModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import model.Cliente;
+import model.FileManager;
 
 public class ReservasController {
     private static ReservasController instance;
@@ -120,8 +122,10 @@ public class ReservasController {
             try {
                 int diasReservados = (Integer) registroReservasView.getSpinner().getValue();
                 String matriculaVehiculo = registroReservasView.getTextVehiculo().getText();
-
+                String dniCliente = registroReservasView.getTextCliente().getText();
+                
                 Vehiculo vehiculo = buscarVehiculo(matriculaVehiculo);
+                Cliente cliente = Cliente.buscarCliente(dniCliente, FileManager.leerClientes());
 
                 if (vehiculo == null) {
                     throw new Exception("No se encontró un vehículo con esa matrícula.");
@@ -131,7 +135,7 @@ public class ReservasController {
                     throw new Exception("El vehículo no está disponible.");
                 }
 
-                Reserva reserva = new Reserva(id, diasReservados, vehiculo, cliente);
+                Reserva reserva = new Reserva("id",diasReservados, vehiculo, cliente);
                 reservas.add(reserva);
 
                 actualizarTablaReserva();
@@ -165,17 +169,17 @@ public class ReservasController {
     }
 
     private Vehiculo buscarVehiculo(String matricula) {
-    try {
-        VehiculoController vehiculoController = VehiculoController.getInstance();
-        return vehiculoController.getVehiculos().stream()
-                .filter(vehiculo -> vehiculo.getMatricula().equals(matricula))
-                .findFirst()
-                .orElse(null);
-    } catch (IOException e) {
-        e.printStackTrace();
-        return null;
+        try {
+            VehiculoController vehiculoController = VehiculoController.getInstance();
+            return vehiculoController.getVehiculos().stream()
+                    .filter(vehiculo -> vehiculo.getMatricula().equals(matricula))
+                    .findFirst()
+                    .orElse(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-}
 
-  
+    
 }

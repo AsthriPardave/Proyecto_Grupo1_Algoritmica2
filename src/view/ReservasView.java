@@ -91,7 +91,7 @@ public class ReservasView extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
         btnTrabajadores.setBackground(new java.awt.Color(242, 66, 76));
-        btnTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-trabajadores-30.png"))); // NOI18N
+        btnTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
         btnTrabajadores.setBorder(null);
         btnTrabajadores.setBorderPainted(false);
         btnTrabajadores.setContentAreaFilled(false);
