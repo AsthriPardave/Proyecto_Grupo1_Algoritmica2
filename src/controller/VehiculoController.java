@@ -38,8 +38,6 @@ public class VehiculoController {
     private int totalVehiculos;
     private final int CAPACIDAD_MAXIMA = 100;
 
-    private ClientesView trabajadorView;
-
     public static VehiculoController getInstance() throws IOException {
       if ( instance == null ) 
         instance = new VehiculoController ();
@@ -62,7 +60,6 @@ public class VehiculoController {
         this.vehiculos = (ArrayList<Vehiculo>) FileManager.leerVehiculos();
 
         this.totalVehiculos = vehiculos.size();
-        this.trabajadorView = new ClientesView();
 
     }
     public void start () {

@@ -49,3 +49,17 @@ public class DashboardController {
         System.out.println("Mostrando el módulo de pagos...");
     }
 }
+
+
+/*
+
+
+
+private void mostrarPago() {
+        // Aquí puedes implementar la lógica para el módulo de pagos
+        System.out.println("Mostrando el módulo de pagos...");
+    }
+
+
+
+ */
