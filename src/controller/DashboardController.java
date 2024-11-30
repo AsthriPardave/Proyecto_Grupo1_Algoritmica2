@@ -7,17 +7,20 @@ public class DashboardController {
     private DashboardView dashboardView;
     private VehiculoController vehiculoController;
     private ReservasController reservasController;
+    private ClienteController clienteController;
 
     public DashboardController(
-            DashboardView dashboardView,
-            VehiculoController vehiculoController,
-            ReservasController reservasController) {
-        this.dashboardView = dashboardView;
-        this.vehiculoController = vehiculoController;
-        this.reservasController = reservasController;
+        DashboardView dashboardView,
+        VehiculoController vehiculoController,
+        ReservasController reservasController,
+        ClienteController clienteController) {
+            this.dashboardView = dashboardView;
+            this.vehiculoController = vehiculoController;
+            this.reservasController = reservasController;
+            this.clienteController = clienteController;
 
-        initDashboardView();
-    }
+            initDashboardView();
+        }
 
     private void initDashboardView() {
         dashboardView.setVisible(true);
@@ -27,10 +30,16 @@ public class DashboardController {
         dashboardView.getBtnReserva().addActionListener(e -> mostrarReservasView());
         dashboardView.getBtnInicio().addActionListener(e -> mostrarInicio());
         dashboardView.getBtnPago().addActionListener(e -> mostrarPago());
+        dashboardView.getBtnCliente().addActionListener(e -> mostrarPago());
     }
 
     private void mostrarVehiculosView() {
         vehiculoController.start(); // Llama al método para mostrar la vista de Vehículos
+        dashboardView.setVisible(false); // Opcional: oculta el Dashboard mientras se muestra la vista de Vehículos
+    }
+    
+    private void mostrarClientesView() {
+        clienteController.start(); // Llama al método para mostrar la vista de Vehículos
         dashboardView.setVisible(false); // Opcional: oculta el Dashboard mientras se muestra la vista de Vehículos
     }
 

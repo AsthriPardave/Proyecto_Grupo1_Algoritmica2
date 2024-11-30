@@ -39,7 +39,8 @@ public class LoginController {
                         // Iniciar el DashboardController con los controladores necesarios
                         VehiculoController vehiculoController = VehiculoController.getInstance();
                         ReservasController reservasController = ReservasController.getInstance();
-                        new DashboardController(dashboardView, vehiculoController, reservasController);
+                        ClienteController clienteController = ClienteController.getInstance();
+                        new DashboardController(dashboardView, vehiculoController, reservasController, clienteController);
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(loginView, "Error al inicializar el sistema: " + ex.getMessage());
                         loginView.setVisible(true); // Volver al login en caso de error

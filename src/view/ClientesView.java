@@ -20,29 +20,36 @@ public class ClientesView extends javax.swing.JFrame {
 
     }
 
-    
+    public JButton getBtnPago() {
+        return BtnPago;
+    }
+
     
 
     public JButton getBtnReservaView () {
       return jButton4;
     }
     public JButton getBtnVehiculosView () {
-      return jButton5;
+      return BtnVehiculos;
     }
     public JTable getjTable() {
         return jTable1; // Tabla de vehículos
     }
-    public JButton getBtnAnhadirTrabajador () {
-      return btnAñadirTrabajador;
+    public JButton getBtnAnhadirCliente () {
+      return btnAñadirCliente;
     }
     public JComboBox<String> getJComboBox() {
       return jComboBox1;
     }
-    public JTextField getTxtBuscarTrabajador () {
+
+    public JButton getBtnInicio() {
+        return BtnInicio;
+    }
+    public JTextField getTxtBuscarCliente () {
       return jTextField1;
     }
     public JButton getBtnBuscarTrabajador() {
-      return jButton2;
+      return BtnBuscarCliente;
     }
 
 
@@ -60,19 +67,19 @@ public class ClientesView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        BtnVehiculos = new javax.swing.JButton();
+        BtnInicio = new javax.swing.JButton();
+        BtnPago = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAñadirTrabajador = new javax.swing.JButton();
+        btnAñadirCliente = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        BtnBuscarCliente = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -84,11 +91,11 @@ public class ClientesView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
-        jButton3.setBackground(new java.awt.Color(242, 66, 76));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
+        btnCliente.setBackground(new java.awt.Color(242, 66, 76));
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
+        btnCliente.setBorder(null);
+        btnCliente.setBorderPainted(false);
+        btnCliente.setContentAreaFilled(false);
 
         jButton4.setBackground(new java.awt.Color(242, 66, 76));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
@@ -101,25 +108,30 @@ public class ClientesView extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(242, 66, 76));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
+        BtnVehiculos.setBackground(new java.awt.Color(242, 66, 76));
+        BtnVehiculos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
+        BtnVehiculos.setBorder(null);
+        BtnVehiculos.setBorderPainted(false);
+        BtnVehiculos.setContentAreaFilled(false);
 
-        jButton6.setBackground(new java.awt.Color(242, 66, 76));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-diseño-del-tablero-30.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
+        BtnInicio.setBackground(new java.awt.Color(242, 66, 76));
+        BtnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-diseño-del-tablero-30.png"))); // NOI18N
+        BtnInicio.setBorder(null);
+        BtnInicio.setBorderPainted(false);
+        BtnInicio.setContentAreaFilled(false);
 
-        jButton7.setBackground(new java.awt.Color(242, 66, 76));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
-        jButton7.setToolTipText("");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
+        BtnPago.setBackground(new java.awt.Color(242, 66, 76));
+        BtnPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
+        BtnPago.setToolTipText("");
+        BtnPago.setBorder(null);
+        BtnPago.setBorderPainted(false);
+        BtnPago.setContentAreaFilled(false);
+        BtnPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPagoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -127,30 +139,30 @@ public class ClientesView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -169,12 +181,12 @@ public class ClientesView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnAñadirTrabajador.setBackground(new java.awt.Color(0, 153, 51));
-        btnAñadirTrabajador.setForeground(new java.awt.Color(255, 255, 255));
-        btnAñadirTrabajador.setText("Añadir");
-        btnAñadirTrabajador.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadirCliente.setBackground(new java.awt.Color(0, 153, 51));
+        btnAñadirCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnAñadirCliente.setText("Añadir");
+        btnAñadirCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAñadirTrabajadorActionPerformed(evt);
+                btnAñadirClienteActionPerformed(evt);
             }
         });
 
@@ -183,8 +195,8 @@ public class ClientesView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("CLIENTES");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-buscar-10.png"))); // NOI18N
-        jButton2.setToolTipText("");
+        BtnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-buscar-10.png"))); // NOI18N
+        BtnBuscarCliente.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -198,11 +210,11 @@ public class ClientesView extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(63, 63, 63)
-                            .addComponent(btnAñadirTrabajador)
+                            .addComponent(btnAñadirCliente)
                             .addGap(39, 39, 39))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,9 +227,9 @@ public class ClientesView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAñadirTrabajador)
+                        .addComponent(btnAñadirCliente)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -254,7 +266,11 @@ public class ClientesView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAñadirTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void BtnPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnPagoActionPerformed
+
+    private void btnAñadirClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
     }                                                    
 
@@ -307,13 +323,13 @@ public class ClientesView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAñadirTrabajador;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton BtnBuscarCliente;
+    private javax.swing.JButton BtnInicio;
+    private javax.swing.JButton BtnPago;
+    private javax.swing.JButton BtnVehiculos;
+    private javax.swing.JButton btnAñadirCliente;
+    private javax.swing.JButton btnCliente;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

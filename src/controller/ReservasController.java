@@ -2,7 +2,7 @@ package controller;
 
 import model.Reserva;
 import model.Vehiculo;
-import view.ModificarReservas;
+import view.ModificarReservaView;
 import view.RegistroReservaView;
 import view.ReservasView;
 
@@ -20,7 +20,7 @@ public class ReservasController {
 
     private ReservasView reservasView;
     private RegistroReservaView registroReservasView;
-    private ModificarReservas modificarReservasView;
+    private ModificarReservaView modificarReservasView;
 
     private boolean temp1 = false;
     private boolean temp2 = false;
@@ -38,14 +38,14 @@ public class ReservasController {
     public ReservasController() {
         this.reservasView = new ReservasView();
         this.registroReservasView = new RegistroReservaView();
-        this.modificarReservasView = new ModificarReservas();
+        this.modificarReservasView = new ModificarReservaView();
         this.reservas = new ArrayList<>();
     }
 
     public void start() {
         initReservasView();
         initRegistroReservaView();
-        initModificarReservasView();
+        //initModificarReservasView();
         reservasView.setVisible(true);
     }
 
@@ -66,7 +66,7 @@ public class ReservasController {
         });
     }
 
-    private void initModificarReservasView() {
+  /*  private void initModificarReservasView() {
         if (temp2) return;
         temp2 = true;
 
@@ -97,7 +97,7 @@ public class ReservasController {
             modificarReservasView.setVisible(false);
             reservasView.setVisible(true);
         });
-    }
+    }*/
 
     private void buscarReserva() {
         String id = reservasView.getTextField().getText();
