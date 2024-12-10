@@ -49,11 +49,11 @@ public class PagosView extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnReservaView = new javax.swing.JButton();
+        btnReservasView = new javax.swing.JButton();
         btnVehiculosView = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         btnPagoOventa = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnClientesView = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -84,14 +84,14 @@ public class PagosView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
-        btnReservaView.setBackground(new java.awt.Color(242, 66, 76));
-        btnReservaView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
-        btnReservaView.setBorder(null);
-        btnReservaView.setBorderPainted(false);
-        btnReservaView.setContentAreaFilled(false);
-        btnReservaView.addActionListener(new java.awt.event.ActionListener() {
+        btnReservasView.setBackground(new java.awt.Color(242, 66, 76));
+        btnReservasView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
+        btnReservasView.setBorder(null);
+        btnReservasView.setBorderPainted(false);
+        btnReservasView.setContentAreaFilled(false);
+        btnReservasView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservaViewActionPerformed(evt);
+                btnReservasViewActionPerformed(evt);
             }
         });
 
@@ -120,13 +120,13 @@ public class PagosView extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(242, 66, 76));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
-        jButton3.setAutoscrolls(true);
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
+        btnClientesView.setBackground(new java.awt.Color(242, 66, 76));
+        btnClientesView.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnClientesView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
+        btnClientesView.setAutoscrolls(true);
+        btnClientesView.setBorder(null);
+        btnClientesView.setBorderPainted(false);
+        btnClientesView.setContentAreaFilled(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -261,12 +261,12 @@ public class PagosView extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnClientesView, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -276,11 +276,11 @@ public class PagosView extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClientesView, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -320,9 +320,9 @@ public class PagosView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPagoOventaActionPerformed
 
-    private void btnReservaViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaViewActionPerformed
+    private void btnReservasViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReservaViewActionPerformed
+    }//GEN-LAST:event_btnReservasViewActionPerformed
 
     private void comboboxMetodoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxMetodoPagoActionPerformed
         // TODO add your handling code here:
@@ -371,14 +371,14 @@ public class PagosView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarReserva;
     private javax.swing.JButton btnCancelarRegisterPago;
+    private javax.swing.JButton btnClientesView;
     private javax.swing.JButton btnPagoOventa;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnRegisterPago;
-    private javax.swing.JButton btnReservaView;
+    private javax.swing.JButton btnReservasView;
     private javax.swing.JButton btnVehiculosView;
     private javax.swing.JComboBox<String> comboboxIDreserva;
     private javax.swing.JComboBox<String> comboboxMetodoPago;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

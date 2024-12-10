@@ -24,11 +24,11 @@ public class DashboardView extends javax.swing.JFrame {
     }
 
     public JButton getBtnReserva() {
-    return btnReserva;
+    return btnReservasView;
 }
 
 public JButton getBtnVehiculo() {
-    return btnVehiculo;
+    return btnVehiculosView;
 }
 
 public JButton getBtnInicio() {
@@ -36,7 +36,7 @@ public JButton getBtnInicio() {
 }
 
 public JButton getBtnPago() {
-    return btnPago;
+    return btnPagoOVenta;
 }
 
 
@@ -56,10 +56,10 @@ public JButton getBtnPago() {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnReserva = new javax.swing.JButton();
-        btnVehiculo = new javax.swing.JButton();
+        btnReservasView = new javax.swing.JButton();
+        btnVehiculosView = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
-        btnPago = new javax.swing.JButton();
+        btnPagoOVenta = new javax.swing.JButton();
         BtnCliente = new javax.swing.JButton();
 
         jMenu1.setText("File");
@@ -94,23 +94,28 @@ public JButton getBtnPago() {
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
-        btnReserva.setBackground(new java.awt.Color(242, 66, 76));
-        btnReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
-        btnReserva.setBorder(null);
-        btnReserva.setBorderPainted(false);
-        btnReserva.setContentAreaFilled(false);
-        btnReserva.addActionListener(new java.awt.event.ActionListener() {
+        btnReservasView.setBackground(new java.awt.Color(242, 66, 76));
+        btnReservasView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
+        btnReservasView.setBorder(null);
+        btnReservasView.setBorderPainted(false);
+        btnReservasView.setContentAreaFilled(false);
+        btnReservasView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservaActionPerformed(evt);
+                btnReservasViewActionPerformed(evt);
             }
         });
 
-        btnVehiculo.setBackground(new java.awt.Color(242, 66, 76));
-        btnVehiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
-        btnVehiculo.setBorder(null);
-        btnVehiculo.setBorderPainted(false);
-        btnVehiculo.setContentAreaFilled(false);
+        btnVehiculosView.setBackground(new java.awt.Color(242, 66, 76));
+        btnVehiculosView.setForeground(new java.awt.Color(255, 255, 255));
+        btnVehiculosView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
+        btnVehiculosView.setBorder(null);
+        btnVehiculosView.setBorderPainted(false);
+        btnVehiculosView.setContentAreaFilled(false);
+        btnVehiculosView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVehiculosViewActionPerformed(evt);
+            }
+        });
 
         btnInicio.setBackground(new java.awt.Color(242, 66, 76));
         btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-diseño-del-tablero-30.png"))); // NOI18N
@@ -118,12 +123,12 @@ public JButton getBtnPago() {
         btnInicio.setBorderPainted(false);
         btnInicio.setContentAreaFilled(false);
 
-        btnPago.setBackground(new java.awt.Color(242, 66, 76));
-        btnPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
-        btnPago.setToolTipText("");
-        btnPago.setBorder(null);
-        btnPago.setBorderPainted(false);
-        btnPago.setContentAreaFilled(false);
+        btnPagoOVenta.setBackground(new java.awt.Color(242, 66, 76));
+        btnPagoOVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
+        btnPagoOVenta.setToolTipText("");
+        btnPagoOVenta.setBorder(null);
+        btnPagoOVenta.setBorderPainted(false);
+        btnPagoOVenta.setContentAreaFilled(false);
 
         BtnCliente.setBackground(new java.awt.Color(242, 66, 76));
         BtnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
@@ -142,9 +147,9 @@ public JButton getBtnPago() {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPagoOVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 6, Short.MAX_VALUE))
@@ -157,11 +162,11 @@ public JButton getBtnPago() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BtnCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPagoOVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -196,13 +201,17 @@ public JButton getBtnPago() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
+    private void btnReservasViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReservaActionPerformed
+    }//GEN-LAST:event_btnReservasViewActionPerformed
 
     private void BtnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnClienteActionPerformed
+
+    private void btnVehiculosViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVehiculosViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,9 +258,9 @@ public JButton getBtnPago() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCliente;
     private javax.swing.JButton btnInicio;
-    private javax.swing.JButton btnPago;
-    private javax.swing.JButton btnReserva;
-    private javax.swing.JButton btnVehiculo;
+    private javax.swing.JButton btnPagoOVenta;
+    private javax.swing.JButton btnReservasView;
+    private javax.swing.JButton btnVehiculosView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

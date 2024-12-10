@@ -51,11 +51,11 @@ public class VehiculosView extends javax.swing.JFrame {
     // Botones del panel izquierdo
 
     public JButton getBtnTrabajadoresView() {
-        return btnTrabajadoresView;
+        return btnClientesView;
     }
 
     public JButton getBtnReservaView() {
-        return btnReservaView;
+        return btnReservasView;
     }
 
     public JButton getBtnVehiculosView() {
@@ -84,8 +84,8 @@ public class VehiculosView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnTrabajadoresView = new javax.swing.JButton();
-        btnReservaView = new javax.swing.JButton();
+        btnClientesView = new javax.swing.JButton();
+        btnReservasView = new javax.swing.JButton();
         btnVehiculosView = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         btnPagoOventa = new javax.swing.JButton();
@@ -108,25 +108,25 @@ public class VehiculosView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
-        btnTrabajadoresView.setBackground(new java.awt.Color(242, 66, 76));
-        btnTrabajadoresView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
-        btnTrabajadoresView.setBorder(null);
-        btnTrabajadoresView.setBorderPainted(false);
-        btnTrabajadoresView.setContentAreaFilled(false);
-        btnTrabajadoresView.addActionListener(new java.awt.event.ActionListener() {
+        btnClientesView.setBackground(new java.awt.Color(242, 66, 76));
+        btnClientesView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
+        btnClientesView.setBorder(null);
+        btnClientesView.setBorderPainted(false);
+        btnClientesView.setContentAreaFilled(false);
+        btnClientesView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTrabajadoresViewActionPerformed(evt);
+                btnClientesViewActionPerformed(evt);
             }
         });
 
-        btnReservaView.setBackground(new java.awt.Color(242, 66, 76));
-        btnReservaView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
-        btnReservaView.setBorder(null);
-        btnReservaView.setBorderPainted(false);
-        btnReservaView.setContentAreaFilled(false);
-        btnReservaView.addActionListener(new java.awt.event.ActionListener() {
+        btnReservasView.setBackground(new java.awt.Color(242, 66, 76));
+        btnReservasView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
+        btnReservasView.setBorder(null);
+        btnReservasView.setBorderPainted(false);
+        btnReservasView.setContentAreaFilled(false);
+        btnReservasView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservaViewActionPerformed(evt);
+                btnReservasViewActionPerformed(evt);
             }
         });
 
@@ -161,13 +161,13 @@ public class VehiculosView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTrabajadoresView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClientesView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -178,11 +178,11 @@ public class VehiculosView extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnTrabajadoresView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClientesView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnReservaView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPagoOventa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -292,13 +292,13 @@ public class VehiculosView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAñadirVehiculoActionPerformed
 
-    private void btnReservaViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaViewActionPerformed
+    private void btnReservasViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReservaViewActionPerformed
+    }//GEN-LAST:event_btnReservasViewActionPerformed
 
-    private void btnTrabajadoresViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabajadoresViewActionPerformed
+    private void btnClientesViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTrabajadoresViewActionPerformed
+    }//GEN-LAST:event_btnClientesViewActionPerformed
 
     private void btnPagoOventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoOventaActionPerformed
         // TODO add your handling code here:
@@ -341,9 +341,9 @@ public class VehiculosView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadirVehiculo;
+    private javax.swing.JButton btnClientesView;
     private javax.swing.JButton btnPagoOventa;
-    private javax.swing.JButton btnReservaView;
-    private javax.swing.JButton btnTrabajadoresView;
+    private javax.swing.JButton btnReservasView;
     private javax.swing.JButton btnVehiculosView;
     private javax.swing.JComboBox<String> comboboxTipoVehiculo;
     private javax.swing.JButton jButton2;

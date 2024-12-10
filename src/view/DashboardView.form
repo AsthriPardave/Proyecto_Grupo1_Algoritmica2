@@ -124,9 +124,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnVehiculo" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="btnReserva" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="btnPago" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnVehiculosView" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnReservasView" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnPagoOVenta" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="btnInicio" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="BtnCliente" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -142,18 +142,18 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="BtnCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnVehiculo" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnVehiculosView" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnReserva" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnReservasView" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnPago" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnPagoOVenta" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnReserva">
+            <Component class="javax.swing.JButton" name="btnReservasView">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>
@@ -168,10 +168,10 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservasViewActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnVehiculo">
+            <Component class="javax.swing.JButton" name="btnVehiculosView">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>
@@ -188,6 +188,9 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVehiculosViewActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnInicio">
               <Properties>
@@ -204,7 +207,7 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnPago">
+            <Component class="javax.swing.JButton" name="btnPagoOVenta">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>

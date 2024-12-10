@@ -27,10 +27,10 @@ public class ReservasView extends javax.swing.JFrame {
 
     }
     public JButton getBtnTrabajadores() {
-      return btnTrabajadores;
+      return btnClientesView;
     }
     public JButton getBtnVehiculos() {
-      return btnVehiculos;
+      return btnVehiculosView;
     }
     public JTable getTabla() {
       return tabla;
@@ -65,11 +65,11 @@ public class ReservasView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnTrabajadores = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        btnVehiculos = new javax.swing.JButton();
+        btnClientesView = new javax.swing.JButton();
+        btnReservasView = new javax.swing.JButton();
+        btnVehiculosView = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnPagoOVenta = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -90,29 +90,34 @@ public class ReservasView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(242, 66, 76));
 
-        btnTrabajadores.setBackground(new java.awt.Color(242, 66, 76));
-        btnTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
-        btnTrabajadores.setBorder(null);
-        btnTrabajadores.setBorderPainted(false);
-        btnTrabajadores.setContentAreaFilled(false);
+        btnClientesView.setBackground(new java.awt.Color(242, 66, 76));
+        btnClientesView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cliente-30.png"))); // NOI18N
+        btnClientesView.setBorder(null);
+        btnClientesView.setBorderPainted(false);
+        btnClientesView.setContentAreaFilled(false);
 
-        jButton4.setBackground(new java.awt.Color(242, 66, 76));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnReservasView.setBackground(new java.awt.Color(242, 66, 76));
+        btnReservasView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-reserva-30.png"))); // NOI18N
+        btnReservasView.setBorder(null);
+        btnReservasView.setBorderPainted(false);
+        btnReservasView.setContentAreaFilled(false);
+        btnReservasView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnReservasViewActionPerformed(evt);
             }
         });
 
-        btnVehiculos.setBackground(new java.awt.Color(242, 66, 76));
-        btnVehiculos.setForeground(new java.awt.Color(255, 255, 255));
-        btnVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
-        btnVehiculos.setBorder(null);
-        btnVehiculos.setBorderPainted(false);
-        btnVehiculos.setContentAreaFilled(false);
+        btnVehiculosView.setBackground(new java.awt.Color(242, 66, 76));
+        btnVehiculosView.setForeground(new java.awt.Color(255, 255, 255));
+        btnVehiculosView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-híbrido-30.png"))); // NOI18N
+        btnVehiculosView.setBorder(null);
+        btnVehiculosView.setBorderPainted(false);
+        btnVehiculosView.setContentAreaFilled(false);
+        btnVehiculosView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVehiculosViewActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(242, 66, 76));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-diseño-del-tablero-30.png"))); // NOI18N
@@ -120,12 +125,12 @@ public class ReservasView extends javax.swing.JFrame {
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
 
-        jButton7.setBackground(new java.awt.Color(242, 66, 76));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
-        jButton7.setToolTipText("");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
+        btnPagoOVenta.setBackground(new java.awt.Color(242, 66, 76));
+        btnPagoOVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-pago-30.png"))); // NOI18N
+        btnPagoOVenta.setToolTipText("");
+        btnPagoOVenta.setBorder(null);
+        btnPagoOVenta.setBorderPainted(false);
+        btnPagoOVenta.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,15 +138,15 @@ public class ReservasView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTrabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClientesView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPagoOVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -150,13 +155,13 @@ public class ReservasView extends javax.swing.JFrame {
                 .addGap(98, 98, 98)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnTrabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClientesView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVehiculosView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReservasView, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPagoOVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -284,9 +289,9 @@ public class ReservasView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAnhadirActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnReservasViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnReservasViewActionPerformed
 
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
         // TODO add your handling code here:
@@ -295,6 +300,10 @@ public class ReservasView extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnVehiculosViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVehiculosViewActionPerformed
 
 
     /**
@@ -338,13 +347,13 @@ public class ReservasView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnhadir;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnClientesView;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnTrabajadores;
-    private javax.swing.JButton btnVehiculos;
+    private javax.swing.JButton btnPagoOVenta;
+    private javax.swing.JButton btnReservasView;
+    private javax.swing.JButton btnVehiculosView;
     private javax.swing.JComboBox<String> comboBox;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
