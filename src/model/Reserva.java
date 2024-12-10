@@ -17,16 +17,14 @@ public class Reserva {
         this.diasReservados = diasReservados;
         this.vehiculo = vehiculo;
         this.cliente = cliente;
-        
+
         this.id = "R-" + vehiculo.getMatricula().hashCode();
 
         calcular(); 
     }
 
-    
-
-    // Método para calcular los montos y la fecha de fin
-    private void calcular() {
+    // Método público para calcular los montos y la fecha de fin
+    public void calcular() {
         double precioPorDia = vehiculo.getPrecioPorDia();
         this.montoTotal = precioPorDia * diasReservados;
 
@@ -34,7 +32,7 @@ public class Reserva {
         this.fechaFin = fecha.plusDays(diasReservados);
     }
 
-    // Métodos Getters y Setters, incluido cancelado
+    // Métodos Getters y Setters
     public String getId() {
         return id;
     }
@@ -49,6 +47,10 @@ public class Reserva {
 
     public int getDiasReservados() {
         return diasReservados;
+    }
+
+    public void setDiasReservados(int diasReservados) {
+        this.diasReservados = diasReservados;
     }
 
     public Vehiculo getVehiculo() {
@@ -66,8 +68,8 @@ public class Reserva {
                ", fechaInicio=" + fecha +
                ", fechaFin=" + fechaFin +
                ", diasReservados=" + diasReservados +
-               ", vehiculo=" + (vehiculo != null ? vehiculo.getMatricula(): "N/A") +
-               ", cliente=" + (cliente != null ? cliente.getDni(): "N/A") +
+               ", vehiculo=" + (vehiculo != null ? vehiculo.getMatricula() : "N/A") +
+               ", cliente=" + (cliente != null ? cliente.getDni() : "N/A") +
                ", montoTotal=" + montoTotal +
                '}';
     }

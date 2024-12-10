@@ -4,54 +4,51 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-
 
 public class ClientesView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VehiculosView
-     */
     public ClientesView() {
         initComponents();
-        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null); // Centra la ventana
-        this.setTitle("Modificar Reserva");
-
+        this.setLocationRelativeTo(null); // Centrar ventana
+        this.setTitle("Gestión de Clientes");
     }
 
+    // Métodos para acceder a los componentes
     public JButton getBtnPago() {
         return BtnPago;
     }
 
-    
+    public JButton getBtnReservaView() {
+        return jButton4;
+    }
 
-    public JButton getBtnReservaView () {
-      return jButton4;
+    public JButton getBtnVehiculosView() {
+        return BtnVehiculos;
     }
-    public JButton getBtnVehiculosView () {
-      return BtnVehiculos;
-    }
+
     public JTable getjTable() {
-        return jTable1; // Tabla de vehículos
+        return jTable1; // Tabla de clientes
     }
-    public JButton getBtnAnhadirCliente () {
-      return btnAñadirCliente;
+
+    public JButton getBtnAnhadirCliente() {
+        return btnAñadirCliente;
     }
+
     public JComboBox<String> getJComboBox() {
-      return jComboBox1;
+        return jComboBox1;
     }
 
     public JButton getBtnInicio() {
         return BtnInicio;
     }
-    public JTextField getTxtBuscarCliente () {
-      return jTextField1;
-    }
-    public JButton getBtnBuscarTrabajador() {
-      return BtnBuscarCliente;
+
+    public JTextField getTxtBuscarCliente() {
+        return txtBuscarCliente; // Cambiado correctamente
     }
 
+    public JButton getBtnBuscarCliente() {
+        return BtnBuscarCliente;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +74,7 @@ public class ClientesView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnAñadirCliente = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscarCliente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         BtnBuscarCliente = new javax.swing.JButton();
 
@@ -229,7 +226,7 @@ public class ClientesView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAñadirCliente)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))

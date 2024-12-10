@@ -127,7 +127,7 @@ public class FileManager {
     //**********************CLIENTES**********************************
     
     public static void escribirCliente(List<Cliente> clientes){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Vehiculos.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Clientes.txt"))) {
             for (Cliente cliente : clientes) {
                 
                 writer.write(cliente.getNombre());

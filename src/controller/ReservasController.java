@@ -45,7 +45,7 @@ public class ReservasController {
     public void start() {
         initReservasView();
         initRegistroReservaView();
-        //initModificarReservasView();
+        initModificarReservasView();
         reservasView.setVisible(true);
     }
 
@@ -61,33 +61,47 @@ public class ReservasController {
         reservasView.getBtnBuscar().addActionListener(e -> buscarReserva());
 
         reservasView.getBtnModificar().addActionListener(e -> {
-            reservasView.setVisible(false);
-            modificarReservasView.setVisible(true);
+            try {
+                String id = reservasView.getTextField().getText();
+                Reserva reserva = reservas.stream()
+                        .filter(r -> r.getId().equals(id))
+                        .findFirst()
+                        .orElseThrow(() -> new Exception("Reserva no encontrada."));
+
+                modificarReservasView.getSpinnerNumAsientos().setValue(reserva.getDiasReservados());
+                modificarReservasView.setVisible(true);
+                reservasView.setVisible(false);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(reservasView, "Error: " + ex.getMessage());
+            }
         });
     }
 
-  /*  private void initModificarReservasView() {
+    private void initModificarReservasView() {
         if (temp2) return;
         temp2 = true;
 
         modificarReservasView.getBtnModificar().addActionListener(e -> {
             try {
-                String id = modificarReservasView.getTextIdReserva().getText();
-                double pago = Double.parseDouble(modificarReservasView.getTextPago().getText());
+                String id = reservasView.getTextField().getText();
+                int nuevosDias = (Integer) modificarReservasView.getSpinnerNumAsientos().getValue();
 
                 Reserva reserva = reservas.stream()
                         .filter(r -> r.getId().equals(id))
                         .findFirst()
-                        .orElseThrow(() -> new Exception("No se encontró una reserva con ese ID"));
+                        .orElseThrow(() -> new Exception("Reserva no encontrada."));
 
-                if (pago <= 0) {
-                    throw new Exception("El pago es incorrecto");
+                if (nuevosDias <= 0) {
+                    throw new Exception("El número de días debe ser mayor a cero.");
                 }
 
+                reserva.setDiasReservados(nuevosDias);
+                reserva.calcular();
+
+                actualizarTablaReserva();
                 modificarReservasView.setVisible(false);
                 reservasView.setVisible(true);
-                actualizarTablaReserva();
-
+                JOptionPane.showMessageDialog(reservasView, "Reserva modificada exitosamente.");
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(modificarReservasView, "Error al modificar la reserva: " + ex.getMessage());
             }
@@ -97,7 +111,8 @@ public class ReservasController {
             modificarReservasView.setVisible(false);
             reservasView.setVisible(true);
         });
-    }*/
+    }
+
 
     private void buscarReserva() {
         String id = reservasView.getTextField().getText();

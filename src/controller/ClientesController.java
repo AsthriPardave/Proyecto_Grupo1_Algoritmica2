@@ -1,6 +1,7 @@
 package controller;
 
 import model.Cliente;
+import model.FileManager;
 import view.ClientesView;
 
 import javax.swing.*;
@@ -19,10 +20,11 @@ public class ClientesController {
     }
 
     private void initClientesView() {
-        // Inicializar eventos de la vista
-        clientesView.getBtnAnhadirTrabajador().addActionListener(e -> agregarCliente());
-        clientesView.getBtnBuscarTrabajador().addActionListener(e -> buscarCliente());
+        // Configurar eventos
+        clientesView.getBtnAnhadirCliente().addActionListener(e -> agregarCliente());
+        clientesView.getBtnBuscarCliente().addActionListener(e -> buscarCliente());
         clientesView.getJComboBox().addActionListener(e -> filtrarClientes());
+        actualizarTablaClientes(); // Mostrar clientes al iniciar
     }
 
     private void agregarCliente() {
@@ -31,22 +33,18 @@ public class ClientesController {
             String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente:");
             String apellidos = JOptionPane.showInputDialog("Ingrese los apellidos del cliente:");
             String email = JOptionPane.showInputDialog("Ingrese el email del cliente:");
-            String claveAcceso = JOptionPane.showInputDialog("Ingrese la clave de acceso del cliente:");
-            String tipo = (String) JOptionPane.showInputDialog(null,
-                    "Seleccione el tipo de cliente:",
-                    "Tipo de Cliente",
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    new String[]{"Administrador", "Contador", "Limpieza", "Cliente"},
-                    "Cliente");
+            String numero = JOptionPane.showInputDialog("Ingrese el número de teléfono del cliente:");
 
-            if (dni == null || nombre == null || apellidos == null || email == null || claveAcceso == null || tipo == null) {
+            if (dni == null || nombre == null || apellidos == null || email == null || numero == null) {
                 JOptionPane.showMessageDialog(clientesView, "Datos incompletos. No se agregó el cliente.");
                 return;
             }
 
-            Cliente cliente = new Cliente(nombre, apellidos, email, claveAcceso, dni, tipo);
+            Cliente cliente = new Cliente(nombre, apellidos, email, dni, numero);
             clientes.add(cliente);
+
+            //Insertando linea de codigo para el Clientes.txt
+            FileManager.escribirCliente(clientes); // Guardar lista actualizada
 
             actualizarTablaClientes();
             JOptionPane.showMessageDialog(clientesView, "Cliente agregado con éxito.");
@@ -56,7 +54,7 @@ public class ClientesController {
     }
 
     private void buscarCliente() {
-        String dni = clientesView.getTxtBuscarTrabajador().getText();
+        String dni = clientesView.getTxtBuscarCliente().getText();
 
         if (dni.isEmpty()) {
             JOptionPane.showMessageDialog(clientesView, "Ingrese un DNI para buscar.");
@@ -79,23 +77,24 @@ public class ClientesController {
         model.setRowCount(0);
 
         for (Cliente cliente : clientes) {
-            if (tipoSeleccionado.equals("Todos") || cliente.getTipo().equals(tipoSeleccionado)) {
-                model.addRow(new Object[]{cliente.getDni(), cliente.getTipo(), cliente.getNombre(), cliente.getApellidos()});
+            // No hay tipos definidos para clientes; se filtran todos
+            if (tipoSeleccionado.equals("Todos")) {
+                model.addRow(new Object[]{cliente.getDni(), cliente.getNombre(), cliente.getApellido()});
             }
         }
     }
 
     private void actualizarTablaClientes() {
         DefaultTableModel model = (DefaultTableModel) clientesView.getjTable().getModel();
-        model.setRowCount(0); // Limpiar la tabla
+        model.setRowCount(0); // Limpiar tabla
 
         for (Cliente cliente : clientes) {
-            model.addRow(new Object[]{cliente.getDni(), cliente.getTipo(), cliente.getNombre(), cliente.getApellidos()});
+            model.addRow(new Object[]{cliente.getDni(), cliente.getNombre(), cliente.getApellido()});
         }
     }
 
     public void start() {
         clientesView.setVisible(true);
-        actualizarTablaClientes(); // Mostrar los clientes al iniciar la vista
+        actualizarTablaClientes();
     }
 }
