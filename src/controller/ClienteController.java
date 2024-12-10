@@ -1,80 +1,157 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import model.Vehiculo;
+import model.Cliente;
 import view.ClientesView;
 import view.RegistroClienteView;
+import model.FileManager;
 
-/**
- *
- * @author HP
- */
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClienteController {
-
     private static ClienteController instance;
-    private ClientesView clienteView;
+    private ClientesView clientesView;
     private RegistroClienteView registroClienteView;
+
     private VehiculoController vehiculoController;
     private ReservasController reservasController;
 
-    public ClienteController() {
-        this.clienteView = new ClientesView();
+    private List<Cliente> clientes;
+
+    private ClienteController() {
+        this.clientesView = new ClientesView();
         this.registroClienteView = new RegistroClienteView();
 
-            initClienteView();
+        try {
+            this.clientes = FileManager.leerClientes();
+        } catch (IOException e) {
+            this.clientes = new ArrayList<>();
         }
-    
-    public void start () {
-      instance.initClienteView();
-      //instance.initRegistroClienteView();
 
-      clienteView.setVisible(true);
+        initClienteView();
+        initRegistroClienteView();
     }
 
-    public static ClienteController getInstance() throws IOException {
-      if ( instance == null ) 
-        instance = new ClienteController ();
-
-
-      return instance;
+    public static ClienteController getInstance() {
+        if (instance == null) {
+            instance = new ClienteController();
+        }
+        return instance;
     }
-    
-    private ArrayList<Vehiculo> vehiculos;
-    
-    public ArrayList<Vehiculo> getVehiculos() {
-        return vehiculos;
+
+    public void setDependencies(VehiculoController vehiculoController, ReservasController reservasController) {
+        this.vehiculoController = vehiculoController;
+        this.reservasController = reservasController;
     }
+
+    public void start() {
+        clientesView.setVisible(true);
+        actualizarTablaClientes();
+    }
+
     private void initClienteView() {
-        clienteView.setVisible(true);
+        clientesView.getBtnAnhadirCliente().addActionListener(e -> {
+            clientesView.setVisible(false);
+            registroClienteView.setVisible(true);
+        });
 
-        clienteView.getBtnVehiculosView().addActionListener(e -> mostrarVehiculosView());
-        clienteView.getBtnReservaView().addActionListener(e -> mostrarReservasView());
-        clienteView.getBtnInicio().addActionListener(e -> mostrarInicio());
-        clienteView.getBtnPago().addActionListener(e -> mostrarPago());
+        clientesView.getBtnBuscarCliente().addActionListener(e -> buscarCliente());
+
+        clientesView.getBtnVehiculosView().addActionListener(e -> mostrarVehiculosView());
+        clientesView.getBtnReservaView().addActionListener(e -> mostrarReservasView());
+        clientesView.getBtnInicio().addActionListener(e -> mostrarInicio());
+        clientesView.getBtnPago().addActionListener(e -> mostrarPago());
     }
-    
+
+    private void initRegistroClienteView() {
+        registroClienteView.getBtnRegister().addActionListener(e -> registrarCliente());
+        registroClienteView.getBtnCancelarRegister().addActionListener(e -> {
+            registroClienteView.setVisible(false);
+            clientesView.setVisible(true);
+        });
+    }
+
+    private void registrarCliente() {
+        try {
+            String dni = registroClienteView.getTxtDNI().getText();
+            String nombres = registroClienteView.getTxtNombres().getText();
+            String apellidos = registroClienteView.getTxtApellido().getText();
+            String telefono = registroClienteView.getTxtTelefono().getText();
+
+            if (dni.isEmpty() || nombres.isEmpty() || apellidos.isEmpty() || telefono.isEmpty()) {
+                JOptionPane.showMessageDialog(registroClienteView, "Todos los campos son obligatorios.");
+                return;
+            }
+
+            Cliente cliente = new Cliente(nombres, apellidos, telefono, dni, telefono);
+            clientes.add(cliente);
+            FileManager.escribirCliente(clientes);
+
+            JOptionPane.showMessageDialog(registroClienteView, "Cliente registrado exitosamente.");
+            registroClienteView.setVisible(false);
+            clientesView.setVisible(true);
+            actualizarTablaClientes();
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(registroClienteView, "Error al registrar cliente: " + ex.getMessage());
+        }
+    }
+
+    private void buscarCliente() {
+        String dni = clientesView.getTxtBuscarCliente().getText();
+
+        if (dni.isEmpty()) {
+            JOptionPane.showMessageDialog(clientesView, "Ingrese un DNI para buscar.");
+            return;
+        }
+
+        Cliente cliente = clientes.stream()
+                .filter(c -> c.getDni().equals(dni))
+                .findFirst()
+                .orElse(null);
+
+        if (cliente != null) {
+            JOptionPane.showMessageDialog(clientesView, cliente.toString());
+        } else {
+            JOptionPane.showMessageDialog(clientesView, "Cliente no encontrado.");
+        }
+    }
+
+    private void actualizarTablaClientes() {
+        DefaultTableModel model = (DefaultTableModel) clientesView.getjTable().getModel();
+        model.setRowCount(0);
+
+        for (Cliente cliente : clientes) {
+            model.addRow(new Object[]{
+                    cliente.getDni(),
+                    cliente.getNombre(),
+                    cliente.getApellido()
+            });
+        }
+    }
+
     private void mostrarVehiculosView() {
-        vehiculoController.start(); 
-        clienteView.setVisible(false); 
+        if (vehiculoController != null) {
+            vehiculoController.start();
+        }
+        clientesView.setVisible(false);
     }
-    
+
     private void mostrarReservasView() {
-        vehiculoController.start(); 
-        clienteView.setVisible(false);
+        if (reservasController != null) {
+            reservasController.start();
+        }
+        clientesView.setVisible(false);
     }
 
     private void mostrarInicio() {
-        // Aquí puedes implementar la lógica para el botón "Inicio"
         System.out.println("Mostrando la pantalla de inicio...");
     }
 
     private void mostrarPago() {
-        // Aquí puedes implementar la lógica para el módulo de pagos
         System.out.println("Mostrando el módulo de pagos...");
     }
 }

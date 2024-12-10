@@ -8,45 +8,26 @@ public class Cliente extends Persona implements ClienteUsuario {
 
     public Cliente(String nombre, String apellidos, String email, String dni, String numero) {
         super(nombre, apellidos, email);
+        if (dni == null || dni.isEmpty()) {
+            throw new IllegalArgumentException("El DNI no puede estar vacío.");
+        }
+        if (numero == null || numero.isEmpty()) {
+            throw new IllegalArgumentException("El número de teléfono no puede estar vacío.");
+        }
         this.dni = dni;
         this.numero = numero;
     }
 
-    // Getter y Setter para dni
+    // Getters y Setters
     public String getDni() {
         return dni;
     }
 
     public void setDni(String dni) {
+        if (dni == null || dni.isEmpty()) {
+            throw new IllegalArgumentException("El DNI no puede estar vacío.");
+        }
         this.dni = dni;
-    }
-
-    // Método específico de Cliente para realizar reservas
-    public void realizarReserva(Vehiculo vehiculo, int dias) {
-        float costoTotal = vehiculo.getPrecioPorDia() * dias;
-        System.out.println("Reserva realizada para el vehículo " + vehiculo.getMarca() + " por " + dias + 
-                           " días. Costo total: " + costoTotal + " soles.");
-    }
-
-    // Métodos sobrescritos con acceso restringido
-    @Override
-    public void agregarVehiculo(Vehiculo vehiculo) {
-        System.out.println("Operación no permitida: los clientes no pueden agregar vehículos.");
-    }
-
-    @Override
-    public void modificarVehiculo(String matricula, String nuevaMarca, String nuevoModelo, float nuevoPrecioPorDia) {
-        System.out.println("Operación no permitida: los clientes no pueden modificar vehículos.");
-    }
-
-    @Override
-    public void eliminarVehiculo(String matricula) {
-        System.out.println("Operación no permitida: los clientes no pueden eliminar vehículos.");
-    }
-
-    @Override
-    public void listarVehiculos() {
-        System.out.println("Operación no permitida: los clientes no pueden listar vehículos.");
     }
 
     public String getNumero() {
@@ -54,36 +35,68 @@ public class Cliente extends Persona implements ClienteUsuario {
     }
 
     public void setNumero(String numero) {
+        if (numero == null || numero.isEmpty()) {
+            throw new IllegalArgumentException("El número de teléfono no puede estar vacío.");
+        }
         this.numero = numero;
     }
-    
-    public static Cliente buscarCliente(String dni, List<Cliente> clientes){
-        for(int i=0; i<clientes.size(); i++){
-           if(dni.equals(clientes.get(i).getDni())){
-               return clientes.get(i);
-           }
+
+    // Método específico de Cliente para realizar reservas
+    public void realizarReserva(Vehiculo vehiculo, int dias) {
+        if (vehiculo == null) {
+            throw new IllegalArgumentException("El vehículo no puede ser nulo.");
         }
-        return null;
+        if (dias <= 0) {
+            throw new IllegalArgumentException("Los días reservados deben ser mayores a cero.");
+        }
+        if (!vehiculo.isDisponible()) {
+            throw new IllegalArgumentException("El vehículo no está disponible.");
+        }
+        float costoTotal = vehiculo.getPrecioPorDia() * dias;
+        System.out.println("Reserva realizada para el vehículo " + vehiculo.getMarca() + " por " + dias +
+                " días. Costo total: " + costoTotal + " soles.");
+    }
+
+    // Métodos para acciones restringidas (opcional, pueden ser eliminados si no se usan)
+    @Override
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        throw new UnsupportedOperationException("Operación no permitida: los clientes no pueden agregar vehículos.");
+    }
+
+    @Override
+    public void modificarVehiculo(String matricula, String nuevaMarca, String nuevoModelo, float nuevoPrecioPorDia) {
+        throw new UnsupportedOperationException("Operación no permitida: los clientes no pueden modificar vehículos.");
+    }
+
+    @Override
+    public void eliminarVehiculo(String matricula) {
+        throw new UnsupportedOperationException("Operación no permitida: los clientes no pueden eliminar vehículos.");
+    }
+
+    @Override
+    public void listarVehiculos() {
+        throw new UnsupportedOperationException("Operación no permitida: los clientes no pueden listar vehículos.");
+    }
+
+    // Método para buscar un cliente por DNI
+    public static Cliente buscarCliente(String dni, List<Cliente> clientes) {
+        if (dni == null || dni.isEmpty()) {
+            throw new IllegalArgumentException("El DNI no puede estar vacío.");
+        }
+        return clientes.stream()
+                .filter(cliente -> cliente.getDni().equals(dni))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "dni='" + dni + '\'' +
+                ", numero='" + numero + '\'' +
+                ", nombre='" + getNombre() + '\'' +
+                ", apellidos='" + getApellido() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                '}';
     }
 }
-
-/*VERSION ORIGINAL:
-
-package model;
-
-public class Cliente extends Persona {
-    private String dni;
-
-    public Cliente(String nombre, String apellidos, String email, String claveAcceso, String dni) {
-        super(nombre, apellidos, email, claveAcceso);
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-}
-*/

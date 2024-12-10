@@ -26,31 +26,22 @@ public class DashboardController {
         dashboardView.setVisible(true);
 
         // Configurar eventos de los botones en el Dashboard
-        dashboardView.getBtnVehiculo().addActionListener(e -> mostrarVehiculosView());
-        dashboardView.getBtnReserva().addActionListener(e -> mostrarReservasView());
+        dashboardView.getBtnVehiculo().addActionListener(e -> cambiarVista(() -> vehiculoController.start()));
+        dashboardView.getBtnReserva().addActionListener(e -> cambiarVista(() -> reservasController.start()));
         dashboardView.getBtnInicio().addActionListener(e -> mostrarInicio());
         dashboardView.getBtnPago().addActionListener(e -> mostrarPago());
-        dashboardView.getBtnCliente().addActionListener(e -> mostrarPago());
+        dashboardView.getBtnCliente().addActionListener(e -> cambiarVista(() -> clienteController.start()));
     }
 
-    private void mostrarVehiculosView() {
-        vehiculoController.start(); // Llama al método para mostrar la vista de Vehículos
-        dashboardView.setVisible(false); // Opcional: oculta el Dashboard mientras se muestra la vista de Vehículos
-    }
-    
-    private void mostrarClientesView() {
-        clienteController.start(); // Llama al método para mostrar la vista de Vehículos
-        dashboardView.setVisible(false); // Opcional: oculta el Dashboard mientras se muestra la vista de Vehículos
-    }
-
-    private void mostrarReservasView() {
-        reservasController.start(); // Llama al método para mostrar la vista de Reservas
-        dashboardView.setVisible(false); // Opcional: oculta el Dashboard mientras se muestra la vista de Reservas
+    private void cambiarVista(Runnable accion) {
+        dashboardView.setVisible(false); // Oculta el Dashboard antes de cambiar de vista
+        accion.run(); // Ejecuta la acción del controlador asociado
     }
 
     private void mostrarInicio() {
         // Aquí puedes implementar la lógica para el botón "Inicio"
         System.out.println("Mostrando la pantalla de inicio...");
+        dashboardView.setVisible(true);
     }
 
     private void mostrarPago() {
@@ -58,17 +49,3 @@ public class DashboardController {
         System.out.println("Mostrando el módulo de pagos...");
     }
 }
-
-
-/*
-
-
-
-private void mostrarPago() {
-        // Aquí puedes implementar la lógica para el módulo de pagos
-        System.out.println("Mostrando el módulo de pagos...");
-    }
-
-
-
- */

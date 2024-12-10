@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author HP
@@ -17,6 +20,31 @@ public class RegistroClienteView extends javax.swing.JFrame {
         initComponents();
 
     }
+
+    public JButton getBtnRegister() {
+    return btnRegister;
+}
+
+public JButton getBtnCancelarRegister() {
+    return btnCancelarRegister;
+}
+
+public JTextField getTxtDNI() {
+    return txtDNI;
+}
+
+public JTextField getTxtNombres() {
+    return txtNombres;
+}
+
+public JTextField getTxtApellido() {
+    return txtApellidos; // Asegúrate de que el nombre del campo sea correcto
+}
+
+public JTextField getTxtTelefono() {
+    return txtTelefono;
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
