@@ -12,6 +12,8 @@ import javax.swing.JButton;
  */
 public class DashboardView extends javax.swing.JFrame {
 
+    
+
     public JButton getBtnCliente() {
         return BtnCliente;
     }
@@ -20,7 +22,9 @@ public class DashboardView extends javax.swing.JFrame {
      * Creates new form VehiculosView
      */
     public DashboardView() {
-        initComponents();
+        initComponents(); // Inicializa los componentes
+        this.setTitle("Dashboard");
+        this.setLocationRelativeTo(null); // Centra la ventana
     }
 
     public JButton getBtnReserva() {
