@@ -75,6 +75,37 @@ public class ReservasController {
                 JOptionPane.showMessageDialog(reservasView, "Error: " + ex.getMessage());
             }
         });
+
+        // ==PARA EL CAMBIO ENTRE VISTAS==
+
+        reservasView.getBtnVehiculos().addActionListener(e -> {
+            try {
+                reservasView.setVisible(false);
+                VehiculoController vehiculoController = VehiculoController.getInstance(); // Lanza IOException
+                vehiculoController.start();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(reservasView, "Error al abrir la vista de vehículos: " + ex.getMessage());
+            }
+        });
+
+        reservasView.getBtnTrabajadores().addActionListener(e -> {
+            reservasView.setVisible(false);
+            ClienteController clienteController = ClienteController.getInstance();
+            clienteController.start();
+  
+          });
+
+        /* PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER(cuando exista)
+
+        reservasView.getBtnPagoOventa().addActionListener(e -> {
+            reservasView.setVisible(false);
+            PagoController pagoController = PagoController.getInstance();
+            pagoController.start();
+  
+          });
+          */
+
+        // ==============================
     }
 
     private void initModificarReservasView() {
