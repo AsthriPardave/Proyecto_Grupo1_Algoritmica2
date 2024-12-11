@@ -8,7 +8,6 @@ import view.ReservasView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +21,23 @@ public class ReservasController {
     private RegistroReservaView registroReservasView;
     private ModificarReservaView modificarReservasView;
 
-    private boolean temp1 = false;
-    private boolean temp2 = false;
-    private boolean temp3 = false;
-
     private ArrayList<Reserva> reservas;
+
+    private ReservasController() {
+        this.reservasView = new ReservasView();
+        this.registroReservasView = new RegistroReservaView();
+        this.modificarReservasView = new ModificarReservaView();
+        this.reservas = new ArrayList<>();
+
+        // Cargar reservas desde archivo al iniciar
+        try {
+            List<Vehiculo> vehiculos = FileManager.leerVehiculos();
+            List<Cliente> clientes = FileManager.leerClientes();
+            this.reservas = new ArrayList<>(FileManager.leerReservas(vehiculos, clientes));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error al cargar datos de reservas: " + e.getMessage());
+        }
+    }
 
     public static ReservasController getInstance() {
         if (instance == null) {
@@ -35,24 +46,15 @@ public class ReservasController {
         return instance;
     }
 
-    public ReservasController() {
-        this.reservasView = new ReservasView();
-        this.registroReservasView = new RegistroReservaView();
-        this.modificarReservasView = new ModificarReservaView();
-        this.reservas = new ArrayList<>();
-    }
-
     public void start() {
         initReservasView();
         initRegistroReservaView();
         initModificarReservasView();
+        actualizarTablaReserva(); // Mostrar reservas al iniciar
         reservasView.setVisible(true);
     }
 
     private void initReservasView() {
-        if (temp1) return; // Evita inicializaciones múltiples
-        temp1 = true;
-
         reservasView.getBtnAnhadir().addActionListener(e -> {
             reservasView.setVisible(false);
             registroReservasView.setVisible(true);
@@ -76,12 +78,10 @@ public class ReservasController {
             }
         });
 
-        // ==PARA EL CAMBIO ENTRE VISTAS==
-
         reservasView.getBtnVehiculos().addActionListener(e -> {
             try {
                 reservasView.setVisible(false);
-                VehiculoController vehiculoController = VehiculoController.getInstance(); // Lanza IOException
+                VehiculoController vehiculoController = VehiculoController.getInstance();
                 vehiculoController.start();
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(reservasView, "Error al abrir la vista de vehículos: " + ex.getMessage());
@@ -92,26 +92,61 @@ public class ReservasController {
             reservasView.setVisible(false);
             ClienteController clienteController = ClienteController.getInstance();
             clienteController.start();
-  
-          });
+        });
+    }
 
-        /* PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER(cuando exista)
+    private void initRegistroReservaView() {
+        registroReservasView.getBtnRegister().addActionListener(e -> {
+            try {
+                int diasReservados = (Integer) registroReservasView.getSpinner().getValue();
+                String matriculaVehiculo = registroReservasView.getTextVehiculo().getText();
+                String dniCliente = registroReservasView.getTextCliente().getText();
 
-        reservasView.getBtnPagoOventa().addActionListener(e -> {
-            reservasView.setVisible(false);
-            PagoController pagoController = PagoController.getInstance();
-            pagoController.start();
-  
-          });
-          */
+                // Validar Vehículo
+                Vehiculo vehiculo = buscarVehiculo(matriculaVehiculo);
+                if (vehiculo == null) {
+                    throw new Exception("No se encontró un vehículo con esa matrícula.");
+                }
 
-        // ==============================
+                if (!vehiculo.isDisponible()) {
+                    throw new Exception("El vehículo no está disponible.");
+                }
+
+                // Validar Cliente
+                Cliente cliente = Cliente.buscarCliente(dniCliente, FileManager.leerClientes());
+                if (cliente == null) {
+                    throw new Exception("No se encontró un cliente con ese DNI.");
+                }
+
+                // Verificar si ya existe una reserva con el mismo ID o vehículo
+                boolean existeReserva = reservas.stream()
+                        .anyMatch(r -> r.getVehiculo().getMatricula().equals(vehiculo.getMatricula()));
+                if (existeReserva) {
+                    throw new Exception("Ya existe una reserva para este vehículo.");
+                }
+
+                // Crear y guardar reserva
+                Reserva reserva = new Reserva("ID-" + (reservas.size() + 1), diasReservados, vehiculo, cliente);
+                reservas.add(reserva);
+
+                FileManager.escribirReserva(reservas); // Guardar reservas en archivo
+
+                actualizarTablaReserva();
+                registroReservasView.setVisible(false);
+                reservasView.setVisible(true);
+                JOptionPane.showMessageDialog(reservasView, "Reserva registrada con éxito.");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(registroReservasView, "Error al registrar reserva: " + ex.getMessage());
+            }
+        });
+
+        registroReservasView.getBtnCancelar().addActionListener(e -> {
+            registroReservasView.setVisible(false);
+            reservasView.setVisible(true);
+        });
     }
 
     private void initModificarReservasView() {
-        if (temp2) return;
-        temp2 = true;
-
         modificarReservasView.getBtnModificar().addActionListener(e -> {
             try {
                 String id = reservasView.getTextField().getText();
@@ -129,6 +164,7 @@ public class ReservasController {
                 reserva.setDiasReservados(nuevosDias);
                 reserva.calcular();
 
+                FileManager.escribirReserva(reservas); // Guardar cambios
                 actualizarTablaReserva();
                 modificarReservasView.setVisible(false);
                 reservasView.setVisible(true);
@@ -143,7 +179,6 @@ public class ReservasController {
             reservasView.setVisible(true);
         });
     }
-
 
     private void buscarReserva() {
         String id = reservasView.getTextField().getText();
@@ -160,59 +195,24 @@ public class ReservasController {
         }
     }
 
-    private void initRegistroReservaView() {
-        if (temp3) return;
-        temp3 = true;
-
-        registroReservasView.getBtnRegister().addActionListener(e -> {
-            try {
-                int diasReservados = (Integer) registroReservasView.getSpinner().getValue();
-                String matriculaVehiculo = registroReservasView.getTextVehiculo().getText();
-                String dniCliente = registroReservasView.getTextCliente().getText();
-                
-                Vehiculo vehiculo = buscarVehiculo(matriculaVehiculo);
-                Cliente cliente = Cliente.buscarCliente(dniCliente, FileManager.leerClientes());
-
-                if (vehiculo == null) {
-                    throw new Exception("No se encontró un vehículo con esa matrícula.");
-                }
-
-                if (!vehiculo.isDisponible()) {
-                    throw new Exception("El vehículo no está disponible.");
-                }
-
-                Reserva reserva = new Reserva("id",diasReservados, vehiculo, cliente);
-                reservas.add(reserva);
-
-                actualizarTablaReserva();
-                registroReservasView.setVisible(false);
-                reservasView.setVisible(true);
-                JOptionPane.showMessageDialog(reservasView, "Reserva registrada con éxito.");
-
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(registroReservasView, "Error al registrar reserva: " + ex.getMessage());
-            }
-        });
-
-        registroReservasView.getBtnCancelar().addActionListener(e -> {
-            registroReservasView.setVisible(false);
-            reservasView.setVisible(true);
-        });
-    }
-
     private void actualizarTablaReserva() {
         DefaultTableModel model = (DefaultTableModel) reservasView.getTabla().getModel();
         model.setRowCount(0);
-
+    
         for (Reserva reserva : reservas) {
+            // Calcular el monto por pagar
+            float montoPorPagar = reserva.getDiasReservados() * reserva.getVehiculo().getPrecioPorDia();
+    
             model.addRow(new Object[]{
                     reserva.getId(),
-                    reserva.getFecha(),
-                    reserva.getFechaFin(),
-                    reserva.getMontoTotal()
+                    reserva.getDiasReservados(),
+                    reserva.getVehiculo().getMatricula(),
+                    reserva.getCliente().getDni(),
+                    montoPorPagar // Agregar el monto por pagar a la tabla
             });
         }
     }
+    
 
     private Vehiculo buscarVehiculo(String matricula) {
         try {
@@ -226,6 +226,4 @@ public class ReservasController {
             return null;
         }
     }
-
-    
 }

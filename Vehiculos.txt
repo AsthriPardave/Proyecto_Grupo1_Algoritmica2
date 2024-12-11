@@ -27,7 +27,7 @@ Sí
 
 Camión
 Toyota
-A1A - 123
+A1B - 124
 Convertible
 150.0
 Sí
