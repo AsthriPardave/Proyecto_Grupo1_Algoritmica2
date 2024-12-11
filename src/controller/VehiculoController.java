@@ -87,12 +87,34 @@ public class VehiculoController {
 
         vehiculoView.getJComboBox().addActionListener ( e -> filtrarVehiculos() );
 
+        // ==PARA EL CAMBIO ENTRE VISTAS==
+
         vehiculoView.getBtnReservaView().addActionListener(e -> {
           vehiculoView.setVisible(false);
           ReservasController reservasController = ReservasController.getInstance();
           reservasController.start();
 
         });
+
+        vehiculoView.getBtnTrabajadoresView().addActionListener(e -> {
+            vehiculoView.setVisible(false);
+            ClienteController clienteController = ClienteController.getInstance();
+            clienteController.start();
+  
+          });
+
+        /* PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER(cuando exista)
+
+        vehiculoView.getBtnPagoOventa().addActionListener(e -> {
+            vehiculoView.setVisible(false);
+            PagoController pagoController = PagoController.getInstance();
+            pagoController.start();
+  
+          });
+          */
+
+
+        // ==============================
     }
 
     // Inicializar eventos en RegistroVehiculoView

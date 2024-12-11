@@ -58,12 +58,41 @@ public class ClienteController {
             registroClienteView.setVisible(true);
         });
 
+        // ==PARA EL CAMBIO ENTRE VISTAS==
+
         clientesView.getBtnBuscarCliente().addActionListener(e -> buscarCliente());
 
-        clientesView.getBtnVehiculosView().addActionListener(e -> mostrarVehiculosView());
-        clientesView.getBtnReservaView().addActionListener(e -> mostrarReservasView());
+        clientesView.getBtnVehiculosView().addActionListener(e -> {
+            try {
+                clientesView.setVisible(false);
+                VehiculoController vehiculoController = VehiculoController.getInstance(); // Lanza IOException
+                vehiculoController.start();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(clientesView, "Error al abrir la vista de vehículos: " + ex.getMessage());
+            }
+        });
+        
+
+        clientesView.getBtnReservaView().addActionListener(e -> {
+            clientesView.setVisible(false);
+            ReservasController reservasController = ReservasController.getInstance();
+            reservasController.start();
+  
+          });
+        
         clientesView.getBtnInicio().addActionListener(e -> mostrarInicio());
-        clientesView.getBtnPago().addActionListener(e -> mostrarPago());
+
+        /* PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER (cuando exista)
+
+        clientesView.getBtnPagoOventa().addActionListener(e -> {
+            clientesView.setVisible(false);
+            PagoController pagoController = PagoController.getInstance();
+            pagoController.start();
+  
+          });
+          */
+
+        // ===============================
     }
 
     private void initRegistroClienteView() {
