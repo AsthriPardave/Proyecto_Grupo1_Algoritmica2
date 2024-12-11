@@ -10,8 +10,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
@@ -175,8 +181,6 @@ public class FileManager {
     }
     
     //************************RESERVA*********************************
-    
-    //************************RESERVA*********************************
 
 public static void escribirReserva(List<Reserva> reservas) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter("Reservas.txt"))) {
@@ -231,5 +235,38 @@ public static List<Reserva> leerReservas(List<Vehiculo> vehiculos, List<Cliente>
 }
 
     
-    //*************************PAGOS**********************************
+    //************************PAGOS**********************************
+    public static void escribirPago(Pago pago) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Pagos.txt", true))) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            writer.write(Float.toString(pago.getMonto()));
+            writer.newLine();
+            writer.write(dateFormat.format(pago.getFechaPago()));
+            writer.newLine();
+            writer.write(pago.getMetodoPago());
+            writer.newLine();
+            writer.newLine(); // Línea en blanco entre registros
+        } catch (IOException e) {
+            System.err.println("Error al guardar el pago: " + e.getMessage());
+        }
+    }
+    
+
+public static List<Pago> leerPagos() {
+    List<Pago> pagos = new ArrayList<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader("Pagos.txt"))) {
+        String linea;
+        while ((linea = reader.readLine()) != null) {
+            float monto = Float.parseFloat(linea);
+            Date fechaPago = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(reader.readLine());
+            String metodoPago = reader.readLine();
+            pagos.add(new Pago(monto, fechaPago, metodoPago));
+            reader.readLine(); // Leer línea en blanco
+        }
+    } catch (IOException | NumberFormatException | java.text.ParseException e) {
+        System.err.println("Error al leer los pagos: " + e.getMessage());
+    }
+    return pagos;
+}
+
 }

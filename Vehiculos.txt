@@ -30,7 +30,7 @@ Toyota
 A1B - 124
 Convertible
 150.0
-Sí
+No
 70.0
 Sí
 
@@ -48,7 +48,7 @@ Toyota
 X1X-123
 4x4
 130.0
-Sí
+No
 6
 40.0
 

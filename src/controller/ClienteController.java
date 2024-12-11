@@ -82,7 +82,7 @@ public class ClienteController {
         
         clientesView.getBtnInicio().addActionListener(e -> mostrarInicio());
 
-        /* PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER (cuando exista)
+        //PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER (cuando exista)
 
         clientesView.getBtnPagoOventa().addActionListener(e -> {
             clientesView.setVisible(false);
@@ -90,7 +90,6 @@ public class ClienteController {
             pagoController.start();
   
           });
-          */
 
         // ===============================
     }

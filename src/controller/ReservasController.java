@@ -93,6 +93,12 @@ public class ReservasController {
             ClienteController clienteController = ClienteController.getInstance();
             clienteController.start();
         });
+
+        reservasView.getBtnPagoOventa().addActionListener(e -> {
+            reservasView.setVisible(false);
+            PagoController pagoController = PagoController.getInstance();
+            pagoController.start();
+        });
     }
 
     private void initRegistroReservaView() {
@@ -118,15 +124,18 @@ public class ReservasController {
                     throw new Exception("No se encontró un cliente con ese DNI.");
                 }
 
-                // Verificar si ya existe una reserva con el mismo ID o vehículo
+                // Verificar si ya existe una reserva para el mismo vehículo
                 boolean existeReserva = reservas.stream()
-                        .anyMatch(r -> r.getVehiculo().getMatricula().equals(vehiculo.getMatricula()));
+                        .anyMatch(r -> r.getVehiculo().getMatricula().equals(vehiculo.getMatricula()) && vehiculo.isDisponible());
                 if (existeReserva) {
                     throw new Exception("Ya existe una reserva para este vehículo.");
                 }
 
+                // Crear ID único para la reserva
+                String idReserva = "R-" + System.currentTimeMillis();
+
                 // Crear y guardar reserva
-                Reserva reserva = new Reserva("ID-" + (reservas.size() + 1), diasReservados, vehiculo, cliente);
+                Reserva reserva = new Reserva(idReserva, diasReservados, vehiculo, cliente);
                 reservas.add(reserva);
 
                 FileManager.escribirReserva(reservas); // Guardar reservas en archivo
@@ -198,21 +207,19 @@ public class ReservasController {
     private void actualizarTablaReserva() {
         DefaultTableModel model = (DefaultTableModel) reservasView.getTabla().getModel();
         model.setRowCount(0);
-    
+
         for (Reserva reserva : reservas) {
-            // Calcular el monto por pagar
             float montoPorPagar = reserva.getDiasReservados() * reserva.getVehiculo().getPrecioPorDia();
-    
+
             model.addRow(new Object[]{
                     reserva.getId(),
                     reserva.getDiasReservados(),
                     reserva.getVehiculo().getMatricula(),
                     reserva.getCliente().getDni(),
-                    montoPorPagar // Agregar el monto por pagar a la tabla
+                    montoPorPagar
             });
         }
     }
-    
 
     private Vehiculo buscarVehiculo(String matricula) {
         try {
