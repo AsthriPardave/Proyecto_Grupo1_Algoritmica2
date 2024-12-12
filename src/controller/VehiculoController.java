@@ -213,6 +213,7 @@ public class VehiculoController {
 
                 Vehiculo camion = new Camion(matricula, marca, modelo, precioPorDia, disponible, capacidadCarga, dobleCabina);
                 vehiculos.add(camion);
+                FileManager.escribirVehiculo(vehiculos);
                 totalVehiculos++;
 
                 actualizarTablaVehiculos();
@@ -252,6 +253,7 @@ public class VehiculoController {
 
                 Vehiculo moto = new Motocicleta(matricula, marca, modelo, precioPorDia, disponible, cilindraje);
                 vehiculos.add(moto);
+                FileManager.escribirVehiculo(vehiculos);
                 totalVehiculos++;
 
                 actualizarTablaVehiculos();

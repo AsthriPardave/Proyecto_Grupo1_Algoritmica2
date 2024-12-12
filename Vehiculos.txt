@@ -52,3 +52,11 @@ No
 6
 40.0
 
+Motocicleta
+BWS
+A1Z-123
+Scooter deportivo
+120.0
+Sí
+150
+
