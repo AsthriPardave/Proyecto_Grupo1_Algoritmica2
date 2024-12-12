@@ -172,7 +172,6 @@ private PagoController() {
                 Pago pago = new Pago(
                         reserva.getDiasReservados() * reserva.getVehiculo().getPrecioPorDia(),
                         new Date(), // Fecha temporal (se debería obtener del pago real)
-                        "Efectivo" // Método temporal (se debería obtener del pago real)
                 );
 
                 model.addRow(new Object[]{

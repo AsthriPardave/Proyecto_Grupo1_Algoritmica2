@@ -39,7 +39,7 @@ Nissan
 D1D-123
 Carreras
 180.0
-Sí
+No
 4
 40.0
 
