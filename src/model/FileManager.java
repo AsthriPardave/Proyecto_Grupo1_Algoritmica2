@@ -258,7 +258,7 @@ public static List<Pago> leerPagos() {
             float monto = Float.parseFloat(linea);
             Date fechaPago = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(reader.readLine());
             String metodoPago = reader.readLine();
-            pagos.add(new Pago(monto, fechaPago, metodoPago));
+            pagos.add(new Pago(monto, fechaPago, metodoPago, idReserva));
             reader.readLine(); // Leer línea en blanco
         }
     } catch (IOException | NumberFormatException | java.text.ParseException e) {

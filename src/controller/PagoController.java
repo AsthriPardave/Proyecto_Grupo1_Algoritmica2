@@ -110,7 +110,7 @@ private PagoController() {
             float monto = reserva.getDiasReservados() * reserva.getVehiculo().getPrecioPorDia();
     
             // Crear el pago
-            Pago pago = new Pago(monto, fechaPago, metodoPago);
+            Pago pago = new Pago(monto, fechaPago, metodoPago, idReserva);
     
             // Guardar el pago en archivo
             FileManager.escribirPago(pago);
@@ -162,25 +162,30 @@ private PagoController() {
         }
     }
     
+    
 
     private void actualizarTablaPagos() {
         DefaultTableModel model = (DefaultTableModel) pagosView.getjTable1().getModel();
-        model.setRowCount(0);
-
+        model.setRowCount(0); // Limpiar la tabla
+    
         for (Reserva reserva : reservas) {
             if (!reserva.getVehiculo().isDisponible()) { // Solo mostrar reservas pagadas
-                Pago pago = new Pago(
-                        reserva.getDiasReservados() * reserva.getVehiculo().getPrecioPorDia(),
-                        new Date(), // Fecha temporal (se debería obtener del pago real)
-                );
-
-                model.addRow(new Object[]{
-                        reserva.getCliente().getDni(),
-                        reserva.getVehiculo().getMatricula(),
-                        new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(pago.getFechaPago()),
-                        pago.getMetodoPago()
-                });
+                // Buscar el pago asociado a esta reserva
+                Pago pagoAsociado = pagos.stream()
+                        .filter(pago -> pago.getIdReserva().equals(reserva.getId())) // Suponiendo que Pago tiene un campo idReserva
+                        .findFirst()
+                        .orElse(null);
+    
+                if (pagoAsociado != null) {
+                    model.addRow(new Object[]{
+                            reserva.getCliente().getDni(),
+                            reserva.getVehiculo().getMatricula(),
+                            new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(pagoAsociado.getFechaPago()),
+                            pagoAsociado.getMetodoPago()
+                    });
+                }
             }
         }
     }
+    
 }
