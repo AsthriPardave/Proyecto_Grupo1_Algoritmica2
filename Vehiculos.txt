@@ -12,7 +12,7 @@ Mercedes Benz
 B1B - 345
 Convertible
 180.0
-Sí
+No
 6
 50.0
 
@@ -21,7 +21,7 @@ Hunday
 C1C - 678
 Convertible
 140.0
-Sí
+No
 6
 50.0
 
@@ -57,6 +57,6 @@ BWS
 A1Z-123
 Scooter deportivo
 120.0
-Sí
+No
 150
 
