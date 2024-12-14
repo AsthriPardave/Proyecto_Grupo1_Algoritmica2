@@ -1,9 +1,62 @@
 Auto
-Nissan
-FOA - 143
-convertible
+Toyota
+A1A - 123
+Convertible
 150.0
-S�
+Sí
 6
-10.0
+50.0
+
+Auto
+Mercedes Benz
+B1B - 345
+Convertible
+180.0
+No
+6
+50.0
+
+Auto
+Hunday
+C1C - 678
+Convertible
+140.0
+No
+6
+50.0
+
+Camión
+Toyota
+A1B - 124
+Convertible
+150.0
+No
+70.0
+Sí
+
+Auto
+Nissan
+D1D-123
+Carreras
+180.0
+No
+4
+40.0
+
+Auto
+Toyota
+X1X-123
+4x4
+130.0
+No
+6
+40.0
+
+Motocicleta
+BWS
+A1Z-123
+Scooter deportivo
+120.0
+No
+150
 

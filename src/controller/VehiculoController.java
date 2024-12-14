@@ -103,7 +103,7 @@ public class VehiculoController {
   
           });
 
-        /* PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER(cuando exista)
+        // PARA EL CAMBIAR A LA VISTA DE PAGO CONTROLLER(cuando exista)
 
         vehiculoView.getBtnPagoOventa().addActionListener(e -> {
             vehiculoView.setVisible(false);
@@ -111,7 +111,6 @@ public class VehiculoController {
             pagoController.start();
   
           });
-          */
 
 
         // ==============================
@@ -214,6 +213,7 @@ public class VehiculoController {
 
                 Vehiculo camion = new Camion(matricula, marca, modelo, precioPorDia, disponible, capacidadCarga, dobleCabina);
                 vehiculos.add(camion);
+                FileManager.escribirVehiculo(vehiculos);
                 totalVehiculos++;
 
                 actualizarTablaVehiculos();
@@ -253,6 +253,7 @@ public class VehiculoController {
 
                 Vehiculo moto = new Motocicleta(matricula, marca, modelo, precioPorDia, disponible, cilindraje);
                 vehiculos.add(moto);
+                FileManager.escribirVehiculo(vehiculos);
                 totalVehiculos++;
 
                 actualizarTablaVehiculos();

@@ -5,6 +5,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -19,6 +20,9 @@ public class PagosView extends javax.swing.JFrame {
      */
     public PagosView() {
         initComponents();
+
+        this.setLocationRelativeTo(null); // Centra la ventana
+        this.setTitle("Modificar Reserva");
     }
 
 
@@ -33,6 +37,40 @@ public class PagosView extends javax.swing.JFrame {
     public JTable getjTable1() {
         return jTable1; // Tabla de vehículos
     }
+
+    public JButton getBtnRegisterPago() {
+    return btnRegisterPago; // Botón para registrar el pago
+}
+
+public JButton getBtnCancelarRegisterPago() {
+    return btnCancelarRegisterPago; // Botón para cancelar el registro del pago
+}
+
+public JButton getBtnReservasView() {
+    return btnReservasView; // Botón para cambiar a la vista de reservas
+}
+
+public JButton getBtnVehiculosView() {
+    return btnVehiculosView; // Botón para cambiar a la vista de vehículos
+}
+
+public JButton getBtnTrabajadoresView() {
+    return btnClientesView; // Botón para cambiar a la vista de vehículos
+}
+
+
+public JComboBox<String> getComboboxIDreserva() {
+    return comboboxIDreserva; // ComboBox para seleccionar el ID de reserva
+}
+
+public JComboBox<String> getComboboxMetodoPago() {
+    return comboboxMetodoPago; // ComboBox para seleccionar el método de pago
+}
+
+public JTextField getTxtFechaPago() {
+    return txtFechaPago; // Campo de texto para mostrar la fecha de pago
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,7 +176,7 @@ public class PagosView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Cliente", "Vehículo", "Fecha de Pago", "Método de pago"
+                "ID", "Vehículo", "Fecha de Pago", "Método de pago"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -168,7 +206,7 @@ public class PagosView extends javax.swing.JFrame {
 
         jLabel4.setText("Fecha de pago:");
 
-        comboboxIDreserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID reserva" }));
+        comboboxIDreserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar reserva" }));
         comboboxIDreserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboboxIDreservaActionPerformed(evt);

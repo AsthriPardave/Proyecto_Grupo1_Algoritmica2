@@ -8,16 +8,19 @@ public class DashboardController {
     private VehiculoController vehiculoController;
     private ReservasController reservasController;
     private ClienteController clienteController;
+    private PagoController pagoController;
 
     public DashboardController(
         DashboardView dashboardView,
         VehiculoController vehiculoController,
         ReservasController reservasController,
-        ClienteController clienteController) {
+        ClienteController clienteController,
+        PagoController pagoController) {
             this.dashboardView = dashboardView;
             this.vehiculoController = vehiculoController;
             this.reservasController = reservasController;
             this.clienteController = clienteController;
+            this.pagoController = pagoController;
 
             initDashboardView();
         }
@@ -29,7 +32,7 @@ public class DashboardController {
         dashboardView.getBtnVehiculo().addActionListener(e -> cambiarVista(() -> vehiculoController.start()));
         dashboardView.getBtnReserva().addActionListener(e -> cambiarVista(() -> reservasController.start()));
         dashboardView.getBtnInicio().addActionListener(e -> mostrarInicio());
-        dashboardView.getBtnPago().addActionListener(e -> mostrarPago());
+        dashboardView.getBtnPago().addActionListener(e -> cambiarVista(() -> pagoController.start()));
         dashboardView.getBtnCliente().addActionListener(e -> cambiarVista(() -> clienteController.start()));
     }
 

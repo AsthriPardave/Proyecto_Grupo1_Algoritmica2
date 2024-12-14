@@ -32,6 +32,9 @@ public class ReservasView extends javax.swing.JFrame {
     public JButton getBtnVehiculos() {
       return btnVehiculosView;
     }
+    public JButton getBtnPagoOventa() {
+        return btnPagoOVenta;
+    }
     public JTable getTabla() {
       return tabla;
     }
