@@ -192,13 +192,13 @@ public class VehiculosView extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Matricula", "Tipo de Vehiculo", "Marca", "Modelo", "Precio por día"
+                "Matricula", "Tipo de Vehiculo", "Marca", "Modelo", "Precio por día", "Disponibilidad"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

@@ -176,7 +176,7 @@ public JTextField getTxtFechaPago() {
                 {null, null, null, null}
             },
             new String [] {
-                "Cliente", "Vehículo", "Fecha de Pago", "Método de pago"
+                "ID", "Vehículo", "Fecha de Pago", "Método de pago"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -206,7 +206,7 @@ public JTextField getTxtFechaPago() {
 
         jLabel4.setText("Fecha de pago:");
 
-        comboboxIDreserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID reserva" }));
+        comboboxIDreserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar reserva" }));
         comboboxIDreserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboboxIDreservaActionPerformed(evt);
