@@ -12,7 +12,7 @@ Mercedes Benz
 B1B - 345
 Convertible
 180.0
-No
+Sí
 6
 50.0
 
@@ -21,7 +21,7 @@ Hunday
 C1C - 678
 Convertible
 140.0
-No
+Sí
 6
 50.0
 
@@ -30,7 +30,7 @@ Toyota
 A1B - 124
 Convertible
 150.0
-No
+Sí
 70.0
 Sí
 
@@ -39,7 +39,7 @@ Nissan
 D1D-123
 Carreras
 180.0
-No
+Sí
 4
 40.0
 
@@ -48,7 +48,7 @@ Toyota
 X1X-123
 4x4
 130.0
-No
+Sí
 6
 40.0
 
@@ -57,6 +57,6 @@ BWS
 A1Z-123
 Scooter deportivo
 120.0
-No
+Sí
 150
 
