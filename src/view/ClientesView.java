@@ -172,13 +172,13 @@ public class ClientesView extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "DNI", "Nombre", "Apellido"
+                "DNI", "Nombre", "Apellido", "Teléfono"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -330,9 +330,6 @@ public class ClientesView extends javax.swing.JFrame {
     private javax.swing.JButton btnAñadirCliente;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

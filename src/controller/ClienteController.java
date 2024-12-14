@@ -16,9 +16,6 @@ public class ClienteController {
     private ClientesView clientesView;
     private RegistroClienteView registroClienteView;
 
-    private VehiculoController vehiculoController;
-    private ReservasController reservasController;
-
     private List<Cliente> clientes;
 
     private ClienteController() {
@@ -42,10 +39,6 @@ public class ClienteController {
         return instance;
     }
 
-    public void setDependencies(VehiculoController vehiculoController, ReservasController reservasController) {
-        this.vehiculoController = vehiculoController;
-        this.reservasController = reservasController;
-    }
 
     public void start() {
         clientesView.setVisible(true);
@@ -114,7 +107,7 @@ public class ClienteController {
                 return;
             }
 
-            Cliente cliente = new Cliente(nombres, apellidos, telefono, dni, telefono);
+            Cliente cliente = new Cliente(nombres, apellidos, dni, telefono);
             clientes.add(cliente);
             FileManager.escribirCliente(clientes);
 
@@ -156,30 +149,12 @@ public class ClienteController {
             model.addRow(new Object[]{
                     cliente.getDni(),
                     cliente.getNombre(),
-                    cliente.getApellido()
+                    cliente.getApellido(),
+                    cliente.getNumero(),
             });
         }
     }
-
-    private void mostrarVehiculosView() {
-        if (vehiculoController != null) {
-            vehiculoController.start();
-        }
-        clientesView.setVisible(false);
-    }
-
-    private void mostrarReservasView() {
-        if (reservasController != null) {
-            reservasController.start();
-        }
-        clientesView.setVisible(false);
-    }
-
-    private void mostrarInicio() {
+private void mostrarInicio() {
         System.out.println("Mostrando la pantalla de inicio...");
-    }
-
-    private void mostrarPago() {
-        System.out.println("Mostrando el módulo de pagos...");
     }
 }

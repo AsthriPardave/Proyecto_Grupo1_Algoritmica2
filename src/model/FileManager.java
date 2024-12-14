@@ -138,8 +138,6 @@ public class FileManager {
                 writer.newLine();
                 writer.write(cliente.getApellido());
                 writer.newLine();
-                writer.write(cliente.getEmail());
-                writer.newLine();
                 writer.write(cliente.getDni());
                 writer.newLine();
                 writer.write(cliente.getNumero());
@@ -158,15 +156,14 @@ public class FileManager {
         try (BufferedReader reader = new BufferedReader(new FileReader("Clientes.txt"))) {
             String linea;
             Cliente cliente = null;
-            String nombre = "", apellido = "", email = "", dni = "", numero = "";
+            String nombre = "", apellido = "", dni = "", numero = "";
 
             while ((linea = reader.readLine()) != null) {
                 nombre = linea;
                 apellido = reader.readLine();
-                email = reader.readLine();
                 dni = reader.readLine();
                 numero = reader.readLine();
-                cliente = new Cliente(nombre, apellido, email, dni, numero);
+                cliente = new Cliente(nombre, apellido, dni, numero);
 
                 if (cliente != null) {
                     clientes.add(cliente);

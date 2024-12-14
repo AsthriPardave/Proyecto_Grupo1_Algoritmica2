@@ -280,7 +280,8 @@ public class VehiculoController {
                         vehiculo.getClass().getSimpleName(),
                         vehiculo.getMarca(),
                         vehiculo.getModelo(),
-                        vehiculo.getPrecioPorDia()
+                        vehiculo.getPrecioPorDia(),
+                        vehiculo.obtenerDisponibilidadComoTexto()
             });
         }
     }
