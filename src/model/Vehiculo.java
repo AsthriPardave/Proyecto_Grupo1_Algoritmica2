@@ -73,6 +73,10 @@ public class Vehiculo {
         return disponible;
     }
 
+    public String obtenerDisponibilidadComoTexto() {
+        return disponible ? "Sí" : "No";
+    }
+
     // Método para representar el vehículo en formato de cadena
     @Override
     public String toString() {

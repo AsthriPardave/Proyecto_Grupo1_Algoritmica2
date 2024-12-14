@@ -1,32 +1,13 @@
 package model;
 
-public class Administrador {
-    private String nombre;
-    private String apellidos;
+public class Administrador extends Persona{
     private String email;
     private String claveAcceso;
 
     public Administrador(String nombre, String apellidos, String email, String claveAcceso) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
+        super(nombre, apellidos);
         this.email = email;
         this.claveAcceso = claveAcceso;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
     }
 
     public String getEmail() {

@@ -7,12 +7,10 @@ package model;
 public abstract class Persona {
     private String nombre;
     private String apellidos;
-    private String email;
 
-    public Persona(String nombre, String apellidos, String email) {
+    public Persona(String nombre, String apellidos) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.email = email;
     }
 
     // Getters y Setters
@@ -31,14 +29,6 @@ public abstract class Persona {
 
     public void setApellido(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }

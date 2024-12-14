@@ -6,8 +6,8 @@ public class Cliente extends Persona implements ClienteUsuario {
     private String dni;
     private String numero;
 
-    public Cliente(String nombre, String apellidos, String email, String dni, String numero) {
-        super(nombre, apellidos, email);
+    public Cliente(String nombre, String apellidos, String dni, String numero) {
+        super(nombre, apellidos);
         if (dni == null || dni.isEmpty()) {
             throw new IllegalArgumentException("El DNI no puede estar vacío.");
         }
@@ -96,7 +96,6 @@ public class Cliente extends Persona implements ClienteUsuario {
                 ", numero='" + numero + '\'' +
                 ", nombre='" + getNombre() + '\'' +
                 ", apellidos='" + getApellido() + '\'' +
-                ", email='" + getEmail() + '\'' +
                 '}';
     }
 }
