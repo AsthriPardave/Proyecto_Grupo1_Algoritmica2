@@ -10,14 +10,11 @@ import view.RegistroVehiculoView;
 import view.ModalAutoView;
 import view.ModalCamionView;
 import view.ModalMotoView;
-import view.ReservasView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import model.FileManager;
-
-import view.ClientesView;
 
 public class VehiculoController {
   private boolean temp1 = false;

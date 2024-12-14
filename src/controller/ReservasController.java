@@ -107,40 +107,51 @@ public class ReservasController {
                 int diasReservados = (Integer) registroReservasView.getSpinner().getValue();
                 String matriculaVehiculo = registroReservasView.getTextVehiculo().getText();
                 String dniCliente = registroReservasView.getTextCliente().getText();
-
+    
                 // Validar Vehículo
                 Vehiculo vehiculo = buscarVehiculo(matriculaVehiculo);
                 if (vehiculo == null) {
                     throw new Exception("No se encontró un vehículo con esa matrícula.");
                 }
-
+    
                 if (!vehiculo.isDisponible()) {
                     throw new Exception("El vehículo no está disponible.");
                 }
-
+    
                 // Validar Cliente
                 Cliente cliente = Cliente.buscarCliente(dniCliente, FileManager.leerClientes());
                 if (cliente == null) {
                     throw new Exception("No se encontró un cliente con ese DNI.");
                 }
-
-                // Verificar si ya existe una reserva para el mismo vehículo
-                boolean existeReserva = reservas.stream()
-                .anyMatch(r -> r.getVehiculo().getMatricula().equals(vehiculo.getMatricula()));
-                if (existeReserva) {
-                throw new Exception("Este cliente ya tiene una reserva para este vehículo.");
+    
+                // Verificar si el vehículo ya tiene una reserva activa
+                boolean existeReservaParaVehiculo = reservas.stream()
+                        .anyMatch(r -> r.getVehiculo().getMatricula().equals(matriculaVehiculo));
+                if (existeReservaParaVehiculo) {
+                    throw new Exception("El vehículo ya está reservado.");
                 }
-
-
-                // Crear ID único para la reserva
-                String idReserva = "R" + vehiculo.getMatricula().hashCode();
-
+    
+                // Crear un ID único para la reserva
+                String idReserva = "R-" + vehiculo.getMatricula() + "-" + System.currentTimeMillis();
+    
                 // Crear y guardar reserva
-                Reserva reserva = new Reserva(idReserva, diasReservados, vehiculo, cliente);
-                reservas.add(reserva);
-
-                FileManager.escribirReserva(reservas); // Guardar reservas en archivo
-
+                Reserva nuevaReserva = new Reserva(idReserva, diasReservados, vehiculo, cliente);
+    
+                // Sincronizar reservas desde archivo antes de guardar
+                reservas = new ArrayList<>(FileManager.leerReservas(
+                        VehiculoController.getInstance().getVehiculos(),
+                        FileManager.leerClientes()
+                ));
+    
+                // Evitar duplicados al escribir la nueva reserva
+                boolean reservaYaGuardada = reservas.stream()
+                        .anyMatch(r -> r.getId().equals(nuevaReserva.getId()));
+                if (!reservaYaGuardada) {
+                    reservas.add(nuevaReserva);
+                    FileManager.escribirReserva(reservas); // Guardar todas las reservas
+                }
+    
+                // Actualizar la vista
                 actualizarTablaReserva();
                 registroReservasView.setVisible(false);
                 reservasView.setVisible(true);
@@ -149,12 +160,13 @@ public class ReservasController {
                 JOptionPane.showMessageDialog(registroReservasView, "Error al registrar reserva: " + ex.getMessage());
             }
         });
-
+    
         registroReservasView.getBtnCancelar().addActionListener(e -> {
             registroReservasView.setVisible(false);
             reservasView.setVisible(true);
         });
     }
+    
 
     private void initModificarReservasView() {
         modificarReservasView.getBtnModificar().addActionListener(e -> {

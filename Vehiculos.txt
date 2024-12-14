@@ -3,7 +3,7 @@ Toyota
 A1A - 123
 Convertible
 150.0
-Sí
+No
 6
 50.0
 
