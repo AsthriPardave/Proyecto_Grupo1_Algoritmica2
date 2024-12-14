@@ -305,7 +305,6 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="btnA&#xf1;adirCliente">
-            <Component class="javax.swing.JButton" name="btnA&#xf1;adirCliente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="99" red="0" type="rgb"/>
@@ -316,7 +315,6 @@
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA&#xf1;adirClienteActionPerformed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA&#xf1;adirClienteActionPerformed"/>
               </Events>
             </Component>
