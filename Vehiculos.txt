@@ -1,54 +1,9 @@
 Auto
-Toyota
-A1A - 123
-Convertible
-150.0
-Sí
-6
-50.0
-
-Auto
-Mercedes Benz
-B1B - 345
-Convertible
-180.0
-Sí
-6
-50.0
-
-Auto
-Hunday
-C1C - 678
-Convertible
-140.0
-Sí
-6
-50.0
-
-Camión
-Toyota
-A1A - 123
-Convertible
-150.0
-Sí
-70.0
-Sí
-
-Auto
 Nissan
-D1D-123
-Carreras
-180.0
-Sí
-4
-40.0
-
-Auto
-Toyota
-X1X-123
-4x4
-130.0
-Sí
+FOA - 143
+convertible
+150.0
+S�
 6
-40.0
+10.0
 
