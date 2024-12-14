@@ -126,13 +126,14 @@ public class ReservasController {
 
                 // Verificar si ya existe una reserva para el mismo vehículo
                 boolean existeReserva = reservas.stream()
-                        .anyMatch(r -> r.getVehiculo().getMatricula().equals(vehiculo.getMatricula()) && vehiculo.isDisponible());
+                .anyMatch(r -> r.getVehiculo().getMatricula().equals(vehiculo.getMatricula()));
                 if (existeReserva) {
-                    throw new Exception("Ya existe una reserva para este vehículo.");
+                throw new Exception("Este cliente ya tiene una reserva para este vehículo.");
                 }
 
+
                 // Crear ID único para la reserva
-                String idReserva = "R-" + System.currentTimeMillis();
+                String idReserva = "R" + vehiculo.getMatricula().hashCode();
 
                 // Crear y guardar reserva
                 Reserva reserva = new Reserva(idReserva, diasReservados, vehiculo, cliente);

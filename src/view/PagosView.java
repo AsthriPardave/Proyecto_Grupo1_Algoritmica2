@@ -176,7 +176,7 @@ public JTextField getTxtFechaPago() {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Vehículo", "Fecha de Pago", "Método de pago"
+                "ID", "Monto pagado", "Método de pago", "Fecha de Pago"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,11 +13,6 @@ import java.util.List;
 
 import java.util.Date;
 
-
-/**
- *
- * @author HP
- */
 public class FileManager {
     
     public static void escribirVehiculo(List<Vehiculo> vehiculos){
@@ -234,6 +226,8 @@ public static List<Reserva> leerReservas(List<Vehiculo> vehiculos, List<Cliente>
     public static void escribirPago(Pago pago) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Pagos.txt", true))) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            writer.write(pago.getIdReserva());
+            writer.newLine();
             writer.write(Float.toString(pago.getMonto()));
             writer.newLine();
             writer.write(dateFormat.format(pago.getFechaPago()));
@@ -246,22 +240,48 @@ public static List<Reserva> leerReservas(List<Vehiculo> vehiculos, List<Cliente>
         }
     }
     
-
-public static List<Pago> leerPagos() {
+    public static List<Pago> leerPagos() {
     List<Pago> pagos = new ArrayList<>();
-    try (BufferedReader reader = new BufferedReader(new FileReader("Pagos.txt"))) {
+    File archivo = new File("Pagos.txt");
+
+    // Verificar si el archivo existe
+    if (!archivo.exists()) {
+        System.out.println("Archivo 'Pagos.txt' no encontrado. Retornando lista vacía.");
+        return pagos;
+    }
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
         String linea;
         while ((linea = reader.readLine()) != null) {
-            float monto = Float.parseFloat(linea);
-            Date fechaPago = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(reader.readLine());
-            String metodoPago = reader.readLine();
-            pagos.add(new Pago(monto, fechaPago, metodoPago));
-            reader.readLine(); // Leer línea en blanco
+            try {
+                // Leer datos en el formato esperado
+                String idReserva = linea;
+                float monto = Float.parseFloat(reader.readLine());
+                Date fechaPago = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(reader.readLine());
+                String metodoPago = reader.readLine();
+
+                // Validar que no haya líneas faltantes
+                if (idReserva == null || metodoPago == null) {
+                    throw new IOException("Formato incorrecto en archivo de pagos.");
+                }
+
+                // Crear objeto Pago y agregarlo a la lista
+                pagos.add(new Pago(idReserva, monto, fechaPago, metodoPago));
+
+                // Leer línea en blanco entre registros
+                reader.readLine();
+            } catch (NumberFormatException | java.text.ParseException e) {
+                System.err.println("Error al procesar un pago en el archivo: " + e.getMessage());
+                // Saltar al siguiente registro, pero continuar leyendo el archivo
+            }
         }
-    } catch (IOException | NumberFormatException | java.text.ParseException e) {
-        System.err.println("Error al leer los pagos: " + e.getMessage());
+    } catch (IOException e) {
+        System.err.println("Error al leer el archivo 'Pagos.txt': " + e.getMessage());
     }
+
     return pagos;
 }
+
+    
 
 }
