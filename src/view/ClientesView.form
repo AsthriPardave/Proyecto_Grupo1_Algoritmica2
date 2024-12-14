@@ -85,16 +85,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnCliente" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BtnVehiculos" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jButton5" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="jButton4" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="BtnInicio" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="BtnPago" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jButton6" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jButton7" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -104,22 +104,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Component id="BtnInicio" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jButton6" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnCliente" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BtnVehiculos" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jButton5" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BtnPago" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jButton7" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnCliente">
+            <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>
@@ -152,7 +152,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnVehiculos">
+            <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>
@@ -170,7 +170,7 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnInicio">
+            <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>
@@ -185,7 +185,7 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnPago">
+            <Component class="javax.swing.JButton" name="jButton7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4c" green="42" red="f2" type="rgb"/>
@@ -200,9 +200,6 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnPagoActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -222,13 +219,13 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="txtBuscarCliente" min="-2" pref="216" max="-2" attributes="0"/>
+                                  <Component id="jTextField1" min="-2" pref="216" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="BtnBuscarCliente" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" pref="24" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jComboBox1" min="-2" pref="111" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                  <Component id="btnAñadirCliente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAñadirTrabajador" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -247,9 +244,9 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BtnBuscarCliente" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jButton2" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnAñadirCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAñadirTrabajador" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBox1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -272,14 +269,20 @@
                 <Component class="javax.swing.JTable" name="jTable1">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="3" rowCount="4">
+                      <Table columnCount="4" rowCount="4">
                         <Column editable="true" title="DNI" type="java.lang.Object"/>
+                        <Column editable="true" title="Tipo" type="java.lang.Object"/>
                         <Column editable="true" title="Nombre" type="java.lang.Object"/>
                         <Column editable="true" title="Apellido" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -304,7 +307,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnA&#xf1;adirCliente">
+            <Component class="javax.swing.JButton" name="btnA&#xf1;adirTrabajador">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="99" red="0" type="rgb"/>
@@ -315,10 +318,26 @@
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA&#xf1;adirClienteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA&#xf1;adirTrabajadorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtBuscarCliente">
+            <Component class="javax.swing.JComboBox" name="jComboBox1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="Todos"/>
+                    <StringItem index="1" value="Administrador"/>
+                    <StringItem index="2" value="Contador"/>
+                    <StringItem index="3" value="Limpieza"/>
+                    <StringItem index="4" value="Cliente"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField1">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -328,7 +347,7 @@
                 <Property name="text" type="java.lang.String" value="CLIENTES"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnBuscarCliente">
+            <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/icons8-buscar-10.png"/>
