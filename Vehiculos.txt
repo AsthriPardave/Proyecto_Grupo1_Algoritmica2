@@ -1,4 +1,40 @@
 Auto
+Toyota
+A1A - 123
+Convertible
+150.0
+No
+6
+50.0
+
+Auto
+Mercedes Benz
+B1B - 345
+Convertible
+180.0
+Sí
+6
+50.0
+
+Auto
+Hunday
+C1C - 678
+Convertible
+140.0
+Sí
+6
+50.0
+
+Camión
+Toyota
+A1B - 124
+Convertible
+150.0
+Sí
+70.0
+Sí
+
+Auto
 Nissan
 ABC-123
 Convertible
@@ -12,6 +48,6 @@ Pulsar
 ABC-456
 Convertible
 90.0
-S�
+S�
 10
 

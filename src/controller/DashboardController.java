@@ -46,9 +46,4 @@ public class DashboardController {
         System.out.println("Mostrando la pantalla de inicio...");
         dashboardView.setVisible(true);
     }
-
-    private void mostrarPago() {
-        // Aquí puedes implementar la lógica para el módulo de pagos
-        System.out.println("Mostrando el módulo de pagos...");
-    }
 }
